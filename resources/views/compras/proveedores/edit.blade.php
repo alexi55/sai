@@ -28,7 +28,7 @@
                 <label for="nit"
                     class="required col-md-4 col-form-label text-md-right">{{ __('Nit') }}</label>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" name="nit" placeholder="" value="{{$proveedores->nitproveedor}}"
+                    <input type="text" class="form-control" name="nit" placeholder="" value="{{$proveedores->nitCi}}"
                         onkeyup="javascript:this.value=this.value.toUpperCase();">
                 </div>
             </div>
