@@ -22,12 +22,27 @@
                     <input type="text" name="nombre" class="form-control" placeholder="Nombre..." onkeyup="javascript:this.value=this.value.toUpperCase();" >
                     </div>
                 </div>
-
                 <div class="form-group row">
-                    <label for="nit" class="required col-md-4 col-form-label text-md-right">{{ __('Nit') }}</label>
+                    <label for="representante" class="required col-md-4 col-form-label text-md-right">{{ __('Representante Proveedor') }}</label>
 
                     <div class="col-md-6">
-                    <input type="text" name="nit" class="form-control" placeholder="Nit..."  >
+                    <input type="text" name="representante" class="form-control" placeholder="representante..." onkeyup="javascript:this.value=this.value.toUpperCase();" >
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="cedula" class="required col-md-4 col-form-label text-md-right">{{ __('Cedula') }}</label>
+
+                    <div class="col-md-6">
+                    <input type="text" name="cedula" class="form-control" placeholder="cedula..."  >
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="nitCi" class="required col-md-4 col-form-label text-md-right">{{ __('Nit/Ci') }}</label>
+
+                    <div class="col-md-6">
+                    <input type="text" name="nitCi" class="form-control" placeholder="Nit/Ci..."  >
                     </div>
                 </div>
 
