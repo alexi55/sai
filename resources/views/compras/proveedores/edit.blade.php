@@ -18,17 +18,35 @@
             @method('PUT')
 
             <div class="form-group row">
-                <label for="nombre" class="required col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                <label for="nombre" class="required col-md-4 col-form-label text-md-right">{{ __('Nombre Proveedor') }}</label>
                 <div class="col-md-4">
                     <input type="text" class="form-control" name="nombre" placeholder=""
                         value="{{$proveedores->nombreproveedor}}" onkeyup="javascript:this.value=this.value.toUpperCase();">
                 </div>
             </div>
+
+            <div class="form-group row">
+                <label for="representante" class="required col-md-4 col-form-label text-md-right">{{ __('Representante') }}</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="representante" placeholder=""
+                        value="{{$proveedores->representante}}" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                </div>
+            </div>
+
             <div class="form-group row">
                 <label for="nit"
-                    class="required col-md-4 col-form-label text-md-right">{{ __('Nit') }}</label>
+                    class="required col-md-4 col-form-label text-md-right">{{ __('Cedula') }}</label>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" name="nit" placeholder="" value="{{$proveedores->nitCi}}"
+                    <input type="text" class="form-control" name="cedula" placeholder="" value="{{$proveedores->cedula}}"
+                        onkeyup="javascript:this.value=this.value.toUpperCase();">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="nit"
+                    class="required col-md-4 col-form-label text-md-right">{{ __('Nit/Ci') }}</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="nitCi" placeholder="" value="{{$proveedores->nitCi}}"
                         onkeyup="javascript:this.value=this.value.toUpperCase();">
                 </div>
             </div>

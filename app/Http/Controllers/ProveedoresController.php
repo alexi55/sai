@@ -105,7 +105,9 @@ public function create()
         
     $proveedores = ProveedoresModel::find($idproveedor);
     $proveedores -> nombreproveedor = $request->input('nombre');
-    $proveedores -> nitproveedor = $request->input('nit');
+    $proveedores -> representante = $request->input('representante');
+    $proveedores -> cedula = $request->input('cedula');
+    $proveedores -> nitCi = $request->input('nitCi');
     $proveedores -> telefonoproveedor = $request->input('telefono');
     //$medida->update();
     if($proveedores->save()){
