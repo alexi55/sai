@@ -14,7 +14,7 @@
         <div class="row">
           <a href="{{ url('/compras/pedido') }}" class="btn blue darken-4 text-black "><i class="fa fa-plus-square"></i> Volver atras</a>
           <h3>Detalle Compras 
-          <a href="{{ route('detalle.create') }}" class="btn btn-danger">Crear Orden</a>
+          <a href="detalle/{{$idcompra}}/principal" class="btn btn-danger">Crear Orden</a>
           <a href="detalle/{{$valor_total}}/invitacion"><button class="btn btn-outline-info">Invitacion</button></a>
           <a href="detalle/{{$valor_total}}/aceptacion"><button class="btn btn-outline-info">Aceptacion</button></a>
           <a href="detalle/{{$valor_total}}/cotizacion"><button class="btn btn-outline-info">Cotizacion</button></a>

@@ -48,7 +48,7 @@ class DetalleCompraController extends Controller
         //$detallecompra = CompraModel::all();
         //$venda_produtos = Venda_Produto::find($id);
         //dd($valor_total);
-        return view('compras.detalle.index',['prodserv'=>$prodserv,'productos'=>$productos,'valor_total'=>$valor_total]);
+        return view('compras.detalle.index',['prodserv'=>$prodserv,'productos'=>$productos,'valor_total'=>$valor_total,'idcompra'=>$id2]);
     }
 
     ////////////////////////////////////////      
@@ -170,6 +170,34 @@ class DetalleCompraController extends Controller
     {
            
        return view('compras.detalle.orden');
+    }
+
+    public function crearOrden($id)
+    {
+
+    
+
+        $compras = DB::table('compra as c') 
+        ->join('proveedores as p', 'p.idproveedor', '=', 'c.idproveedor')
+        ->join('catprogramatica as cat', 'cat.idcatprogramatica', '=', 'c.idcatprogramatica')
+        ->join('programa as prog', 'prog.idprograma', '=', 'c.idprograma')
+        ->join('areas as a', 'a.idarea', '=', 'c.idarea')
+        ->select('c.idcompra','a.nombrearea','c.objeto', 'c.justificacion', 'c.preventivo','p.nombreproveedor','p.representante','p.cedula','p.nitCi','p.telefonoproveedor','c.preventivo','c.numcompra','cat.codcatprogramatica','prog.nombreprograma')
+        -> where('c.idcompra','=', $id)->first();
+      
+       $prodserv = DB::table('detallecompra as d') 
+       ->join('prodserv as ps', 'ps.idprodserv', '=', 'd.idprodserv')
+       ->join('compra as c', 'c.idcompra', '=', 'd.idcompra')
+       ->select('d.iddetallecompra', 'c.idcompra','ps.nombreprodserv','d.cantidad','d.subtotal','d.precio')
+       //-> where('nombreumedida','LIKE','%'.$querry.'%') 
+       -> where('d.idcompra','=', $id)->get();
+       
+       $valor_total = $prodserv->sum('subtotal');
+        //$compras1=$compras1->objeto;     
+       // dd($valor_total);
+         return view('compras.detalle.principal',['compras'=>$compras,'subtotal'=>$valor_total]);
+
+         //return view('compras.detalle.principal');
     }
 
     ////////////////////////////////

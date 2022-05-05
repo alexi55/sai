@@ -52,6 +52,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     Route::get('compras/detalle/{id}/cotizacion', 'DetalleCompraController@cotizacion');
     Route::get('compras/detalle/{id}/adjudicacion', 'DetalleCompraController@adjudicacion');
     Route::get('compras/detalle/{id}/orden', 'DetalleCompraController@orden');
+    Route::get('compras/detalle/{id}/principal', 'DetalleCompraController@crearOrden');
 //Route::put('users/{user}/update2', 'Admin\UserController@update2');
 //Route::resource('users', 'Admin\UserController');
 });
