@@ -52,7 +52,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     Route::get('compras/detalle/{id}/cotizacion', 'DetalleCompraController@cotizacion');
     Route::get('compras/detalle/{id}/adjudicacion', 'DetalleCompraController@adjudicacion');
     Route::get('compras/detalle/{id}/orden', 'DetalleCompraController@orden');
-    Route::get('compras/detalle/{id}/principal', 'DetalleCompraController@crearOrden');
+    Route::get('compras/detalle/{id}/principal', 'DetalleCompraController@crearOrdenxxx');
+    //Route::post('/compras/detalle/{{id}}/principalorden', 'DetalleCompraController@crearOrden');
+    Route::get('compras/detalle/{id}/profile', 'DetalleCompraController@profile')->name('profile');
+
+    //Route::post('compras/detalle/{{id}}',['uses' => 'DetalleCompraController@crearOrden','as' => 'compras.detalle.principalorden']);
+    Route::get('compras/detalle/principalorden/{id}',['uses' => 'DetalleCompraController@crearOrden','as' => 'test.route']);
+   
+   // Route::get('compras/detalle/{id}/principalorden', 'DetalleCompraController@crearOrden22');
 //Route::put('users/{user}/update2', 'Admin\UserController@update2');
 //Route::resource('users', 'Admin\UserController');
 });

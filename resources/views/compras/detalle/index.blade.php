@@ -14,12 +14,9 @@
         <div class="row">
           <a href="{{ url('/compras/pedido') }}" class="btn blue darken-4 text-black "><i class="fa fa-plus-square"></i> Volver atras</a>
           <h3>Detalle Compras 
-          <a href="detalle/{{$idcompra}}/principal" class="btn btn-danger">Crear Orden</a>
-          <a href="detalle/{{$valor_total}}/invitacion"><button class="btn btn-outline-info">Invitacion</button></a>
-          <a href="detalle/{{$valor_total}}/aceptacion"><button class="btn btn-outline-info">Aceptacion</button></a>
-          <a href="detalle/{{$valor_total}}/cotizacion"><button class="btn btn-outline-info">Cotizacion</button></a>
-          <a href="detalle/{{$valor_total}}/adjudicacion"><button class="btn btn-outline-info">Adjudicacion</button></a>
-          <a href="detalle/{{$valor_total}}/orden"><button class="btn btn-outline-info">Orden</button></a>
+          <a href="detalle/{{$idcompra}}/principal" class="btn btn-danger">Crear Orden de Compra</a>
+          <a  class="btn btn-success">Ver Orden de Compra</a>
+
           <a href="detalle/print"><button class="btn btn-warning">Imp.Detalle</button></a>
         
         </h3>

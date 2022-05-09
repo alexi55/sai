@@ -13,11 +13,13 @@
         </div>
     </div>
 
-    <label  style="color:red;"
-                    class="required col-md-4 col-form-label text-md-right">{{ __('Los campos marcados con color ROJO son obligarios') }}</label>
+    <label style="color:red;"
+        class="required col-md-4 col-form-label text-md-right">{{ __('Los campos marcados con color ROJO son obligarios') }}</label>
     <div class="card-body">
-        <form method="POST" action="{{ route('productos.store') }}">
+        <input type="text" class="form-control" name="solicitante" placeholder="" value="{{$idcompra}}">
+        <form action="{{ route('test.route', [$idcompra]) }}" method="GET">
             @csrf
+            @method('PUT')
 
             <div class="form-group row">
                 <label for="informe" style="color:red;font-weight: bold;"
@@ -37,7 +39,7 @@
             </div>
 
             <div class="form-group row">
-                <label for="objeto" 
+                <label for="objeto"
                     class="required col-md-4 col-form-label text-md-right">{{ __('Nombre Compra') }}</label>
                 <div class="col-md-6">
                     <textarea id="objeto" type="text" name="objeto" cols="60" rows="3" placeholder="Detalle..."
@@ -55,7 +57,7 @@
             </div>
 
             <div class="form-group row">
-                <label for="modalidad" 
+                <label for="modalidad"
                     class="required col-md-4 col-form-label text-md-right">{{ __('Modalidad de Cont.') }}</label>
                 <div class="col-md-4">
                     <input type="text" class="form-control" name="modalidad" placeholder="" value="CONTRATACION MENOR">
@@ -73,102 +75,105 @@
 
 
             <div class="form-group row">
-                <label for="proveedor" class="required col-md-4 col-form-label text-md-right">{{ __('Proveedor') }}</label>
+                <label for="proveedor"
+                    class="required col-md-4 col-form-label text-md-right">{{ __('Proveedor') }}</label>
                 <div class="col-md-4">
                     <input type="text" class="form-control" name="proveedor" placeholder=""
-                        value="{{$compras->nombreproveedor}}" >
+                        value="{{$compras->nombreproveedor}}">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="representante" class="required col-md-4 col-form-label text-md-right">{{ __('Representante') }}</label>
+                <label for="representante"
+                    class="required col-md-4 col-form-label text-md-right">{{ __('Representante') }}</label>
                 <div class="col-md-4">
                     <input type="text" class="form-control" name="representante" placeholder=""
-                        value="{{$compras->representante}}" >
+                        value="{{$compras->representante}}">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="cedula" class="required col-md-4 col-form-label text-md-right">{{ __('Cedula') }}</label>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" name="cedula" placeholder=""
-                        value="{{$compras->cedula}}" >
+                    <input type="text" class="form-control" name="cedula" placeholder="" value="{{$compras->cedula}}">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="nit" class="required col-md-4 col-form-label text-md-right">{{ __('Nit/Ci') }}</label>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" name="nit" placeholder=""
-                        value="{{$compras->nitCi}}" >
+                    <input type="text" class="form-control" name="nit" placeholder="" value="{{$compras->nitCi}}">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="telefono" class="required col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
+                <label for="telefono"
+                    class="required col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
                 <div class="col-md-4">
                     <input type="text" class="form-control" name="telefono" placeholder=""
-                        value="{{$compras->telefonoproveedor}}" >
+                        value="{{$compras->telefonoproveedor}}">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="apertura" class="required col-md-4 col-form-label text-md-right" style="color:red;font-weight: bold;">{{ __('Ap.Programatica') }}</label>
+                <label for="apertura" class="required col-md-4 col-form-label text-md-right"
+                    style="color:red;font-weight: bold;">{{ __('Ap.Programatica') }}</label>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" name="apertura" placeholder=""
-                       >
+                    <input type="text" class="form-control" name="apertura" placeholder="">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="partida" class="required col-md-4 col-form-label text-md-right" style="color:red;font-weight: bold;">{{ __('Partida de Gasto') }}</label>
+                <label for="partida" class="required col-md-4 col-form-label text-md-right"
+                    style="color:red;font-weight: bold;">{{ __('Partida de Gasto') }}</label>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" name="partida" placeholder=""
-                       >
+                    <input type="text" class="form-control" name="partida" placeholder="">
                 </div>
             </div>
-            
+
             <div class="form-group row">
-                <label for="actitividad" class="required col-md-4 col-form-label text-md-right" >{{ __('Actividad') }}</label>
+                <label for="actitividad"
+                    class="required col-md-4 col-form-label text-md-right">{{ __('Actividad') }}</label>
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="actitividad" placeholder=""
-                    value="{{$compras->nombreprograma}}"  >
+                        value="{{$compras->nombreprograma}}">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="orden" class="required col-md-4 col-form-label text-md-right" style="color:red;font-weight: bold;" >{{ __('N°Ord.Compra') }}</label>
+                <label for="orden" class="required col-md-4 col-form-label text-md-right"
+                    style="color:red;font-weight: bold;">{{ __('N°Ord.Compra') }}</label>
                 <div class="col-md-2">
-                    <input type="text" class="form-control" name="orden" placeholder=""
-                    >
+                    <input type="text" class="form-control" name="orden" placeholder="">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="preventivo" class="required col-md-4 col-form-label text-md-right"  >{{ __('Preventivo') }}</label>
+                <label for="preventivo"
+                    class="required col-md-4 col-form-label text-md-right">{{ __('Preventivo') }}</label>
                 <div class="col-md-2">
                     <input type="text" class="form-control" name="preventivo" placeholder=""
-                    value="{{$compras->preventivo}}" >
+                        value="{{$compras->preventivo}}">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="ruta" class="required col-md-4 col-form-label text-md-right" style="color:red;font-weight: bold;" >{{ __('H.Ruta') }}</label>
+                <label for="ruta" class="required col-md-4 col-form-label text-md-right"
+                    style="color:red;font-weight: bold;">{{ __('H.Ruta') }}</label>
                 <div class="col-md-2">
-                    <input type="text" class="form-control" name="ruta" placeholder=""
-                    >
+                    <input type="text" class="form-control" name="ruta" placeholder="">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="Cinterno" class="required col-md-4 col-form-label text-md-right" style="color:red;font-weight: bold;" >{{ __('C.Interno') }}</label>
+                <label for="Cinterno" class="required col-md-4 col-form-label text-md-right"
+                    style="color:red;font-weight: bold;">{{ __('C.Interno') }}</label>
                 <div class="col-md-2">
-                    <input type="text" class="form-control" name="Cinterno" placeholder=""
-                    >
+                    <input type="text" class="form-control" name="Cinterno" placeholder="">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="entrega" class="required col-md-4 col-form-label text-md-right" style="color:red;font-weight: bold;" >{{ __('plaz.Entrega') }}</label>
+                <label for="entrega" class="required col-md-4 col-form-label text-md-right"
+                    style="color:red;font-weight: bold;">{{ __('plaz.Entrega') }}</label>
                 <div class="col-md-2">
-                    <input type="text" class="form-control" name="entrega" placeholder=""
-                    >
+                    <input type="text" class="form-control" name="entrega" placeholder="">
                 </div>
             </div>
 
@@ -209,34 +214,35 @@
             </div>
 
             <div class="form-group row">
-                <label for="codigocite" class="required col-md-4 col-form-label text-md-right" style="color:red;font-weight: bold;" >{{ __('Cod.Cite Inv.') }}</label>
+                <label for="codigocite" class="required col-md-4 col-form-label text-md-right"
+                    style="color:red;font-weight: bold;">{{ __('Cod.Cite Inv.') }}</label>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" name="codigocite" placeholder=""
-                    >
+                    <input type="text" class="form-control" name="codigocite" placeholder="">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="horapresentacion" class="required col-md-4 col-form-label text-md-right" style="color:red;font-weight: bold;" >{{ __('Hora Present. Inv.') }}</label>
+                <label for="horapresentacion" class="required col-md-4 col-form-label text-md-right"
+                    style="color:red;font-weight: bold;">{{ __('Hora Present. Inv.') }}</label>
                 <div class="col-md-2">
-                    <input type="text" class="form-control" name="horapresentacion" placeholder=""
-                    >
+                    <input type="text" class="form-control" name="horapresentacion" placeholder="">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="cedulaaceptacion" class="required col-md-4 col-form-label text-md-right" s >{{ __('Cedula Aceptacion') }}</label>
+                <label for="cedulaaceptacion" class="required col-md-4 col-form-label text-md-right"
+                    s>{{ __('Cedula Aceptacion') }}</label>
                 <div class="col-md-2">
                     <input type="text" class="form-control" name="cedulaaceptacion" placeholder=""
-                    value="{{$compras->cedula}}">
+                        value="{{$compras->cedula}}">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="notaadjudicacion" class="required col-md-4 col-form-label text-md-right" style="color:red;font-weight: bold;" >{{ __('N° Nota de Adjudicacion') }}</label>
+                <label for="notaadjudicacion" class="required col-md-4 col-form-label text-md-right"
+                    style="color:red;font-weight: bold;">{{ __('N° Nota de Adjudicacion') }}</label>
                 <div class="col-md-2">
-                    <input type="text" class="form-control" name="notaadjudicacion" placeholder=""
-                    >
+                    <input type="text" class="form-control" name="notaadjudicacion" placeholder="">
                 </div>
             </div>
 
@@ -249,29 +255,28 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="controlinterno" class="required col-md-4 col-form-label text-md-right" style="color:red;font-weight: bold;" >{{ __('Control Interno') }}</label>
+                <label for="controlinterno" class="required col-md-4 col-form-label text-md-right"
+                    style="color:red;font-weight: bold;">{{ __('Control Interno') }}</label>
                 <div class="col-md-2">
-                    <input type="text" class="form-control" name="controlinterno" placeholder=""
-                    >
+                    <input type="text" class="form-control" name="controlinterno" placeholder="">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="controlinterno" class="required col-md-4 col-form-label text-md-right" style="color:red;font-weight: bold;" >{{ __('Control Interno') }}</label>
+                <label for="controlinterno" class="required col-md-4 col-form-label text-md-right"
+                    style="color:red;font-weight: bold;">{{ __('Control Interno') }}</label>
                 <div class="col-md-2">
-                    <input type="text" class="form-control" name="controlinterno" placeholder=""
-                    >
+                    <input type="text" class="form-control" name="controlinterno" placeholder="">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="solicitante" class="required col-md-4 col-form-label text-md-right" style="color:red;font-weight: bold;" >{{ __('Autoridad que Solicita') }}</label>
+                <label for="solicitante" class="required col-md-4 col-form-label text-md-right"
+                    style="color:red;font-weight: bold;">{{ __('Autoridad que Solicita') }}</label>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" name="solicitante" placeholder=""
-                    >
+                    <input type="text" class="form-control" name="solicitante" placeholder="">
                 </div>
             </div>
-
 
 
 

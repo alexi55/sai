@@ -8,7 +8,9 @@ use App\Models\User;
 use App\Models\CompraModel;
 use App\Models\TemporalModel;
 use App\Models\ProdServModel;
+use App\Models\DocOrdenModel;
 use App\Models\DetalleCompraModel;
+use App\Models\OrdenCompraModel;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -172,7 +174,7 @@ class DetalleCompraController extends Controller
        return view('compras.detalle.orden');
     }
 
-    public function crearOrden($id)
+    public function crearOrdenxxx($id)
     {
 
     
@@ -192,13 +194,123 @@ class DetalleCompraController extends Controller
        //-> where('nombreumedida','LIKE','%'.$querry.'%') 
        -> where('d.idcompra','=', $id)->get();
        
-       $valor_total = $prodserv->sum('subtotal');
+       $subtotal = $prodserv->sum('subtotal');
+
+
+
         //$compras1=$compras1->objeto;     
        // dd($valor_total);
-         return view('compras.detalle.principal',['compras'=>$compras,'subtotal'=>$valor_total]);
-
+       //$docordens = DocOrdenModel::all()->pluck('nombredoc');
+         return view('compras.detalle.principal',['compras'=>$compras,'subtotal'=>$subtotal,'idcompra'=>$id]);
+        // return view('compras.detalle.principal', compact('compras','subtotal'));
          //return view('compras.detalle.principal');
     }
+
+
+
+
+
+
+
+
+    
+    public function crearorden(Request $request,$id)
+    {
+
+        $ordencompra = DB::table('ordencompra as o') 
+        ->select('o.nombrecompra','o.solicitante','o.proveedor')
+        -> where('o.compra_idcompra','=', $id)->first();
+       
+        $resultado=$ordencompra;
+
+        if(is_null($resultado))
+        
+            {
+
+       $ordencompra = new OrdenCompraModel();
+       $ordencompra -> numinforme = $request->input('informe');
+       $ordencompra -> fechaorden =$request->input('fechaOden');
+       $ordencompra -> nombrecompra =$request->input('objeto');
+       $ordencompra -> solicitante =$request->input('solicitante');
+       $ordencompra -> modalidadcontratacion =$request->input('modalidad');
+       $ordencompra -> precioreferencial =$request->input('subtotal');
+       $ordencompra -> proveedor =$request->input('proveedor');
+       $ordencompra -> representante =$request->input('representante');
+       $ordencompra -> cedula =$request->input('cedula');
+       $ordencompra -> nitci =$request->input('nit');
+       $ordencompra -> telefono =$request->input('telefono');
+       $ordencompra -> approgramatica =$request->input('apertura');
+       $ordencompra -> partida =$request->input('partida');
+       $ordencompra -> actividad =$request->input('actitividad');
+       $ordencompra -> nordencompra =$request->input('orden');
+       $ordencompra -> npreventivo =$request->input('preventivo');
+       $ordencompra -> hojaruta =$request->input('ruta');
+       $ordencompra -> numcontrolinterno =$request->input('Cinterno');
+       $ordencompra -> plazoentrega =$request->input('entrega');
+       $ordencompra -> fechainicio =$request->input('fechainicio');
+       $ordencompra -> fechaconclusion =$request->input('fechaconclusion');
+       $ordencompra -> fechainvitacion =$request->input('fechainvitacion');
+       $ordencompra -> fechaaceptacion =$request->input('fechaaceptacion');
+       $ordencompra -> codciteinvitacion =$request->input('codigocite');
+       $ordencompra -> horapresentacion =$request->input('horapresentacion');
+       $ordencompra -> cedulaaceptacion =$request->input('cedulaaceptacion');
+       $ordencompra -> numnotaadjudicacion =$request->input('notaadjudicacion');
+       $ordencompra -> fechainiciosolproc =$request->input('fechainiciosoli');
+       $ordencompra -> controlinter =$request->input('controlinterno');
+       $ordencompra -> autoridadsolicitante =$request->input('solicitante');
+     
+       $ordencompra -> compra_idcompra = $id;
+              
+       $ordencompra->save();
+             }
+           
+
+
+
+        //$compras1=$compras1->objeto;     
+        // dd($valor_total);
+        //$docordens = DocOrdenModel::all()->pluck('nombredoc');
+        // return view('compras.detalle.principal',['compras'=>$compras,'subtotal'=>$subtotal]);
+        // return view('compras.detalle.principal', compact('compras','subtotal'));
+        //return view('compras.detalle.principal');
+        $ordencompra = DB::table('ordencompra as o') 
+        ->select('o.nombrecompra','o.solicitante','o.proveedor','o.fechaorden')
+        -> where('o.compra_idcompra','=', $id)->get();
+        
+
+
+        $ordendoc= DB::table('ordencompra as o') 
+        ->join('ordendoc as od', 'od.idorden', '=', 'o.idorden')
+        ->join('docorden as doc', 'doc.iddoc', '=', 'od.iddoc')
+        ->select('doc.nombredoc')
+        -> where('o.compra_idcompra','=', $id)->get();
+
+         
+         return view('compras.detalle.principalorden', compact('ordencompra','id','ordendoc'));
+
+    }
+
+         
+      
+      
+        public function crearOrden2($id)
+        {
+
+    
+
+        $ordencompra = DB::table('ordencompra as o') 
+        ->select('o.nombrecompra','o.solicitante','o.proveedor')
+        -> where('o.compra_idcompra','=', $id)->get();
+
+       // dd($id);
+        //return view('compras.detalle.principalorden',['ordencompra'=>$ordencompra,'id'=>$id]);
+         return view('compras.detalle.principalorden', compact('ordencompra','ordencompra','id'));
+         //return view('compras.detalle.principal');
+         }
+
+
+
+
 
     ////////////////////////////////
     public function edit($id)
