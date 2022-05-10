@@ -36,16 +36,27 @@ Route::group(['prefix'=>"admin",'as' => 'admin.','namespace' => 'App\Http\Contro
 
 
 Route::group(['namespace' => 'App\Http\Controllers'], function() {
+    ///compras medidas
     Route::resource('compras/medidas', 'MedidaController');
+    //compras pedido
     Route::resource('compras/pedido', 'CompraController');
+    //compras detalle
     Route::resource('compras/detalle', 'DetalleCompraController');
+    //compras partida
     Route::resource('compras/partida', 'PartidaController');
+    //compras producto
     Route::resource('compras/productos', 'ProdServController');
+    //compras empleados
     Route::resource('compras/empleados', 'EmpleadosController');
+    //compras proveedores
     Route::resource('compras/proveedores', 'ProveedoresController');
+    //compras areas
     Route::resource('compras/areas', 'AreasController');
+    //compras programas
     Route::resource('compras/programas', 'ProgramaController');
+    //compras categorias prograticas
     Route::resource('compras/catprog', 'CatProgController');
+    //compras pedido
     Route::get('compras/pedido/{id}/editar', 'CompraController@editar');
     Route::get('compras/detalle/{id}/invitacion', 'DetalleCompraController@invitacion');
     Route::get('compras/detalle/{id}/aceptacion', 'DetalleCompraController@aceptacion');
@@ -53,13 +64,34 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     Route::get('compras/detalle/{id}/adjudicacion', 'DetalleCompraController@adjudicacion');
     Route::get('compras/detalle/{id}/orden', 'DetalleCompraController@orden');
     Route::get('compras/detalle/{id}/principal', 'DetalleCompraController@crearOrdenxxx');
-    //Route::post('/compras/detalle/{{id}}/principalorden', 'DetalleCompraController@crearOrden');
-    Route::get('compras/detalle/{id}/profile', 'DetalleCompraController@profile')->name('profile');
+    //compras orden de compra
+    Route::POST('compras/detalle/principal', 'DetalleCompraController@crearOrden')->name('DetalleCompraController.crearOrden');
+    Route::POST('compras/detalle/principalorden', 'DetalleCompraController@crearOrdendoc')->name('DetalleCompraController.crearOrdendoc');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //Route::post('compras/detalle/{{id}}',['uses' => 'DetalleCompraController@crearOrden','as' => 'compras.detalle.principalorden']);
-    Route::get('compras/detalle/principalorden/{id}',['uses' => 'DetalleCompraController@crearOrden','as' => 'test.route']);
-   
-   // Route::get('compras/detalle/{id}/principalorden', 'DetalleCompraController@crearOrden22');
-//Route::put('users/{user}/update2', 'Admin\UserController@update2');
-//Route::resource('users', 'Admin\UserController');
+    //Route::POST('compras/detalle/principalorden',['uses' => 'DetalleCompraController@crearOrden','as' => 'test.route']);
+    //Route::POST('compras/detalle/principalorden',['uses' => 'DetalleCompraController@crearOrden','as' => 'test.route']);
+    //Route::post('/compras/detalle/{{id}}/principalorden', 'DetalleCompraController@crearOrden');
+    //Route::POST('compras/detalle/crearOrdendoc',['uses' => 'DetalleCompraController@crearOrdendoc','as' => 'test.show']);
+    // Route::get('compras/detalle/{id}/principalorden', 'DetalleCompraController@crearOrden22');
+    //Route::put('users/{user}/update2', 'Admin\UserController@update2');
+    //Route::resource('users', 'Admin\UserController');
+    //Route::get('compras/detalle/{id}/profile', 'DetalleCompraController@profile')->name('profile');
 });

@@ -19,7 +19,7 @@ use DB;
 
 class DetalleCompraController extends Controller
 {
-        
+        ////vista detalle compra
 
     public function index()
     {
@@ -53,7 +53,17 @@ class DetalleCompraController extends Controller
         return view('compras.detalle.index',['prodserv'=>$prodserv,'productos'=>$productos,'valor_total'=>$valor_total,'idcompra'=>$id2]);
     }
 
-    ////////////////////////////////////////      
+
+
+
+
+    //--------------------------------------------------
+    //---------------------------------------------------
+    
+    
+
+
+    //cargar items de productos en el detalle
 
     public function store (Request $request)
     {
@@ -86,14 +96,20 @@ class DetalleCompraController extends Controller
         $detalle->save();
         $request->session()->flash('message', 'Registro Agregado');
         
-        }else{
+        }
+        else{
         $request->session()->flash('message', 'El Item Ya existe en la Planilla');
         
         }
          return redirect('compras/detalle');
     }
 
-    ////////////////////////////////////////
+
+       //--------------------------------------------------
+       //---------------------------------------------------
+
+
+       //imprimir el detalle de la compra
     
     public function show(){
         $personal = User::find(Auth::user()->id);
@@ -109,7 +125,7 @@ class DetalleCompraController extends Controller
         ->select('d.iddetallecompra', 'c.idcompra','ps.nombreprodserv','ps.detalleprodserv','par.codigopartida','u.nombreumedida','d.cantidad','d.subtotal','d.precio')
          //-> where('nombreumedida','LIKE','%'.$querry.'%') 
         -> where('d.idcompra','=', $id2)
-         -> orderBy('d.iddetallecompra', 'asc')
+        -> orderBy('d.iddetallecompra', 'asc')
         -> paginate(7);
     
         $datos = DB::table('areas as a') 
@@ -133,7 +149,10 @@ class DetalleCompraController extends Controller
     }
 
 
-    ////////////////////////////
+    //--------------------------------------------------
+    //---------------------------------------------------
+
+
 
     public function invitacion($id)
     {
@@ -141,7 +160,8 @@ class DetalleCompraController extends Controller
        return view('compras.detalle.invitacion');
     }
 
-    //////////////////////////
+    //--------------------------------------------------
+    //---------------------------------------------------
 
     public function aceptacion($id)
     {
@@ -149,7 +169,8 @@ class DetalleCompraController extends Controller
        return view('compras.detalle.aceptacion');
     }
 
-    /////////////////////////
+    //---------------------------------------------------
+    //---------------------------------------------------
 
     public function cotizacion($id)
     {
@@ -157,7 +178,8 @@ class DetalleCompraController extends Controller
        return view('compras.detalle.cotizacion');
     }
 
-    ///////////////////////////
+    //---------------------------------------------------
+    //---------------------------------------------------
 
 
     public function adjudicacion($id)
@@ -166,18 +188,20 @@ class DetalleCompraController extends Controller
        return view('compras.detalle.adjudicacion');
     }
 
-    ///////////////////////////////
-
+    //---------------------------------------------------
+    //---------------------------------------------------
     public function orden($id)
     {
            
        return view('compras.detalle.orden');
     }
 
+
+    //---------------------------------------------------
+    //---------------------------------------------------
+
     public function crearOrdenxxx($id)
     {
-
-    
 
         $compras = DB::table('compra as c') 
         ->join('proveedores as p', 'p.idproveedor', '=', 'c.idproveedor')
@@ -197,7 +221,6 @@ class DetalleCompraController extends Controller
        $subtotal = $prodserv->sum('subtotal');
 
 
-
         //$compras1=$compras1->objeto;     
        // dd($valor_total);
        //$docordens = DocOrdenModel::all()->pluck('nombredoc');
@@ -209,14 +232,16 @@ class DetalleCompraController extends Controller
 
 
 
-
-
-
+    //---------------------------------------------------
+    //---------------------------------------------------
 
     
-    public function crearorden(Request $request,$id)
+    public function crearorden(Request $request)
     {
 
+
+        //dd($request->all());
+        $id= $request->idcompra;
         $ordencompra = DB::table('ordencompra as o') 
         ->select('o.nombrecompra','o.solicitante','o.proveedor')
         -> where('o.compra_idcompra','=', $id)->first();
@@ -264,9 +289,6 @@ class DetalleCompraController extends Controller
        $ordencompra->save();
              }
            
-
-
-
         //$compras1=$compras1->objeto;     
         // dd($valor_total);
         //$docordens = DocOrdenModel::all()->pluck('nombredoc');
@@ -285,41 +307,58 @@ class DetalleCompraController extends Controller
         ->select('doc.nombredoc')
         -> where('o.compra_idcompra','=', $id)->get();
 
+        $docorden= DB::table('docorden as doc') 
+        ->select('doc.nombredoc','doc.iddoc')
+        -> where('doc.estadodoc','=', 1)->get();
+
          
-         return view('compras.detalle.principalorden', compact('ordencompra','id','ordendoc'));
+         return view('compras.detalle.principalorden', compact('ordencompra','id','ordendoc','docorden'));
 
     }
 
          
+
+        //---------------------------------------------------
+        //---------------------------------------------------
       
-      
-        public function crearOrden2($id)
+        public function crearOrdendoc(Request $request)
         {
-
-    
-
+        //dd($request->all());
+        $id= $request->idcompra;
+                    
         $ordencompra = DB::table('ordencompra as o') 
-        ->select('o.nombrecompra','o.solicitante','o.proveedor')
+        ->select('o.nombrecompra','o.solicitante','o.proveedor','o.fechaorden')
+        -> where('o.compra_idcompra','=', $id)->get();
+        
+        $ordendoc= DB::table('ordencompra as o') 
+        ->join('ordendoc as od', 'od.idorden', '=', 'o.idorden')
+        ->join('docorden as doc', 'doc.iddoc', '=', 'od.iddoc')
+        ->select('doc.nombredoc')
         -> where('o.compra_idcompra','=', $id)->get();
 
-       // dd($id);
-        //return view('compras.detalle.principalorden',['ordencompra'=>$ordencompra,'id'=>$id]);
-         return view('compras.detalle.principalorden', compact('ordencompra','ordencompra','id'));
-         //return view('compras.detalle.principal');
+        $docorden= DB::table('docorden as doc') 
+        ->select('doc.nombredoc','doc.iddoc')
+        -> where('doc.estadodoc','=', 1)->get();
+
+        return view('compras/detalle/principalorden', compact('ordencompra','id','ordendoc','docorden'));
+        //return redirect('principalorden');
          }
 
 
 
 
 
-    ////////////////////////////////
+    //---------------------------------------------------
+    //---------------------------------------------------
+
     public function edit($id)
     {
         //xdffdfdfdfdfdf
     }
 
    
-    /////////////////////////////
+    //---------------------------------------------------
+    //---------------------------------------------------
 
     public function update(Request $request, $id)
     {
@@ -327,7 +366,8 @@ class DetalleCompraController extends Controller
     }
 
 
-    /////////////////////////////////
+    //---------------------------------------------------
+    //---------------------------------------------------
 
 
          
@@ -340,15 +380,14 @@ class DetalleCompraController extends Controller
        // return view("compras.detalle.create");
     }
 
-    ///////////////////////////////////////////
+    //---------------------------------------------------
+    //---------------------------------------------------
 
     public function destroy($id)
     {
  
-
         $detalle = DetalleCompraModel::find($id);
         $detalle->delete();
-    
     
         //dd($detalle);
         return redirect('compras/detalle');

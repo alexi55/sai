@@ -17,9 +17,9 @@
         class="required col-md-4 col-form-label text-md-right">{{ __('Los campos marcados con color ROJO son obligarios') }}</label>
     <div class="card-body">
         <input type="text" class="form-control" name="solicitante" placeholder="" value="{{$idcompra}}">
-        <form action="{{ route('test.route', [$idcompra]) }}" method="GET">
+        <form action="{{ route('DetalleCompraController.crearOrden') }}" method="POST">
             @csrf
-            @method('PUT')
+            <input name="idcompra" type="text" value="{{$idcompra}}">
 
             <div class="form-group row">
                 <label for="informe" style="color:red;font-weight: bold;"
@@ -254,13 +254,7 @@
 
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="controlinterno" class="required col-md-4 col-form-label text-md-right"
-                    style="color:red;font-weight: bold;">{{ __('Control Interno') }}</label>
-                <div class="col-md-2">
-                    <input type="text" class="form-control" name="controlinterno" placeholder="">
-                </div>
-            </div>
+      
 
             <div class="form-group row">
                 <label for="controlinterno" class="required col-md-4 col-form-label text-md-right"

@@ -55,6 +55,44 @@
 
         <div class="card-body table-responsive">
 
+        <form action="{{ route('DetalleCompraController.crearOrdendoc') }}" method="POST">
+            @csrf
+            <input name="idcompra" type="text" value="{{$id}}">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group" id="permissions-select">
+                            <label for="producto" style="color:red;font-weight: bold;">Documentos:</label>
+                            <select name="producto" id="permissions">
+                                @foreach($docorden as $doc)
+                                <option value="{{$doc -> iddoc}}">
+                                    {{$doc -> nombredoc}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <label for="producto" style="color:red;font-weight: bold;"></label>
+                        <div class="form-group">
+                            <button class="btn btn-outline-primary" type="submit">adicionar</button>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                </div>
+            </form>
 
 
 
@@ -62,7 +100,7 @@
             <table class="table table-borderless table-hover">
                 <tr>
 
-                    <th>....  Documentos Requeridos  ...</th>
+                    <th>.... Documentos Requeridos ...</th>
 
 
 
@@ -102,4 +140,16 @@
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+<script>
+var permission_select = new SlimSelect({
+    select: '#permissions-select select',
+    //showSearch: false,
+    placeholder: 'Select Permissions',
+    deselectLabel: '<span>&times;</span>',
+    hideSelectedOption: true,
+})
+</script>
 @endsection
