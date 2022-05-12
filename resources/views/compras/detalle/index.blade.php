@@ -10,20 +10,29 @@
 <div class="card">
     <div class="card-header">{{ __('Detalle de la Compra') }}</div>
     <div class="row">
-      <div class="col-md-12">
-        <div class="row">
-          <a href="{{ url('/compras/pedido') }}" class="btn blue darken-4 text-black "><i class="fa fa-plus-square"></i> Volver atras</a>
-          <h3>Detalle Compras 
-          <a href="detalle/{{$idcompra}}/principal" class="btn btn-danger">Crear Orden de Compra</a>
-          <a  class="btn btn-success">Ver Orden de Compra</a>
+        <div class="col-md-12">
+            <div class="row">
+                <a href="{{ url('/compras/pedido') }}" class="btn blue darken-4 text-black "><i
+                        class="fa fa-plus-square"></i> Volver atras</a>
+                <h3>Detalle Compras
 
-          <a href="detalle/print"><button class="btn btn-warning">Imp.Detalle</button></a>
-        
-        </h3>
-          
+                    @if ($estado==1)
+                    <a class="btn btn-success" href="detalle/{{$idcompra}}/principalorden">Ver Orden de Compra</a>
+                    @else
+                    <a href="detalle/{{$idcompra}}/principal" class="btn btn-danger">Crear Orden de Compra</a>
+                    @endif
+
+
+
+                    <a href="detalle/print"><button class="btn btn-warning">Imp.Detalle</button></a>
+
+                </h3>
+
+            </div>
         </div>
-      </div>
     </div>
+
+
     <div class="card-body table-responsive">
 
         <form method="POST" action="{{ route('detalle.store') }}">
@@ -76,7 +85,7 @@
 
         <table class="table table-borderless table-hover">
             <tr>
-               
+
                 <th>PRODUCTO</th>
                 <th>CANTIDAD</th>
                 <th>PRECIO</th>
@@ -87,7 +96,7 @@
             </tr>
             @forelse ($prodserv as $prod)
             <tr>
-               
+
                 <td>{{ $prod -> nombreprodserv}}</td>
                 <td>{{ $prod -> cantidad}}</td>
                 <td>{{ $prod -> precio}}</td>

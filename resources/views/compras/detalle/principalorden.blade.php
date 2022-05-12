@@ -14,8 +14,12 @@
             <div class="row">
                 <a href="{{ url('/compras/detalle') }}" class="btn blue darken-4 text-black "><i
                         class="fa fa-plus-square"></i> Volver atras</a>
-
             </div>
+            <a href="invitacion"><button class="btn btn-outline-info">Invitacion</button></a>
+            <a href="aceptacion"><button class="btn btn-outline-info">Aceptacion</button></a>
+            <a href="cotizacion"><button class="btn btn-outline-info">Cotizacion</button></a>
+            <a href="adjudicacion"><button class="btn btn-outline-info">Adjudicacion</button></a>
+            <a href="orden"><button class="btn btn-outline-info">Orden</button></a>
         </div>
     </div>
     <div class="card-body table-responsive">
@@ -55,14 +59,15 @@
 
         <div class="card-body table-responsive">
 
-        <form action="{{ route('DetalleCompraController.crearOrdendoc') }}" method="POST">
-            @csrf
-            <input name="idcompra" type="text" value="{{$id}}">
+            <form action="{{ route('DetalleCompraController.crearOrdendoc') }}" method="POST">
+                @csrf
+
+                <input name="idcompra" type="hidden" value="{{$id}}">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group" id="permissions-select">
                             <label for="producto" style="color:red;font-weight: bold;">Documentos:</label>
-                            <select name="producto" id="permissions">
+                            <select name="iddoc" id="permissions">
                                 @foreach($docorden as $doc)
                                 <option value="{{$doc -> iddoc}}">
                                     {{$doc -> nombredoc}}</option>
@@ -71,13 +76,14 @@
                         </div>
                     </div>
 
+                   
 
 
 
 
 
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                    <label for="producto" style="color:red;font-weight: bold;"></label>
+                        <label for="producto" style="color:red;font-weight: bold;"></label>
                         <div class="form-group">
                             <button class="btn btn-outline-primary" type="submit">adicionar</button>
                         </div>

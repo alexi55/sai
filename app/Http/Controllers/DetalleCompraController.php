@@ -11,11 +11,13 @@ use App\Models\ProdServModel;
 use App\Models\DocOrdenModel;
 use App\Models\DetalleCompraModel;
 use App\Models\OrdenCompraModel;
+use App\Models\OrdenDocModel;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use DB;
+use Carbon\Carbon;
 
 class DetalleCompraController extends Controller
 {
@@ -45,12 +47,27 @@ class DetalleCompraController extends Controller
  
        // $detallecompra = DetalleCompraModel::find($id2);
         $valor_total = $prodserv->sum('subtotal');
+
+      
+        $ordencompra = DB::table('ordencompra as o') 
+        ->select('o.nombrecompra','o.solicitante','o.proveedor')
+        -> where('o.compra_idcompra','=', $id2)->first();
+       
+        $resultado=$ordencompra;
+
+        $estado=1;
+
+        if(is_null($resultado))
+        
+            {
+                $estado=0;
+            }
  
         //$detallecompra = CompraModel::find($id2);
         //$detallecompra = CompraModel::all();
         //$venda_produtos = Venda_Produto::find($id);
         //dd($valor_total);
-        return view('compras.detalle.index',['prodserv'=>$prodserv,'productos'=>$productos,'valor_total'=>$valor_total,'idcompra'=>$id2]);
+        return view('compras.detalle.index',['prodserv'=>$prodserv,'productos'=>$productos,'valor_total'=>$valor_total,'idcompra'=>$id2,'estado'=>$estado]);
     }
 
 
@@ -156,8 +173,31 @@ class DetalleCompraController extends Controller
 
     public function invitacion($id)
     {
-           
-       return view('compras.detalle.invitacion');
+        $ordencompra = DB::table('ordencompra as o') 
+        ->select('o.numinforme','o.fechaorden','o.nombrecompra','o.solicitante','o.modalidadcontratacion',
+        'o.precioreferencial','o.proveedor','o.representante','o.cedula','o.nitci','o.telefono',
+        'o.approgramatica','o.partida','o.actividad','o.nordencompra','o.npreventivo',
+        'o.hojaruta','o.numcontrolinterno','o.plazoentrega','o.fechainicio',
+        'o.fechaconclusion','o.fechainvitacion','o.fechaaceptacion','o.codciteinvitacion',
+        'o.horapresentacion', 'o.cedulaaceptacion','o.numnotaadjudicacion','o.fechainiciosolproc',
+        'o.controlinter','o.autoridadsolicitante')
+        -> where('o.compra_idcompra','=', $id)->first();
+
+
+        $ordendoc= DB::table('ordencompra as o') 
+        ->join('ordendoc as od', 'od.idorden', '=', 'o.idorden')
+        ->join('docorden as doc', 'doc.iddoc', '=', 'od.iddoc')
+        ->select('doc.nombredoc')
+        -> where('o.compra_idcompra','=', $id)->get();
+
+        $fechaInvitacion =$ordencompra->fechainvitacion;
+        $fechaInvitacion = Carbon::parse($fechaInvitacion)->isoFormat('D \d\e MMMM \d\e\l Y');
+
+        $fechaAceptacion =$ordencompra->fechaaceptacion;
+        $fechaAceptacion = Carbon::parse($fechaAceptacion)->isoFormat('D \d\e MMMM');
+        //$diaActual = Carbon::parse($diaActual)->isoFormat('dddd D \d\e MMMM \d\e\l Y');
+       //dd($diaActual);
+       return view('compras.detalle.invitacion',['ordencompra'=>$ordencompra,'ordendoc'=>$ordendoc,'fechaInvitacion'=>$fechaInvitacion,'fechaAceptacion'=>$fechaAceptacion]);
     }
 
     //--------------------------------------------------
@@ -166,7 +206,24 @@ class DetalleCompraController extends Controller
     public function aceptacion($id)
     {
            
-       return view('compras.detalle.aceptacion');
+        $ordencompra = DB::table('ordencompra as o') 
+        ->select('o.numinforme','o.fechaorden','o.nombrecompra','o.solicitante','o.modalidadcontratacion',
+        'o.precioreferencial','o.proveedor','o.representante','o.cedula','o.nitci','o.telefono',
+        'o.approgramatica','o.partida','o.actividad','o.nordencompra','o.npreventivo',
+        'o.hojaruta','o.numcontrolinterno','o.plazoentrega','o.fechainicio',
+        'o.fechaconclusion','o.fechainvitacion','o.fechaaceptacion','o.codciteinvitacion',
+        'o.horapresentacion', 'o.cedulaaceptacion','o.numnotaadjudicacion','o.fechainiciosolproc',
+        'o.controlinter','o.autoridadsolicitante')
+        -> where('o.compra_idcompra','=', $id)->first();
+
+
+        $ordendoc= DB::table('ordencompra as o') 
+        ->join('ordendoc as od', 'od.idorden', '=', 'o.idorden')
+        ->join('docorden as doc', 'doc.iddoc', '=', 'od.iddoc')
+        ->select('doc.nombredoc')
+        -> where('o.compra_idcompra','=', $id)->get();
+
+       return view('compras.detalle.aceptacion',['ordencompra'=>$ordencompra,'ordendoc'=>$ordendoc]);
     }
 
     //---------------------------------------------------
@@ -330,6 +387,56 @@ class DetalleCompraController extends Controller
         ->select('o.nombrecompra','o.solicitante','o.proveedor','o.fechaorden')
         -> where('o.compra_idcompra','=', $id)->get();
         
+       
+
+        $docorden= DB::table('docorden as doc') 
+        ->select('doc.nombredoc','doc.iddoc')
+        -> where('doc.estadodoc','=', 1)->get();
+
+        $ordencompra2 = DB::table('ordencompra as o') 
+        ->select('o.idorden','o.nombrecompra','o.solicitante','o.proveedor','o.fechaorden')
+        -> where('o.compra_idcompra','=', $id)->first();
+        //dd($ordencompra2);
+        $idordencompra=$ordencompra2->idorden;
+
+        
+
+        $ordendoccreate=new OrdenDocModel;
+
+       $ordendoccreate -> iddoc =$request->input('iddoc');
+       $ordendoccreate -> idorden =$idordencompra;
+                     
+       $ordendoccreate->save();
+
+       $ordendoc= DB::table('ordencompra as o') 
+       ->join('ordendoc as od', 'od.idorden', '=', 'o.idorden')
+       ->join('docorden as doc', 'doc.iddoc', '=', 'od.iddoc')
+       ->select('doc.nombredoc')
+       -> where('o.compra_idcompra','=', $id)->get();
+
+        //return view('compras/detalle/principalorden', compact('ordencompra','id','ordendoc','docorden','idordencompra'));
+        return back();
+         }
+
+         //-----------------------------------------------
+         //-----------------------------------------------\
+
+
+         public function crearOrdendocxx($id)
+        {
+        //dd($id);
+        //$id= $request->idcompra;
+                    
+        $ordencompra = DB::table('ordencompra as o') 
+        ->select('o.nombrecompra','o.solicitante','o.proveedor','o.fechaorden')
+        -> where('o.compra_idcompra','=', $id)->get();
+
+        $ordencompra2 = DB::table('ordencompra as o') 
+        ->select('o.idorden','o.nombrecompra','o.solicitante','o.proveedor','o.fechaorden')
+        -> where('o.compra_idcompra','=', $id)->first();
+
+        $idordencompra=$ordencompra2->idorden;
+        //dd($idordencompra);
         $ordendoc= DB::table('ordencompra as o') 
         ->join('ordendoc as od', 'od.idorden', '=', 'o.idorden')
         ->join('docorden as doc', 'doc.iddoc', '=', 'od.iddoc')
@@ -340,7 +447,7 @@ class DetalleCompraController extends Controller
         ->select('doc.nombredoc','doc.iddoc')
         -> where('doc.estadodoc','=', 1)->get();
 
-        return view('compras/detalle/principalorden', compact('ordencompra','id','ordendoc','docorden'));
+        return view('compras/detalle/principalorden', compact('ordencompra','id','ordendoc','docorden','idordencompra'));
         //return redirect('principalorden');
          }
 
