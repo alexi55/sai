@@ -12,12 +12,14 @@ use App\Models\DocOrdenModel;
 use App\Models\DetalleCompraModel;
 use App\Models\OrdenCompraModel;
 use App\Models\OrdenDocModel;
+use App\Models\ResponsablesModel;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use DB;
 use Carbon\Carbon;
+use NumerosEnLetras;
 
 class DetalleCompraController extends Controller
 {
@@ -195,9 +197,11 @@ class DetalleCompraController extends Controller
 
         $fechaAceptacion =$ordencompra->fechaaceptacion;
         $fechaAceptacion = Carbon::parse($fechaAceptacion)->isoFormat('D \d\e MMMM');
+
+        $responsables = DB::table('responsables')->first();
         //$diaActual = Carbon::parse($diaActual)->isoFormat('dddd D \d\e MMMM \d\e\l Y');
-       //dd($diaActual);
-       return view('compras.detalle.invitacion',['ordencompra'=>$ordencompra,'ordendoc'=>$ordendoc,'fechaInvitacion'=>$fechaInvitacion,'fechaAceptacion'=>$fechaAceptacion]);
+       //dd($responsables);
+       return view('compras.detalle.invitacion',['ordencompra'=>$ordencompra,'ordendoc'=>$ordendoc,'responsables'=>$responsables,'fechaInvitacion'=>$fechaInvitacion,'fechaAceptacion'=>$fechaAceptacion]);
     }
 
     //--------------------------------------------------
@@ -223,7 +227,14 @@ class DetalleCompraController extends Controller
         ->select('doc.nombredoc')
         -> where('o.compra_idcompra','=', $id)->get();
 
-       return view('compras.detalle.aceptacion',['ordencompra'=>$ordencompra,'ordendoc'=>$ordendoc]);
+        $fechaInvitacion =$ordencompra->fechainvitacion;
+        $fechaInvitacion = Carbon::parse($fechaInvitacion)->isoFormat('D \d\e MMMM \d\e\l Y');
+
+        $fechaAceptacion =$ordencompra->fechaaceptacion;
+        $fechaAceptacion = Carbon::parse($fechaAceptacion)->isoFormat('D \d\e MMMM \d\e\l Y');
+        $responsables = DB::table('responsables')->first();
+
+       return view('compras.detalle.aceptacion',['ordencompra'=>$ordencompra,'ordendoc'=>$ordendoc,'responsables'=>$responsables,'fechaInvitacion'=>$fechaInvitacion,'fechaAceptacion'=>$fechaAceptacion]);
     }
 
     //---------------------------------------------------
@@ -231,8 +242,58 @@ class DetalleCompraController extends Controller
 
     public function cotizacion($id)
     {
-           
-       return view('compras.detalle.cotizacion');
+        $ordencompra = DB::table('ordencompra as o') 
+        ->select('o.numinforme','o.fechaorden','o.nombrecompra','o.solicitante','o.modalidadcontratacion',
+        'o.precioreferencial','o.proveedor','o.representante','o.cedula','o.nitci','o.telefono',
+        'o.approgramatica','o.partida','o.actividad','o.nordencompra','o.npreventivo',
+        'o.hojaruta','o.numcontrolinterno','o.plazoentrega','o.fechainicio',
+        'o.fechaconclusion','o.fechainvitacion','o.fechaaceptacion','o.codciteinvitacion',
+        'o.horapresentacion', 'o.cedulaaceptacion','o.numnotaadjudicacion','o.fechainiciosolproc',
+        'o.controlinter','o.autoridadsolicitante')
+        -> where('o.compra_idcompra','=', $id)->first();
+
+
+        $ordendoc= DB::table('ordencompra as o') 
+        ->join('ordendoc as od', 'od.idorden', '=', 'o.idorden')
+        ->join('docorden as doc', 'doc.iddoc', '=', 'od.iddoc')
+        ->select('doc.nombredoc')
+        -> where('o.compra_idcompra','=', $id)->get();
+
+        $fechaInvitacion =$ordencompra->fechainvitacion;
+        $fechaInvitacion = Carbon::parse($fechaInvitacion)->isoFormat('D \d\e MMMM \d\e\l Y');
+
+        $fechaAceptacion =$ordencompra->fechaaceptacion;
+        $fechaAceptacion = Carbon::parse($fechaAceptacion)->isoFormat('D \d\e MMMM \d\e\l Y');
+        $responsables = DB::table('responsables')->first();
+
+
+        $fechaorden =$ordencompra->fechaorden;
+        $fechaorden = Carbon::parse($fechaorden)->isoFormat('dddd D \d\e MMMM \d\e\l Y');
+
+        
+        // tomar en cuenta $compra = CompraModel::find($id2);
+        $prodserv = DB::table('detallecompra as d') 
+        ->join('prodserv as ps', 'ps.idprodserv', '=', 'd.idprodserv')
+        ->join('compra as c', 'c.idcompra', '=', 'd.idcompra')
+        ->join('partida as par', 'par.idpartida', '=', 'ps.partida_idpartida')
+        ->join('umedida as u', 'u.idumedida', '=', 'ps.umedida_idumedida')
+        ->select('d.iddetallecompra', 'c.idcompra','ps.nombreprodserv','ps.detalleprodserv','par.codigopartida','u.nombreumedida','d.cantidad','d.subtotal','d.precio')
+         //-> where('nombreumedida','LIKE','%'.$querry.'%') 
+        -> where('d.idcompra','=', $id)-> get();        
+
+        $valor_total = $prodserv->sum('subtotal');
+        $valor_total2=NumerosEnLetras::convertir($valor_total,'Bolivianos',true);
+      // dd($valor_total2);
+
+
+       //echo 'Formato #1 ' . NumerosEnLetras::convertir(1988208.99) . '<br>';
+        
+       // echo 'Formato #2 ' . NumerosEnLetras::convertir(1988208.99,'Bolivianos',false,'Centavos') . '<br>';
+        
+        //echo 'Formato #3 ' . NumerosEnLetras::convertir(1988208.99,'Bolivianos',true) . '<br>';
+
+       return view('compras.detalle.cotizacion',['valor_total2'=>$valor_total2,'prodserv'=>$prodserv,'valor_total'=>$valor_total,'ordencompra'=>$ordencompra,'ordendoc'=>$ordendoc,'responsables'=>$responsables,'fechaInvitacion'=>$fechaInvitacion,'fechaAceptacion'=>$fechaAceptacion,'fechaorden'=>$fechaorden]);   
+      // return view('compras.detalle.cotizacion');
     }
 
     //---------------------------------------------------
@@ -241,8 +302,56 @@ class DetalleCompraController extends Controller
 
     public function adjudicacion($id)
     {
+
+        $ordencompra = DB::table('ordencompra as o') 
+        ->select('o.numinforme','o.fechaorden','o.nombrecompra','o.solicitante','o.modalidadcontratacion',
+        'o.precioreferencial','o.proveedor','o.representante','o.cedula','o.nitci','o.telefono',
+        'o.approgramatica','o.partida','o.actividad','o.nordencompra','o.npreventivo',
+        'o.hojaruta','o.numcontrolinterno','o.plazoentrega','o.fechainicio',
+        'o.fechaconclusion','o.fechainvitacion','o.fechaaceptacion','o.codciteinvitacion',
+        'o.horapresentacion', 'o.cedulaaceptacion','o.numnotaadjudicacion','o.fechainiciosolproc',
+        'o.controlinter','o.autoridadsolicitante')
+        -> where('o.compra_idcompra','=', $id)->first();
+
+
+        $ordendoc= DB::table('ordencompra as o') 
+        ->join('ordendoc as od', 'od.idorden', '=', 'o.idorden')
+        ->join('docorden as doc', 'doc.iddoc', '=', 'od.iddoc')
+        ->select('doc.nombredoc')
+        -> where('o.compra_idcompra','=', $id)->get();
+
+        $fechaInvitacion =$ordencompra->fechainvitacion;
+        $fechaInvitacion = Carbon::parse($fechaInvitacion)->isoFormat('D \d\e MMMM \d\e\l Y');
+
+        $fechaAceptacion =$ordencompra->fechaaceptacion;
+        $fechaAceptacion = Carbon::parse($fechaAceptacion)->isoFormat('D \d\e MMMM \d\e\l Y');
+        $responsables = DB::table('responsables')->first();
+
+
+        $fechaorden =$ordencompra->fechaorden;
+        $fechaorden = Carbon::parse($fechaorden)->isoFormat('D \d\e MMMM \d\e\l Y');
+
+        $fechainiciosolici =$ordencompra->fechainiciosolproc;
+        $fechainiciosolici = Carbon::parse($fechainiciosolici)->isoFormat('D \d\e MMMM');
+
+
+        // tomar en cuenta $compra = CompraModel::find($id2);
+        $prodserv = DB::table('detallecompra as d') 
+        ->join('prodserv as ps', 'ps.idprodserv', '=', 'd.idprodserv')
+        ->join('compra as c', 'c.idcompra', '=', 'd.idcompra')
+        ->join('partida as par', 'par.idpartida', '=', 'ps.partida_idpartida')
+        ->join('umedida as u', 'u.idumedida', '=', 'ps.umedida_idumedida')
+        ->select('d.iddetallecompra', 'c.idcompra','ps.nombreprodserv','ps.detalleprodserv','par.codigopartida','u.nombreumedida','d.cantidad','d.subtotal','d.precio')
+         //-> where('nombreumedida','LIKE','%'.$querry.'%') 
+        -> where('d.idcompra','=', $id)-> get();        
+
+        $valor_total = $prodserv->sum('subtotal');
+        $responsables = DB::table('responsables')->first();
+       // dd($prodserv);
+
+       return view('compras.detalle.adjudicacion',['responsables'=>$responsables,'prodserv'=>$prodserv,'valor_total'=>$valor_total,'fechainiciosolici'=>$fechainiciosolici,'ordencompra'=>$ordencompra,'ordendoc'=>$ordendoc,'responsables'=>$responsables,'fechaInvitacion'=>$fechaInvitacion,'fechaAceptacion'=>$fechaAceptacion,'fechaorden'=>$fechaorden]);   
            
-       return view('compras.detalle.adjudicacion');
+       //return view('compras.detalle.adjudicacion');
     }
 
     //---------------------------------------------------
