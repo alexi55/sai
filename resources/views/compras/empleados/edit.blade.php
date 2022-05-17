@@ -114,7 +114,13 @@
             </div>
 
 
-
+            <div class="form-group row">
+                <label for="cargo" class="required col-md-4 col-form-label text-md-right">{{ __('Cargo') }}</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="cargo" placeholder="" value="{{$empleados->cargo}}"
+                        onkeyup="javascript:this.value=this.value.toUpperCase();">
+                </div>
+            </div>
 
 
 

@@ -64,6 +64,7 @@ class EmpleadosController extends Controller
     $empleados -> telefono = $request->input('telefono');
     $empleados -> correo = $request->input('correo');
     $empleados -> idarea = $request->input('idarea');
+    $empleados -> cargo = $request->input('cargo');
     
     $empleados -> estado = 1;
     $empleados -> estado_u = 1;
@@ -128,6 +129,7 @@ class EmpleadosController extends Controller
         $empleados -> telefono = $request->input('telefono');
         $empleados -> correo = $request->input('correo');
         $empleados -> idarea = $request->input('idarea');
+        $empleados -> cargo = $request->input('cargo');
     
         //$empleados->update();
         if($empleados->save()){

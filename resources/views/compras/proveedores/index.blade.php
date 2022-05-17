@@ -30,7 +30,7 @@
 
                 <td>{{$proveed -> idproveedor}}</td>
                 <td>{{$proveed -> nombreproveedor}}</td>
-                <td>{{$proveed -> nitproveedor}}</td>
+                <td>{{$proveed -> cedula}}</td>
                 <td>{{$proveed -> telefonoproveedor}}</td>
 
 

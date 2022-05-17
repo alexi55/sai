@@ -15,7 +15,9 @@ class ProveedoresModel extends Model
 
     protected $fillable = [
         'nombreproveedor',
-        'nitproveedor',
+        'representante',
+        'cedula',
+        'nitCi',
         'telefonoproveedor',
         'estadoproveedor'
     ];
