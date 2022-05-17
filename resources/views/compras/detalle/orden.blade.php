@@ -49,7 +49,7 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;">N&deg; de Orden de Compra</span></strong></p>
             </td>
             <td style="width:57.85pt;border:solid windowtext 1.0pt;border-left:  none;padding:0cm 3.5pt 0cm 3.5pt;height:30.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style='font-size:13px;font-family:"Arial","sans-serif";'>116</span></strong></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style='font-size:13px;font-family:"Arial","sans-serif";'>{{$ordencompra->nordencompra}}</span></strong></p>
             </td>
             <td style="height:30.75pt;border:none;"><br></td>
         </tr>
@@ -62,7 +62,7 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;">N&deg; de Preventivo</span></strong></p>
             </td>
             <td style="width:57.85pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:13.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style='font-size:13px;font-family:"Arial","sans-serif";'>334</span></strong></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style='font-size:13px;font-family:"Arial","sans-serif";'>{{$ordencompra->npreventivo}}</span></strong></p>
             </td>
             <td style="height:13.5pt;border:none;"><br></td>
         </tr>
@@ -77,7 +77,7 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;">N&deg; Control Interno</span></strong></p>
             </td>
             <td style="width:57.85pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:18.0pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style='font-size:13px;font-family:"Arial","sans-serif";'>22</span></strong></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style='font-size:13px;font-family:"Arial","sans-serif";'>{{$ordencompra->numcontrolinterno}}</span></strong></p>
             </td>
             <td style="height:18.0pt;border:none;"><br></td>
         </tr>
@@ -91,7 +91,7 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">N&deg; Hoja de Ruta</span></strong></p>
             </td>
             <td style="width:57.85pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:15.0pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="color:black;">110</span></strong></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="color:black;">{{$ordencompra->hojaruta}}</span></strong></p>
             </td>
             <td style="height:15.0pt;border:none;"><br></td>
         </tr>
@@ -102,7 +102,7 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><span style="color:black;">Lugar y Fecha:</span></strong></p>
             </td>
             <td colspan="2" style="width:135.6pt;padding:0cm 3.5pt 0cm 3.5pt;height:21.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:right;'><span style="font-size:13px;color:black;">Yacuiba, &nbsp; &nbsp; 27 de abril de 2022 &nbsp;</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:right;'><span style="font-size:13px;color:black;">Yacuiba, &nbsp; &nbsp; {{$fechaorden}} &nbsp;</span></p>
             </td>
             <td style="height:21.75pt;border:none;"><br></td>
         </tr>
@@ -143,7 +143,7 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><span style="color:black;">APERTURA PROGRAM&Aacute;TICA:</span></strong></p>
             </td>
             <td colspan="5" style="width:400.6pt;border:solid windowtext 1.0pt;border-left:none;padding:  0cm 3.5pt 0cm 3.5pt;height:21.0pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="color:black;">40-000-150</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="color:black;">{{$ordencompra->approgramatica}}</span></p>
             </td>
             <td style="height:21.0pt;border:none;"><br></td>
         </tr>
@@ -152,7 +152,7 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><span style="color:black;">ACTIVIDAD / PROYECTO:</span></strong></p>
             </td>
             <td colspan="5" style="width:400.6pt;border-top:none;border-left:  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:18.95pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="color:black;">PROGRAMA PREVENCI&Oacute;N CONTROL Y ATENCI&Oacute;N DEL CORONAVIRUS</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="color:black;">{{$ordencompra->actividad}}</span></p>
             </td>
             <td style="height:18.95pt;border:none;"><br></td>
         </tr>
@@ -161,7 +161,7 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><span style="color:black;">PARTIDA DE GASTO:</span></strong></p>
             </td>
             <td colspan="5" style="width:400.6pt;border-top:none;border-left:  none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:18.95pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="color:black;">395</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="color:black;">{{$ordencompra->partida}}</span></p>
             </td>
             <td style="height:18.95pt;border:none;"><br></td>
         </tr>
@@ -170,7 +170,7 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><span style="color:black;">UNIDAD SOLICITANTE:</span></strong></p>
             </td>
             <td colspan="5" style="width:400.6pt;border-top:none;border-left:  none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:18.95pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="font-size:13px;color:black;">&nbsp;UNIDAD PROGRAMA COVID - 19&nbsp;</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="font-size:13px;color:black;">&nbsp;{{$ordencompra->solicitante}}&nbsp;</span></p>
             </td>
             <td style="height:18.95pt;border:none;"><br></td>
         </tr>
@@ -179,16 +179,16 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><span style="color:black;">PROVEEDOR:</span></strong></p>
             </td>
             <td colspan="2" style="width:196.0pt;border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:15.0pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="font-size:13px;color:black;">&nbsp;LENNY DANNY ANDIA SAGARDIA&nbsp;</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="font-size:13px;color:black;">&nbsp;{{$ordencompra->representante}}&nbsp;</span></p>
             </td>
             <td style="width:69.0pt;border:solid windowtext 1.0pt;border-top:  none;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:15.0pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:12px;color:black;">C.I: 1113159-1H</span></strong></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:12px;color:black;">C.I: {{$ordencompra->cedula}}</span></strong></p>
             </td>
             <td style="width:77.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:15.0pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">NIT &nbsp; &nbsp; 1113159011</span></strong></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">NIT &nbsp; &nbsp; {{$ordencompra->nitci}}</span></strong></p>
             </td>
             <td style="width:57.85pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:15.0pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">CEL: 73427925</span></strong></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">CEL: {{$ordencompra->telefono}}</span></strong></p>
             </td>
             <td style="height:15.0pt;border:none;"><br></td>
         </tr>
@@ -197,7 +197,7 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><span style="color:black;">MONTO TOTAL:</span></strong></p>
             </td>
             <td style="width:140.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:  0cm 3.5pt 0cm 3.5pt;height:20.25pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style='font-size:13px;font-family:"Tahoma","sans-serif";'>Bs 19.993,92</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style='font-size:13px;font-family:"Tahoma","sans-serif";'>Bs {{$ordencompra->precioreferencial}}</span></p>
             </td>
             <td colspan="4" style="width:260.6pt;border-top:none;border-left:  none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:20.25pt;">
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="font-size:13px;color:white;">diecinueve mil novecientos noventa y tres &nbsp;92/100 Bolivianos</span></p>
@@ -209,7 +209,7 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><span style="color:black;">PLAZO:</span></strong></p>
             </td>
             <td style="width:140.0pt;border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:17.25pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="color:black;">5 D&iacute;as Calendarios</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="color:black;">{{$ordencompra->plazoentrega}} D&iacute;as Calendarios</span></p>
             </td>
             <td style="width:56.0pt;border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:17.25pt;">
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="color:black;">&nbsp;</span></p>
@@ -230,7 +230,7 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><span style="font-size:14px;color:black;">MODALIDAD DE CONTRATACI&Oacute;N:</span></strong></p>
             </td>
             <td colspan="5" style="width:400.6pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:20.25pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="color:black;">Contrataci&oacute;n menor</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="color:black;">{{$ordencompra->modalidadcontratacion}}</span></p>
             </td>
             <td style="height:20.25pt;border:none;"><br></td>
         </tr>
@@ -239,7 +239,7 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><span style="color:black;">OBJETO DE LA CONTRATACI&Oacute;N:</span></strong></p>
             </td>
             <td colspan="5" style="width:400.6pt;border-top:none;border-left:  none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:28.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="font-size:13px;color:black;">&nbsp;ADQUISICI&Oacute;N DE MATERIALES DE ESCRITORIO PARA EL HOSPITAL FRAY QUEBRACHO Y &Aacute;REA ADMINISTRATIVA EL PROGRAMA COVID - 19&nbsp;</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="font-size:13px;color:black;">&nbsp;&nbsp;</span></p>
             </td>
             <td style="height:28.5pt;border:none;"><br></td>
         </tr>
@@ -266,143 +266,84 @@ function colorChanger2(el) {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="color:black;">Conforme a &nbsp;PROPUESTA presentada y de acuerdo a las Especificaciones Tecnicas / Terminos de Referencia, elaboradas por la Unidad Solicitante agradeceremos &nbsp;a Ud. sirva realizar la siguiente compra:</span></p>
             </td>
             <td style="height:34.5pt;border:none;"><br></td>
+
+            
         </tr>
+
+        <table style="margin: 0 auto;" width="80%" border="1" style="font-size:10px;color:black">
+                <tr>
+
+                    <th style="background:#A6A6A6;">N°</th>
+                    <th style="background:#A6A6A6;">NOMBRE DEL PRODUCTO</th>
+                    <th style="background:#A6A6A6;">ESPECIFICACIONES TECNICAS</th>
+                    <th style="background:#A6A6A6;">UNIDAD</th>
+                    <th style="background:#A6A6A6;">CANTIDAD</th>
+                    <th style="background:#A6A6A6;">PRECIO UNITARIO</th>
+                    <th style="background:#A6A6A6;">PRECIO TOTAL</th>
+
+
+
+                </tr>
+                @forelse ($prodserv as $key =>$prod)
+                <tr>
+                    <td>{{$key+1}}</td>
+                    <td>{{ $prod -> nombreprodserv}}</td>
+                    <td>{{ $prod -> detalleprodserv}}</td>
+                    <td>{{ $prod -> nombreumedida}}</td>
+                    <td>{{ $prod -> cantidad}}</td>
+                    <td>{{ $prod -> precio}}</td>
+                    <td>{{ $prod -> subtotal}}</td>
+
+
+
+                </tr>
+                @empty
+
+                @endforelse
+
+            </table>
+<table style="border-collapse:collapse;border:none;">
+    <tbody>
         <tr>
-            <td style="width:32.9pt;border:solid windowtext 1.0pt;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:34.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">N&ordm;</span></strong></p>
+            <td style="width: 41.3pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 21.75pt;vertical-align: top;"><br></td>
+            <td colspan="2" style="width: 377pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 21.75pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong>Son:  {{$valor_total2}}</strong></p>
             </td>
-            <td style="width:115.1pt;border:solid windowtext 1.0pt;border-left:  none;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:34.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><span style="font-size:13px;color:black;">NOMBRE &nbsp;DEL PRODUCTO</span></strong></p>
+            <td style="width: 76pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 21.75pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong>&nbsp;</strong></p>
             </td>
-            <td style="width:140.0pt;border:solid windowtext 1.0pt;border-left:  none;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:34.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">&nbsp;ESPECIFICACIONES T&Eacute;CNICAS</span></strong></p>
-            </td>
-            <td style="width:56.0pt;border:solid windowtext 1.0pt;border-left:  none;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:34.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">UNIDAD</span></strong></p>
-            </td>
-            <td style="width:69.0pt;border:solid windowtext 1.0pt;border-left:  none;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:34.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">CANTIDAD</span></strong></p>
-            </td>
-            <td style="width:77.75pt;border:solid windowtext 1.0pt;border-left:  none;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:34.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">PRECIO UNITARIO</span></strong></p>
-            </td>
-            <td style="width:57.85pt;border:solid windowtext 1.0pt;border-left:  none;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:34.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">PRECIO TOTAL</span></strong></p>
-            </td>
-            <td style="height:34.5pt;border:none;"><br></td>
-        </tr>
-        <tr>
-            <td style="width:32.9pt;border:solid windowtext 1.0pt;border-top:  none;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:25.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">1</span></strong></p>
-            </td>
-            <td style="width:115.1pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:25.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="font-size:9px;color:black;">ARCHIVADOR DE PALANCA</span></p>
-            </td>
-            <td style="width:140.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:25.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">TAMA&Ntilde;O OFICIO LOMO ANCHO Y CARTON PLASTIFICADO.</span></p>
-            </td>
-            <td style="width:56.0pt;border-top:none;border-left:none;border-bottom:  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:  white;padding:0cm 3.5pt 0cm 3.5pt;height:25.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">PIEZA</span></p>
-            </td>
-            <td style="width:69.0pt;border-top:none;border-left:none;border-bottom:  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:  white;padding:0cm 3.5pt 0cm 3.5pt;height:25.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">75</span></p>
-            </td>
-            <td style="width:77.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:25.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">22,00</span></p>
-            </td>
-            <td style="width:57.85pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:25.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">1650</span></p>
-            </td>
-            <td style="height:25.5pt;border:none;"><br></td>
-        </tr>
-        <tr>
-            <td style="width:32.9pt;border:solid windowtext 1.0pt;border-top:  none;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:35.25pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">2</span></strong></p>
-            </td>
-            <td style="width:115.1pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:35.25pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="font-size:9px;color:black;">CINTA DE EMBALAJE</span></p>
-            </td>
-            <td style="width:140.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:35.25pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">MEDIDAS 100X48 CMS, TRANSPARENTE MATERIAL DE POLIPROPILENO Y DE 100 MTS.</span></p>
-            </td>
-            <td style="width:56.0pt;border-top:none;border-left:none;border-bottom:  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:  white;padding:0cm 3.5pt 0cm 3.5pt;height:35.25pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">PIEZA</span></p>
-            </td>
-            <td style="width:69.0pt;border-top:none;border-left:none;border-bottom:  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:  white;padding:0cm 3.5pt 0cm 3.5pt;height:35.25pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">100</span></p>
-            </td>
-            <td style="width:77.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:35.25pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">15,40</span></p>
-            </td>
-            <td style="width:57.85pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:35.25pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">1540</span></p>
-            </td>
-            <td style="height:35.25pt;border:none;"><br></td>
-        </tr>
-        <tr>
-            <td style="width:32.9pt;border:solid windowtext 1.0pt;border-top:  none;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:24.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">3</span></strong></p>
-            </td>
-            <td style="width:115.1pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:24.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="font-size:9px;color:black;">CINTA DE MASKIN</span></p>
-            </td>
-            <td style="width:140.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:24.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">CINTA ADHESIVA DE PAPEL CREPE DE ALTO GRAMAJE DE 22 MM.</span></p>
-            </td>
-            <td style="width:56.0pt;border-top:none;border-left:none;border-bottom:  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:  white;padding:0cm 3.5pt 0cm 3.5pt;height:24.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">PIEZA</span></p>
-            </td>
-            <td style="width:69.0pt;border-top:none;border-left:none;border-bottom:  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:  white;padding:0cm 3.5pt 0cm 3.5pt;height:24.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">100</span></p>
-            </td>
-            <td style="width:77.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:24.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">7,70</span></p>
-            </td>
-            <td style="width:57.85pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:white;padding:0cm 3.5pt 0cm 3.5pt;height:24.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:9px;color:black;">770</span></p>
-            </td>
-            <td style="height:24.75pt;border:none;"><br></td>
-        </tr>
-        <tr>
-            <td style="width:32.9pt;padding:0cm 3.5pt 0cm 3.5pt;height:21.75pt;"><br></td>
-            <td colspan="4" style="width:380.1pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:21.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><span style="color:black;">Son: diecinueve mil novecientos noventa y tres &nbsp;92/100 Bolivianos</span></strong></p>
-            </td>
-            <td style="width:77.75pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:21.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:13px;color:black;">&nbsp;</span></strong></p>
-            </td>
-            <td style="width:57.85pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:21.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style='font-size:13px;font-family:"Tahoma","sans-serif";'>19.993,92</span></strong></p>
+            <td style="width: 68pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;height: 21.75pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong> {{$valor_total}}</strong></p>
             </td>
             <td style="height:21.75pt;border:none;"><br></td>
         </tr>
         <tr>
-            <td colspan="2" style="width:148.0pt;border:solid windowtext 1.0pt;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:15.0pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:12px;color:black;">LUGAR</span></strong></p>
+            <td style="width: 41.3pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 15pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong>LUGAR</strong></p>
             </td>
-            <td style="width:140.0pt;border:none;border-bottom:solid windowtext 1.0pt;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:15.0pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:12px;color:black;">FECHA DE INICIO</span></strong></p>
+            <td style="width: 156.8pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 15pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong>FECHA DE INICIO</strong></p>
             </td>
-            <td colspan="2" style="width:125.0pt;border:solid windowtext 1.0pt;border-right:solid black 1.0pt;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:15.0pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:12px;color:black;">FECHA DE CONCLUSI&Oacute;N</span></strong></p>
+            <td style="width: 220.2pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 15pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong>FECHA DE CONCLUSI&Oacute;N</strong></p>
             </td>
-            <td colspan="2" style="width:135.6pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:15.0pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="font-size:12px;color:black;">CONDICIONES DE PAGO</span></strong></p>
+            <td colspan="2" style="width: 144pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 15pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong>CONDICIONES DE PAGO</strong></p>
             </td>
             <td style="height:15.0pt;border:none;"><br></td>
         </tr>
         <tr>
-            <td colspan="2" rowspan="2" style="width:148.0pt;border:solid windowtext 1.0pt;border-top:none;padding:0cm 3.5pt 0cm 3.5pt;height:24.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="color:black;">YACUIBA</span></p>
+            <td rowspan="2" style="width: 41.3pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 24.75pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'>YACUIBA</p>
             </td>
-            <td rowspan="2" style="width:140.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:24.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="color:black;">28/4/2022</span></p>
+            <td rowspan="2" style="width: 156.8pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 24.75pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'>{{$ordencompra->fechainicio}}</p>
             </td>
-            <td colspan="2" rowspan="2" style="width:125.0pt;border-top:  none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:24.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="color:black;">2/5/2022</span></p>
+            <td rowspan="2" style="width: 220.2pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 24.75pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'>{{$ordencompra->fechaconclusion}}</p>
             </td>
-            <td colspan="2" rowspan="2" style="width:135.6pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:24.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="font-size:12px;color:black;">PAGO &Uacute;NICO &nbsp; &nbsp; CON CHEQUE A LA ENTREGA DEL BIEN</span></p>
+            <td colspan="2" rowspan="2" style="width: 144pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 24.75pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'>PAGO &Uacute;NICO &nbsp;CON CHEQUE A LA ENTREGA DEL BIEN</p>
             </td>
             <td style="height:24.75pt;border:none;"><br></td>
         </tr>
@@ -410,20 +351,20 @@ function colorChanger2(el) {
             <td style="height:13.45pt;border:none;"><br></td>
         </tr>
         <tr>
-            <td colspan="5" style="width:413.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:15.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="color:black;">APROBACI&Oacute;N</span></strong></p>
+            <td colspan="3" style="width: 418.3pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 15.75pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong>APROBACI&Oacute;N</strong></p>
             </td>
-            <td colspan="2" style="width:135.6pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:15.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="color:black;">ACEPTACI&Oacute;N</span></strong></p>
+            <td colspan="2" style="width: 144pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 15.75pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong>ACEPTACI&Oacute;N</strong></p>
             </td>
             <td style="height:15.75pt;border:none;"><br></td>
         </tr>
         <tr>
-            <td colspan="5" rowspan="4" style="width:413.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:15.0pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="color:black;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+            <td colspan="3" rowspan="4" style="width: 418.3pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 15pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
             </td>
-            <td colspan="2" rowspan="4" style="width: 135.6pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 3.5pt;height: 15pt;vertical-align: bottom;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><span style="color:black;">&nbsp;</span></p>
+            <td colspan="2" rowspan="4" style="width: 144pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 15pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'>&nbsp;</p>
             </td>
             <td style="height:15.0pt;border:none;"><br></td>
         </tr>
@@ -437,44 +378,53 @@ function colorChanger2(el) {
             <td style="height:25.5pt;border:none;"><br></td>
         </tr>
         <tr>
-            <td colspan="5" style="width:413.0pt;border-top:none;border-left:  solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:  solid black 1.0pt;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:33.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="color:black;">RESPONSABLE PROCESO DE CONTRATACI&Oacute;N - RPA &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></strong><strong><span style="font-size:13px;color:black;">FIRMA Y SELLO</span></strong></p>
+            <td colspan="3" style="width: 418.3pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 33.75pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong>RESPONSABLE PROCESO DE CONTRATACI&Oacute;N - RPA &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FIRMA Y SELLO</strong></p>
             </td>
-            <td colspan="2" style="width:135.6pt;border-top:none;border-left:  none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;background:#BFBFBF;padding:0cm 3.5pt 0cm 3.5pt;height:33.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri","sans-serif";text-align:center;'><strong><span style="color:black;">PROVEEDOR &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></strong><strong><span style="font-size:13px;color:black;">FIRMA Y SELLO</span></strong></p>
+            <td colspan="2" style="width: 144pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;height: 33.75pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong>PROVEEDOR &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FIRMA Y SELLO</strong></p>
             </td>
             <td style="height:33.75pt;border:none;"><br></td>
         </tr>
         <tr>
-            <td colspan="7" style="width:548.6pt;border-top:none;border-left:  solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:  solid black 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:42.0pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><u><span style="font-size:13px;color:black;">Decreto Supremo No 956, Articulo 2, P&aacute;rrafo I, &nbsp; &nbsp; se modifica el inciso cc), &nbsp;con el siguiente texto: &nbsp;cc) Orden de Compra u Orden de Servicio:</span></u></strong><strong><span style="font-size:13px;color:black;">&nbsp;</span></strong><span style="font-size:13px;color:black;">Es una solicitud escrita que formaliza un proceso de contrataci&oacute;n, que ser&aacute; aplicable s&oacute;lo en casos de adquisici&oacute;n de bienes o servicios generales de entrega o prestaci&oacute;n, en un plazo no mayor a quince ( 15 ) &nbsp;d&iacute;as calendario.&rdquo;</span></p>
+            <td colspan="5" style="width: 562.3pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 42pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><u>Decreto Supremo No 956, Articulo 2, Parrafo I, &nbsp;se modifica el insiso cc), &nbsp;con el siguiente texto: &nbsp;cc) Orden de Compra u Orden de Servicio:</u>&nbsp;</strong>Es una solicitud escrita que formaliza un proceso de contrataci&oacute;n, que ser&aacute; aplicable s&oacute;lo en casos de adquisici&oacute;n de bienes o servicios generales de entrega o prestaci&oacute;n, en un plazo no mayor a quince ( 15 ) &nbsp;d&iacute;as calendario.&rdquo;</p>
             </td>
             <td style="height:42.0pt;border:none;"><br></td>
         </tr>
         <tr>
-            <td colspan="7" style="width:548.6pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:none;border-right:solid black 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:15.0pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><u><span style="color:black;">NOTA:</span></u></strong></p>
+            <td colspan="5" style="width: 562.3pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 15pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><strong><u>NOTA:</u></strong></p>
             </td>
             <td style="height:15.0pt;border:none;"><br></td>
         </tr>
         <tr>
-            <td colspan="7" style="width:548.6pt;border-top:none;border-left:  solid windowtext 1.0pt;border-bottom:none;border-right:solid black 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:13.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="font-size:13px;color:black;">*En caso de incumplimiento con la entrega del bien se proceder&aacute; de acuerdo a normativa vigente.</span></p>
+            <td colspan="5" style="width: 562.3pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.5pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'>*En caso de incumplimiento con la entrega del bien se proceder&aacute; de acuerdo a normativa vigente.</p>
             </td>
             <td style="height:13.5pt;border:none;"><br></td>
         </tr>
         <tr>
-            <td colspan="7" style="width:548.6pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:none;border-right:solid black 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:13.5pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="font-size:13px;color:black;">* Los gastos no consignados en la presente ORDEN no ser&aacute;n reconocidos.</span></p>
+            <td colspan="5" style="width: 562.3pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 13.5pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'>* Los gastos no consignados en la presente ORDEN no ser&aacute;n reconocidos.</p>
             </td>
             <td style="height:13.5pt;border:none;"><br></td>
         </tr>
         <tr>
-            <td colspan="7" style="width:548.6pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;padding:0cm 3.5pt 0cm 3.5pt;height:15.75pt;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'><span style="font-size:13px;color:black;">* La entrega deber&aacute; efectuarse con ACTA DE RECEPCI&Oacute;N</span></p>
+            <td colspan="5" style="width: 562.3pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;height: 15.75pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:.0001pt;margin-left:0cm;line-height:  normal;font-size:15px;font-family:"Calibri","sans-serif";'>* La entrega deber&aacute; efectuarse con ACTA DE RECEPCI&Oacute;N</p>
             </td>
             <td style="height:15.75pt;border:none;"><br></td>
         </tr>
+    </tbody>
+</table>
+
+        
+        </tr>
+
+   
+        
+      
     </tbody>
 </table>
    

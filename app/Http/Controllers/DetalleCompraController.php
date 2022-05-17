@@ -358,8 +358,57 @@ class DetalleCompraController extends Controller
     //---------------------------------------------------
     public function orden($id)
     {
-           
-       return view('compras.detalle.orden');
+        $ordencompra = DB::table('ordencompra as o') 
+        ->select('o.numinforme','o.fechaorden','o.nombrecompra','o.solicitante','o.modalidadcontratacion',
+        'o.precioreferencial','o.proveedor','o.representante','o.cedula','o.nitci','o.telefono',
+        'o.approgramatica','o.partida','o.actividad','o.nordencompra','o.npreventivo',
+        'o.hojaruta','o.numcontrolinterno','o.plazoentrega','o.fechainicio',
+        'o.fechaconclusion','o.fechainvitacion','o.fechaaceptacion','o.codciteinvitacion',
+        'o.horapresentacion', 'o.cedulaaceptacion','o.numnotaadjudicacion','o.fechainiciosolproc',
+        'o.controlinter','o.autoridadsolicitante')
+        -> where('o.compra_idcompra','=', $id)->first();
+
+
+        $ordendoc= DB::table('ordencompra as o') 
+        ->join('ordendoc as od', 'od.idorden', '=', 'o.idorden')
+        ->join('docorden as doc', 'doc.iddoc', '=', 'od.iddoc')
+        ->select('doc.nombredoc')
+        -> where('o.compra_idcompra','=', $id)->get();
+
+        $fechaInvitacion =$ordencompra->fechainvitacion;
+        $fechaInvitacion = Carbon::parse($fechaInvitacion)->isoFormat('D \d\e MMMM \d\e\l Y');
+
+        $fechaAceptacion =$ordencompra->fechaaceptacion;
+        $fechaAceptacion = Carbon::parse($fechaAceptacion)->isoFormat('D \d\e MMMM \d\e\l Y');
+        $responsables = DB::table('responsables')->first();
+
+
+        $fechaorden =$ordencompra->fechaorden;
+        $fechaorden = Carbon::parse($fechaorden)->isoFormat('D \d\e MMMM \d\e\l Y');
+
+        $fechainiciosolici =$ordencompra->fechainiciosolproc;
+        $fechainiciosolici = Carbon::parse($fechainiciosolici)->isoFormat('D \d\e MMMM');
+
+
+        // tomar en cuenta $compra = CompraModel::find($id2);
+        $prodserv = DB::table('detallecompra as d') 
+        ->join('prodserv as ps', 'ps.idprodserv', '=', 'd.idprodserv')
+        ->join('compra as c', 'c.idcompra', '=', 'd.idcompra')
+        ->join('partida as par', 'par.idpartida', '=', 'ps.partida_idpartida')
+        ->join('umedida as u', 'u.idumedida', '=', 'ps.umedida_idumedida')
+        ->select('d.iddetallecompra', 'c.idcompra','ps.nombreprodserv','ps.detalleprodserv','par.codigopartida','u.nombreumedida','d.cantidad','d.subtotal','d.precio')
+         //-> where('nombreumedida','LIKE','%'.$querry.'%') 
+        -> where('d.idcompra','=', $id)-> get();        
+
+        $valor_total = $prodserv->sum('subtotal');
+        $valor_total2=NumerosEnLetras::convertir($valor_total,'Bolivianos',true);
+        $responsables = DB::table('responsables')->first(valor_total2);
+       // dd($prodserv);
+
+       return view('compras.detalle.orden',['valor_total2'=>$valor_total2,'responsables'=>$responsables,'prodserv'=>$prodserv,'valor_total'=>$valor_total,'fechainiciosolici'=>$fechainiciosolici,'ordencompra'=>$ordencompra,'ordendoc'=>$ordendoc,'responsables'=>$responsables,'fechaInvitacion'=>$fechaInvitacion,'fechaAceptacion'=>$fechaAceptacion,'fechaorden'=>$fechaorden]);   
+        
+
+       //return view('compras.detalle.orden');
     }
 
 
@@ -549,13 +598,13 @@ class DetalleCompraController extends Controller
         $ordendoc= DB::table('ordencompra as o') 
         ->join('ordendoc as od', 'od.idorden', '=', 'o.idorden')
         ->join('docorden as doc', 'doc.iddoc', '=', 'od.iddoc')
-        ->select('doc.nombredoc')
+        ->select('od.idordendoc','doc.nombredoc')
         -> where('o.compra_idcompra','=', $id)->get();
 
         $docorden= DB::table('docorden as doc') 
         ->select('doc.nombredoc','doc.iddoc')
         -> where('doc.estadodoc','=', 1)->get();
-
+        //dd($ordendoc);
         return view('compras/detalle/principalorden', compact('ordencompra','id','ordendoc','docorden','idordencompra'));
         //return redirect('principalorden');
          }
@@ -610,5 +659,14 @@ class DetalleCompraController extends Controller
       
     }
 
+    public function destroyed2($id)
+    {
+ 
+        $ordendoc = OrdenDocModel::find($id);
+        $ordendoc->delete();
     
+        //dd($detalle);
+        //return redirect('compras/detalle');
+      return back();
+    }
 }

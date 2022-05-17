@@ -31,7 +31,7 @@
                 <div class="form-group row">
                     <label for="idemp" class="required col-md-4 col-form-label text-md-right">{{ __('Empleado') }}</label>
 
-                    <div class="col-md-6">
+                    <div class="col-md-6" id="permissions-select2">
                         <select id="idemp" type="text" class="form-control @error('idemp') is-invalid @enderror" name="idemp" required autocomplete="idemp" autofocus>
                             <option value=""  selected hidden>Seleccione</option>
 
@@ -111,4 +111,21 @@
         </div>
     </div>
 
+@endsection
+@section('scripts')
+<script>
+var permission_select2 = new SlimSelect({
+    select: '#permissions-select2 select',
+    //showSearch: false,
+    placeholder: 'Select Permissions',
+    deselectLabel: '<span>&times;</span>',
+    hideSelectedOption: true,
+})
+$(document).ready(function() {
+    $('.input-group.date').datepicker({
+        format: "yyyy-mm-dd"
+    });
+
+});
+</script>
 @endsection

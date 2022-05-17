@@ -113,16 +113,18 @@
                 </tr>
                 @forelse ($ordendoc as $orden)
                 <tr>
-
+                
                     <td>{{ $orden -> nombredoc}}</td>
 
                     <td>
-                        <form class="d-inline-block" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" onclick="return confirm('Esta Ud. Seguro..?')"
-                                class="btn btn-outline-danger">Eliminar</button>
-                        </form>
+                    <form action="{{ route('DetalleCompraController.eliminar2', $orden -> idordendoc) }}" class="d-inline-block"
+                        method="get">
+                        @csrf
+                        
+                        <button type="submit" onclick="return confirm('Esta Ud. Seguro..?')"
+                            class="btn btn-outline-danger">Eliminar</button>
+                    </form>
+
 
                     </td>
 

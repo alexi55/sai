@@ -57,7 +57,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     //compras categorias prograticas
     Route::resource('compras/catprog', 'CatProgController');
     //compras pedido
-    //Route::get('compras/pedido/{id}/editar', 'CompraController@editar');
+    Route::get('compras/pedido/{id}/editar', 'CompraController@editar');
     Route::get('compras/detalle/{id}/invitacion', 'DetalleCompraController@invitacion');
     Route::get('compras/detalle/{id}/aceptacion', 'DetalleCompraController@aceptacion');
     Route::get('compras/detalle/{id}/cotizacion', 'DetalleCompraController@cotizacion');
@@ -68,7 +68,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     //compras orden de compra
     Route::POST('compras/detalle/principal', 'DetalleCompraController@crearOrden')->name('DetalleCompraController.crearOrden');
     Route::POST('compras/detalle/principalorden', 'DetalleCompraController@crearOrdendoc')->name('DetalleCompraController.crearOrdendoc');
-
+    Route::get('compras/detalle/{id}/destroyed2', 'DetalleCompraController@destroyed2')->name('DetalleCompraController.eliminar2');
 
 
 
