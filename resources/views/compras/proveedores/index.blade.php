@@ -38,6 +38,9 @@
                     @can('proveedores_edit')
                     <a href="proveedores/{{$proveed -> idproveedor}}/edit" class="btn btn-outline-warning">Editar</a>
                     @endcan
+                    @can('proveedores_edit')
+                    <a href="{{route('admin.users.edit', $proveed -> idproveedor)}}" class="btn btn-outline-warning">Documentos</a>
+                    @endcan
 
                 </td>
             </tr>
