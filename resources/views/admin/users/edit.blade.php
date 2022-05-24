@@ -4,6 +4,14 @@
 
 <div class="card">
     <div class="card-header">{{ __('Editar usuario') }}</div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <a href="{{ url('/admin/users') }}" class="btn blue darken-4 text-black "><i
+                        class="fa fa-plus-square"></i> Volver atras</a>
+            </div>
+        </div>
+    </div>
 
     <div class="card-body">
         <form method="POST" action="{{ route('admin.users.update', $user->id) }}">

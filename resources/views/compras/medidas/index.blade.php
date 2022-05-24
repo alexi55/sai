@@ -7,7 +7,7 @@
     <em> {!! session('message') !!}</em>
 </div>
 @endif
-<div class="card col-md-8">
+<div class="card col-md-10">
     <div class="card-header">{{ __('Lista de Medidas') }}</div>
 
     <div class="card-body table-responsive">

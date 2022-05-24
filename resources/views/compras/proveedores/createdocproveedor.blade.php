@@ -23,7 +23,7 @@
 
             <div class="form-group row">
                 <label for="nombre"
-                    class="required col-md-4 col-form-label text-md-right">{{ __('Nombre Documento') }}</label>
+                    class="required col-md-4 col-form-label text-md-right">{{ __('Nombre del Documento') }}</label>
 
                 <div class="col-md-6">
                     <input type="text" name="nombredocumento" class="form-control" placeholder="Nombre..."
@@ -33,7 +33,7 @@
 
             <div class="form-group row">
                 <label for="documento"
-                    class="required col-md-4 col-form-label text-md-right">{{ __('Archivo') }}</label>
+                    class="required col-md-4 col-form-label text-md-right">{{ __('Archivo (solo .pdf)') }}</label>
 
                 <div class="col-md-6">
                     <input type="file" name="documento" id="file">

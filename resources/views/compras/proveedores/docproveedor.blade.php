@@ -5,10 +5,19 @@
 <div class="card col-md-10">
     <div class="card-header">{{ __('Lista de Documentos') }}</div>
 
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <a href="{{ url('/compras/proveedores') }}" class="btn blue darken-4 text-black "><i
+                        class="fa fa-plus-square"></i> Volver atras</a>
+            </div>
+        </div>
+    </div>
+
     <div class="card-body table-responsive">
 
     @can('proveedores_create')
-    <a href="{{ route('ProveedoresController.createdoc', $idproveedor) }}" class="btn btn-outline-warning">Agregar Registro</a>
+    <a href="{{ route('ProveedoresController.createdoc', $idproveedor) }}" class="btn btn-outline-warning">Agregar Nuevo Documento</a>
         @endcan
 
         <br /><br />
@@ -18,7 +27,7 @@
             <tr class="bg-info text-light">
 
                 <th>ID</th>
-                <th>Nombre Documento</th>
+                <th>Nombre del Documento</th>
                 <th>Documento</th>
                 <th>Opciones</th>
 

@@ -16,10 +16,10 @@
                 @csrf
 
                 <div class="form-group row">
-                    <label for="codigo" class="required col-md-4 col-form-label text-md-right">{{ __('Codigo') }}</label>
+                    <label for="codigo" class="required col-md-4 col-form-label text-md-right" required>{{ __('Codigo') }}</label>
 
                     <div class="col-md-6">
-                    <input type="text" name="codigo" class="form-control" placeholder="Nombre..." onkeyup="javascript:this.value=this.value.toUpperCase();" >
+                    <input type="text" name="codigo" class="form-control" placeholder="Codigo..." onkeyup="javascript:this.value=this.value.toUpperCase();" >
                     </div>
                 </div>
 

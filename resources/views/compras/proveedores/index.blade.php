@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="card col-md-10">
+<div class="card col-md-12">
     <div class="card-header">{{ __('Lista de Proveedores') }}</div>
 
     <div class="card-body table-responsive">
@@ -19,6 +19,8 @@
 
                 <th>ID</th>
                 <th>Nombre Proveedor</th>
+                <th>Representante</th>
+                <th>Cedula</th>
                 <th>Nit</th>
                 <th>Telefono</th>
                 <th>Opciones</th>
@@ -30,7 +32,9 @@
 
                 <td>{{$proveed -> idproveedor}}</td>
                 <td>{{$proveed -> nombreproveedor}}</td>
+                <td>{{$proveed -> representante}}</td>
                 <td>{{$proveed -> cedula}}</td>
+                <td>{{$proveed -> nitCi}}</td>
                 <td>{{$proveed -> telefonoproveedor}}</td>
 
 

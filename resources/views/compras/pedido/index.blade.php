@@ -3,11 +3,11 @@
 @section('content')
 
 <div class="card">
-    <div class="card-header">{{ __('Lista de Medidas') }}</div>
+    <div class="card-header">{{ __('Lista de Compras') }}</div>
  
     <div class="card-body table-responsive">
     
-        <a href="{{ route('pedido.create') }}" class="btn btn-outline-primary">Agregar Registro</a>
+        <a href="{{ route('pedido.create') }}" class="btn btn-outline-primary">Agregar Compra</a>
 
         <br /><br />
 
@@ -16,8 +16,8 @@
         <table class="table table-borderless table-hover">
         <tr>
                     <th>Id</th>
-                    <th>Objeto</th>
                     <th>Area</th>
+                    <th>Objeto</th>
                     <th >Proveedor</th>
                     <th>Preventivo</th>
                     <th>Num. Compra</th>
