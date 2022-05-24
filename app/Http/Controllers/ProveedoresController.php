@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ProveedoresModel;
+use App\Models\DocProveedorModel;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use DB;
@@ -84,6 +85,18 @@ class ProveedoresController extends Controller
         
       }
 
+      public function editardoc($idproveedor){
+        //obtener las categorias
+        $docproveedor = DB::table('docproveedor as d') 
+        ->join('proveedores as p', 'p.idproveedor', '=', 'd.idproveedor')
+        ->select('d.nombredocumento','d.iddocproveedor','d.documento')
+        -> where('d.idproveedor','=', $idproveedor)-> get();
+       // dd($docproveedor);
+         return view('compras.proveedores.docproveedor', ["docproveedor" => $docproveedor,"idproveedor" => $idproveedor]);
+    
+        
+      }
+
 
 
       /**llamar a la vista create.. */
@@ -93,6 +106,59 @@ public function create()
     return view('compras.proveedores.create');
    // return view("compras.productos.create");
 }
+
+public function createdoc($idproveedor)
+{
+   // dd($idproveedor);
+    //return redirect('compras/proveedores/createdocproveedor');
+    return view('compras.proveedores.createdocproveedor', ["idproveedor" => $idproveedor]);
+}
+
+
+public function insertar(Request $request)
+{
+   
+   // return view('compras.proveedores.docproveedor');
+   // return view("compras.productos.create");
+   //return redirect('compras/proveedores/docproveedor');
+   //return ('compras/proveedores/docproveedor');
+   $idproveedor=$request->input('proveedor');
+  // dd($idproveedor);
+   //return redirect()->action('App\Http\Controllers\ProveedoresController@editardoc', ['idproveedor' => $idproveedor]);
+   //return view('admin.users.edit', compact('idproveedor',  $idproveedor));
+   
+   if($request->hasFile("documento")){
+    $file=$request->file("documento");
+    $file_name = $file->getClientOriginalName();
+    $nombre = "pdf_".time().".".$file->guessExtension();
+
+    $ruta = public_path("/Archivos/".$nombre);
+
+    if($file->guessExtension()=="pdf"){
+        copy($file, $ruta);
+    }else{
+        return back()->with(["error"=>"File not available!"]);
+    }
+
+
+
+}
+   
+   
+
+   $docproveedor = new DocProveedorModel();
+   $docproveedor -> nombredocumento = $request->input('nombredocumento');
+   $docproveedor -> documento =  $nombre;
+   $docproveedor -> idproveedor =$idproveedor;
+   $docproveedor -> estadodocproveedor = 1;
+   
+ 
+   $docproveedor->save();
+
+
+   return redirect()->action('App\Http\Controllers\ProveedoresController@editardoc', [$idproveedor]);
+}
+
     /**
      * Update the specified resource in storage.
      *

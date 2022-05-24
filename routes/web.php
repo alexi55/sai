@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MedidaController;
+use App\Http\Controllers\ProveedoresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     Route::resource('compras/empleados', 'EmpleadosController');
     //compras proveedores
     Route::resource('compras/proveedores', 'ProveedoresController');
+    //Route::get('compras/proveedores/{id}/editardoc', 'ProveedoresController@editardoc');
+    Route::get('compras/proveedores/{id}/editardoc', ['uses' => 'ProveedoresController@editardoc','as' => 'admin.users.edit']);
+   // Route::get('compras/proveedores/{id}/createdoc', 'ProveedoresController@createdoc');
+    //Route::get('compras/proveedores/{id}/createdocproveedor', 'ProveedoresController@createdoc');
+    Route::get('compras/proveedores/{id}/createdocproveedor', 'ProveedoresController@createdoc')->name('ProveedoresController.createdoc');
+    //Route::POST('insertar', [ProveedoresController::class,'insertar']);
+    Route::POST('compras/proveedores/insertar', 'ProveedoresController@insertar')->name('ProveedoresController.insertar');
+
+    
     //compras areas
     Route::resource('compras/areas', 'AreasController');
     //compras programas

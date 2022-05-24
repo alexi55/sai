@@ -28,8 +28,8 @@
 
                             <a class="sidebar-link has-arrow waves-effect waves-dark selected" href="javascript:void(0)"
                                 aria-expanded="false">
-                                
-                                <i  class="mdi mdi-apps" aria-hidden="true"></i>
+
+                                <i class="mdi mdi-apps" aria-hidden="true"></i>
                                 <span class="hide-menu" style="color:#00688A;font-weight: bold;">Panel de Compras</span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level
@@ -68,39 +68,25 @@
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('productos.index') }}" aria-expanded="false">
                                         <i class="mdi mdi-collage" aria-hidden="true"></i>
-                                        <span class="hide-menu" style="color:black;font-weight: bold;">Productos-Items</span>
+                                        <span class="hide-menu"
+                                            style="color:black;font-weight: bold;">Productos-Items</span>
                                     </a>
                                 </li>
                                 @endcan
-                                @can('empleados_access')
-                                <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
-                                        href="{{ route('empleados.index') }}" aria-expanded="false">
-                                        <i class="mdi mdi-account-box" aria-hidden="true"></i>
-                                        <span class="hide-menu" style="color:black;font-weight: bold;">Empleados</span>
-                                    </a>
-                                </li>
-                                @endcan
+
 
                                 @can('proveedores_access')
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('proveedores.index') }}" aria-expanded="false">
                                         <i class="mdi mdi-briefcase" aria-hidden="true"></i>
-                                        <span class="hide-menu" style="color:black;font-weight: bold;">Proveedores</span>
+                                        <span class="hide-menu"
+                                            style="color:black;font-weight: bold;">Proveedores</span>
                                     </a>
                                 </li>
                                 @endcan
 
-                                @can('areas_access')
-                                <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
-                                        href="{{ route('areas.index') }}" aria-expanded="false">
-                                        <i class="mdi mdi-view-sequential" aria-hidden="true"></i>
-                                        <span class="hide-menu" style="color:black;font-weight: bold;">Areas</span>
-                                    </a>
-                                </li>
-                                @endcan
+
 
                                 @can('programas_access')
                                 <li class="sidebar-item">
@@ -117,12 +103,13 @@
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('catprog.index') }}" aria-expanded="false">
                                         <i class="mdi mdi-altimeter" aria-hidden="true"></i>
-                                        <span class="hide-menu" style="color:black;font-weight: bold;">Cat.Programatica</span>
+                                        <span class="hide-menu"
+                                            style="color:black;font-weight: bold;">Cat.Programatica</span>
                                     </a>
                                 </li>
                                 @endcan
 
-                             
+
                             </ul>
                         </li>
                         @endcanany
@@ -148,13 +135,39 @@
                                 aria-expanded="false">
 
                                 <i class="fab fa-expeditedssl" aria-hidden="true"></i>
-                                <span class="hide-menu" style="color:#00688A;font-weight: bold;">Panel de Usuarios</span>
+                                <span class="hide-menu" style="color:#00688A;font-weight: bold;">Panel de
+                                    Usuarios</span>
                             </a>
-                            <ul aria-expanded="false" class="collapse first-level
+                            <ul aria-expanded="false"
+                                class="collapse first-level
                                 @if(request()->is('admin/users') || request()->is('admin/users/*')) in @endif
                                 @if(request()->is('admin/roles') || request()->is('admin/roles/*')) in @endif
-                                @if(request()->is('admin/permissions') || request()->is('admin/permissions/*')) in @endif
-                            ">
+                                @if(request()->is('admin/permissions') || request()->is('admin/permissions/*')) in @endif">
+
+                               
+
+                                @can('empleados_access')
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
+                                        href="{{ route('empleados.index') }}" aria-expanded="false">
+                                        <i class="mdi mdi-account-box" aria-hidden="true"></i>
+                                        <span class="hide-menu" style="color:black;font-weight: bold;">Empleados</span>
+                                    </a>
+                                </li>
+                                @endcan
+
+                                @can('areas_access')
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
+                                        href="{{ route('areas.index') }}" aria-expanded="false">
+                                        <i class="mdi mdi-view-sequential" aria-hidden="true"></i>
+                                        <span class="hide-menu" style="color:black;font-weight: bold;">Areas</span>
+                                    </a>
+                                </li>
+                                @endcan
+
+
+
                                 @can('users_access')
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"

@@ -16,10 +16,9 @@
     <label style="color:red;"
         class="required col-md-4 col-form-label text-md-right">{{ __('Los campos marcados con color ROJO son obligarios') }}</label>
     <div class="card-body">
-        <input type="text" class="form-control" name="solicitante" placeholder="" value="{{$idcompra}}">
         <form action="{{ route('DetalleCompraController.crearOrden') }}" method="POST">
             @csrf
-            <input name="idcompra" type="text" value="{{$idcompra}}">
+            <input name="idcompra" hidden type="text" value="{{$idcompra}}">
 
             <div class="form-group row">
                 <label for="informe" style="color:red;font-weight: bold;"

@@ -20,22 +20,21 @@
                 <label for="name" class="required col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
                 <div class="col-md-6">
                     <textarea id="name" type="text" name="nombre" placeholder="Nombre..." cols="50" rows="2"
-                        
                         onkeyup="javascript:this.value=this.value.toUpperCase();"></textarea>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="detalle" class="required col-md-4 col-form-label text-md-right">{{ __('Detalle') }}</label>
                 <div class="col-md-6">
-                    <textarea  id="detalle" type="text" name="detalle" cols="50" rows="4" placeholder="Detalle..."
+                    <textarea id="detalle" type="text" name="detalle" cols="50" rows="4" placeholder="Detalle..."
                         onkeyup="javascript:this.value=this.value.toUpperCase();"></textarea>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="precio" class="required col-md-4 col-form-label text-md-right">{{ __('Precio') }}</label>
                 <div class="col-md-6">
-                    <input id="precio"  name="precio" type="number" placeholder="0.0" step="0.01" placeholder="Precio..."
-                        >
+                    <input id="precio" name="precio" type="number" placeholder="0.0" step="0.01"
+                        placeholder="Precio...">
                 </div>
             </div>
 
@@ -53,9 +52,9 @@
             </div>
 
             <div class="form-group row">
-            <label class="required col-md-4 col-form-label text-md-right">{{ __('Medida') }}</label>
+                <label class="required col-md-4 col-form-label text-md-right">{{ __('Medida') }}</label>
                 <div class="col-md-6" id="permissions-select2">
-                    
+
                     <select name="idmedida" id="permissions" class="col-md-6">
                         @foreach ($medidas as $med)
 
