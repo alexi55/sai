@@ -32,7 +32,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($compras as $comp)
-                                        <tr class="font-verdana">
+                                        <tr class="font-verdana-bg">
                                             <td class="text-center p-1">{{$comp->idcompra}}</td>
                                             <td class="text-justify p-1">{{$comp->objeto}}</td>
                                             <td class="text-center p-1">{{$comp->nombrearea}}</td>

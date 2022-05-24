@@ -20,7 +20,7 @@
                         <div class="table-responsive table-striped">
                             <table id="dataTable" class="display responsive table-bordered" style="width:100%">
                                 <thead>
-                                    <tr>
+                                    <tr class="font-verdana-bg">
                                         <td class="text-center p-1"><b>ID</b></td>
                                         <td class="text-center p-1"><b>OBJETO</b></td>
                                         <td class="text-center p-1"><b>AREA</b></td>
@@ -52,12 +52,12 @@
                 "serverSide":true,
                 "ajax":"{{ route('compras.pedido.indexAjax') }}",
                 "columns": [
-                    {data: 'idcompra', name:'c.idcompra', class:'text-center p-1'},
-                    {data: 'objeto', name:'c.objeto', class:'text-justify p-1'},
-                    {data: 'nombrearea', name:'a.nombrearea', class:'text-center p-1'},
-                    {data: 'nombreproveedor', name:'p.nombreproveedor', class:'text-center p-1'},
-                    {data: 'preventivo', name:'c.preventivo', class:'text-center p-1'},
-                    {data: 'numcompra', name:'c.numcompra', class:'text-center p-1'},
+                    {data: 'idcompra', name:'c.idcompra', class:'text-center p-1 font-verdana-bg'},
+                    {data: 'objeto', name:'c.objeto', class:'text-justify p-1 font-verdana-bg'},
+                    {data: 'nombrearea', name:'a.nombrearea', class:'text-center p-1 font-verdana-bg'},
+                    {data: 'nombreproveedor', name:'p.nombreproveedor', class:'text-center p-1 font-verdana-bg'},
+                    {data: 'preventivo', name:'c.preventivo', class:'text-center p-1 font-verdana-bg'},
+                    {data: 'numcompra', name:'c.numcompra', class:'text-center p-1 font-verdana-bg'},
                     /*{data: 'status_search', name:'status_search', class:'text-center p-1 font-verdana',render: function(data, type, row){
                         if(row.status_search === 'BORRADOR'){
                             return '<span class="btn btn-xs btn-secondary font-verdana-sm"><b>BORRADOR</b></span>';
