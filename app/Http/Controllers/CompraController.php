@@ -17,43 +17,65 @@ use DB;
 
 class CompraController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
-        $query=trim($request->get('searchText'));
-        $query2=trim($request->get('searchText2'));
-        $query3=trim($request->get('searchText3'));
+    public function index(){
         $compras = DB::table('compra as c') 
-        ->join('proveedores as p', 'p.idproveedor', '=', 'c.idproveedor')
-        ->join('catprogramatica as cat', 'cat.idcatprogramatica', '=', 'c.idcatprogramatica')
-        ->join('programa as prog', 'prog.idprograma', '=', 'c.idprograma')
-        ->join('areas as a', 'a.idarea', '=', 'c.idarea')
-        ->select('c.idcompra','a.nombrearea','c.objeto', 'c.justificacion','p.nombreproveedor','c.preventivo','c.numcompra','cat.codcatprogramatica','prog.nombreprograma')
-        //-> where('d.idcompra','=', $id2)
-        ->where('a.nombrearea','LIKE','%'.$query.'%')
-        ->where('p.nombreproveedor','LIKE','%'.$query2.'%')
-        ->where('c.preventivo','LIKE','%'.$query3.'%')
-        -> orderBy('c.idcompra', 'desc')
-        -> paginate(7);
-     
-    //dd($compras);
-        return view('compras.pedido.index',['compras'=>$compras]);
+                    ->join('proveedores as p', 'p.idproveedor', 'c.idproveedor')
+                    ->join('catprogramatica as cat', 'cat.idcatprogramatica', 'c.idcatprogramatica')
+                    ->join('programa as prog', 'prog.idprograma', 'c.idprograma')
+                    ->join('areas as a', 'a.idarea', 'c.idarea')
+                    ->select('c.idcompra','a.nombrearea','c.objeto', 'c.justificacion','p.nombreproveedor','c.preventivo','c.numcompra','cat.codcatprogramatica',
+                            'prog.nombreprograma')
+                    -> orderBy('c.idcompra', 'desc')
+                    -> paginate(7);
+        $back = true;
+        return view('compras.pedido.index',['compras'=>$compras, 'back' =>$back]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function search(Request $request){
+        $query = trim($request->get('searchText'));
+        $query2 = trim($request->get('searchText2'));
+        $query3 = trim($request->get('searchText3'));
+        $compras = DB::table('compra as c') 
+                    ->join('proveedores as p', 'p.idproveedor', 'c.idproveedor')
+                    ->join('catprogramatica as cat', 'cat.idcatprogramatica', 'c.idcatprogramatica')
+                    ->join('programa as prog', 'prog.idprograma', 'c.idprograma')
+                    ->join('areas as a', 'a.idarea', 'c.idarea')
+                    ->select('c.idcompra','a.nombrearea','c.objeto', 'c.justificacion','p.nombreproveedor','c.preventivo','c.numcompra','cat.codcatprogramatica',
+                            'prog.nombreprograma')
+                    ->where('a.nombrearea','LIKE','%'.$query.'%')
+                    ->where('p.nombreproveedor','LIKE','%'.$query2.'%')
+                    ->where('c.preventivo','LIKE','%'.$query3.'%')
+                    -> orderBy('c.idcompra', 'desc')
+                    -> paginate(7);
+        $back = false;
+        return view('compras.pedido.indexSearch',['compras'=>$compras, 'back' =>$back]);
+    }
 
+    public function indexAjax(){
+        return datatables()
+            ->query(DB::table('compra as c')
+            ->join('proveedores as p', 'p.idproveedor', 'c.idproveedor')
+            ->join('catprogramatica as cat', 'cat.idcatprogramatica', 'c.idcatprogramatica')
+            ->join('programa as prog', 'prog.idprograma', 'c.idprograma')
+            ->join('areas as a', 'a.idarea', 'c.idarea')
+            ->select('c.idcompra','a.nombrearea','c.objeto','c.justificacion','p.nombreproveedor','c.preventivo','c.numcompra','cat.codcatprogramatica',
+                    'prog.nombreprograma')
+            /*->select('a.id as comprobante_id','a.fecha','a.nro_comprobante','a.concepto','b.empresa','a.monto','a.status','a.copia',
+                    DB::raw("if(a.status = '0','BORRADOR',if(a.status = '1', 'APROBADO','ANULADO')) as status_search"),
+                    DB::raw("DATE_FORMAT(a.fecha,'%d/%m/%Y') as fecha_comprobante"))*/)
+            /*->filterColumn('status_search', function($query, $keyword) {
+                $sql = "if(a.status = '0','BORRADOR',if(a.status = '1', 'APROBADO', 'ANULADO'))  like ?";
+                $query->whereRaw($sql, ["%{$keyword}%"]);
+                })*/
+            /*->filterColumn('fecha_comprobante', function($query, $keyword) {
+                $sql = "DATE_FORMAT(a.fecha,'%d/%m/%Y')  like ?";
+                $query->whereRaw($sql, ["%{$keyword}%"]);
+                })*/
+            ->addColumn('btnActions','compras.pedido.partials.actions')
+            ->rawColumns(['btnActions'])
+            ->toJson();
+    }
 
-
-
-     
     public function create()
     {
         $proveedores = DB::table('proveedores')->get();

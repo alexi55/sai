@@ -15,7 +15,10 @@
     <link href="{{ asset('admin_assets/css/style.min.css') }}" rel="stylesheet">
     <!-- slim select -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/slim-select/slimselect.min.css') }}">
-
+    <link rel="stylesheet" href="/css/style.css">
+    {{--datatables Css--}}
+    <link rel="stylesheet" href="/dataTable_1.10.22/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="/dataTable_1.10.22/css/responsive.dataTables.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
