@@ -16,6 +16,7 @@ class ProveedoresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+   
     public function index()
     {
           //obtener las categorias
