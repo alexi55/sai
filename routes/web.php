@@ -41,8 +41,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     Route::resource('compras/medidas', 'MedidaController');
     //compras pedido
     Route::resource('compras/pedido', 'CompraController');
-    Route::post('compras-pedido/search','CompraController@search')->name('compras.pedido.search');
-    Route::get('compras-pedido/indexAjax','CompraController@indexAjax')->name('compras.pedido.indexAjax');
+    //Route::post('compras-pedido/search','CompraController@search')->name('compras.pedido.search');
+    //Route::get('compras-pedido/indexAjax','CompraController@indexAjax')->name('compras.pedido.indexAjax');
     //compras detalle
     Route::resource('compras/detalle', 'DetalleCompraController');
     //compras partida
