@@ -15,7 +15,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin')) is_active @endif"
                                 href="{{ route('admin.home') }}" aria-expanded="false">
-                                <i class="mdi mdi-home" aria-hidden="true"></i>
+                                <i class="fab fa-windows" aria-hidden="true"></i>
                                 <span class="hide-menu" style="color:black;font-weight: bold;">MENU PRINCIPAL</span>
                             </a>
                         </li>
@@ -29,7 +29,7 @@
                             <a class="sidebar-link has-arrow waves-effect waves-dark selected" href="javascript:void(0)"
                                 aria-expanded="false">
 
-                                <i class="mdi mdi-apps" aria-hidden="true"></i>
+                                <i class="fab fa-whmcs" aria-hidden="true"></i>
                                 <span class="hide-menu" style="color:#00688A;font-weight: bold;">Panel de Compras</span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level
@@ -40,7 +40,7 @@
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('medidas.index') }}" aria-expanded="false">
-                                        <i class="mdi mdi-ruler" aria-hidden="true"></i>
+                                        <i class="mdi-format-quote-open" aria-hidden="true"></i>
                                         <span class="hide-menu" style="color:black;font-weight: bold;">Medidas</span>
                                     </a>
                                 </li>

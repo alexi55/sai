@@ -3,13 +3,13 @@
 @section('content')
 
 <div class="card col-md-10">
-    <div class="card-header">{{ __('Lista de Documentos') }}</div>
+    <div class="card-header" style="color:#0096C9;font-weight: bold;">{{ __('Lista de Documentos') }}</div>
 
     <div class="row">
         <div class="col-md-6">
             <div class="row">
-                <a href="{{ url('/compras/proveedores') }}" class="btn blue darken-4 text-black "><i
-                        class="fa fa-plus-square"></i> Volver atras</a>
+                <a href="{{ url('/compras/proveedores') }}" class="btn blue darken-4 text-black "><i style="color:#55CE63;font-weight: bold;"
+                        class="fa fa-plus-square"></i > Volver atras</a>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         <br /><br />
 
 
-        <table class="table table-borderless table-hover">
+        <table class="table  table-hover">
             <tr class="bg-info text-light">
 
                 <th>ID</th>
@@ -36,9 +36,9 @@
             @forelse ($docproveedor as $docprov)
             <tr>
 
-                <td>{{$docprov -> iddocproveedor}}</td>
-                <td>{{$docprov -> nombredocumento}}</td>
-                <td>{{$docprov -> documento}}</td>
+                <td style="color:#0098CA;">{{$docprov -> iddocproveedor}}</td>
+                <td style="color:#0098CA;">{{$docprov -> nombredocumento}}</td>
+                <td style="color:#0098CA;">{{$docprov -> documento}}</td>
                
 
                 <td>

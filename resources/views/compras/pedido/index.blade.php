@@ -39,7 +39,7 @@
                 <a href="pedido/{{$comp->idcompra}}/editar" class="btn btn-outline-warning">Editar</a>
                     @endcan
                     
-                <a href="pedido/{{$comp->idcompra}}/edit" class="btn btn-outline-info">Items de la Compra</a>
+                <a href="pedido/{{$comp->idcompra}}/edit" class="btn btn-outline-info">Items</a>
 
                
 

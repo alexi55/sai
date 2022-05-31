@@ -2,20 +2,20 @@
 
 @section('content')
 
-<div class="card">
-    <div class="card-header">{{ __('Lista de Cat. Programaticas') }}</div>
+<div class="card col-md-10">
+    <div class="card-header" style="color:#0096C9;font-weight: bold;">{{ __('Modulo Categorias Programaticas') }}</div>
 
     <div class="card-body table-responsive">
 
         @can('catprog_create')
-        <a href="{{ route('catprog.create') }}" class="btn btn-outline-primary">Agregar Registro</a>
+        <a href="{{ route('catprog.create') }}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Permite agregar un nuevo registro">Agregar Registro</a>
         @endcan
 
         <br /><br />
 
-        <table class="table table-borderless table-hover">
+        <table class="table  table-hover">
             <tr class="bg-info text-light">
-                <th>ID</th>
+                <th>Id</th>
                 <th>Codigo </th>
                 <th>Nombre </th>
                 <th>Opciones</th>
@@ -23,15 +23,15 @@
             </tr>
             @forelse ($catprogs as $catprog)
             <tr>
-                <td>{{$catprog -> idcatprogramatica}}</td>
-                <td>{{$catprog -> codcatprogramatica}}</td>
-                <td>{{$catprog -> nombrecatprogramatica}}</td>
+                <td style="color:#0098CA;">{{$catprog -> idcatprogramatica}}</td>
+                <td style="color:#0098CA;">{{$catprog -> codcatprogramatica}}</td>
+                <td style="color:#0098CA;">{{$catprog -> nombrecatprogramatica}}</td>
 
 
                 <td>
 
                     @can('catprog_edit')
-                    <a href="catprog/{{$catprog -> idcatprogramatica}}/edit" class="btn btn-outline-warning">Editar</a>
+                    <a href="catprog/{{$catprog -> idcatprogramatica}}/edit" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Permite editar el registro seleccionado">Editar</a>
                     @endcan
 
                 </td>

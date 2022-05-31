@@ -2,12 +2,12 @@
 
 @section('content')
 
-<div class="card">
-    <div class="card-header">{{ __('Lista de Productos') }}</div>
+<div class="card col-md-12">
+    <div class="card-header" style="color:#0096C9;font-weight: bold;">{{ __('Modulo de Productos') }}</div>
 
     <div class="card-body table-responsive">
         @can('productos_create')
-        <a href="{{ route('productos.create') }}" class="btn btn-outline-primary">Agregar Registro</a>
+        <a href="{{ route('productos.create') }}" class="btn btn-primary">Agregar Registro</a>
 
         @endcan
 
@@ -15,7 +15,7 @@
         <br /><br />
         @include('compras.productos.search')
 
-        <table class="table table-borderless table-hover">
+        <table class="table  table-hover">
             <tr class="bg-info text-light">
                 <th class="text-center">ID</th>
                 <th>Nombre</th>

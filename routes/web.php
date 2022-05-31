@@ -38,7 +38,9 @@ Route::group(['prefix'=>"admin",'as' => 'admin.','namespace' => 'App\Http\Contro
 
 Route::group(['namespace' => 'App\Http\Controllers'], function() {
     ///compras medidas
-    Route::resource('compras/medidas', 'MedidaController');
+    //Route::resource('compras/medidas', 'MedidaController');
+    Route::get('compras/medidas/index', 'MedidaController@index')->name('medidas.index');
+    Route::get('compras/medidas/list', 'MedidaController@listado')->name('medidas.list');
     //compras pedido
     Route::resource('compras/pedido', 'CompraController');
     //Route::post('compras-pedido/search','CompraController@search')->name('compras.pedido.search');

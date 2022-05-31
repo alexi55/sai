@@ -2,15 +2,15 @@
 
 @section('content')
 
-<div class="card">
-    <div class="card-header">{{ __('Editar Registro') }}</div>
+<div class="card col-md-7">
+    <div class="card-header" style="color:#0096C9;font-weight: bold;">{{ __('Editar Registro') }}</div>
 
     <div class="card-body">
 
     <div class="row">
       <div class="col-md-6">
         <div class="row">
-          <a href="{{ url('/compras/medidas') }}" class="btn blue darken-4 text-black "><i class="fa fa-plus-square"></i> Volver atras</a>
+          <a href="{{ url('/compras/medidas') }}" class="btn blue darken-4 text-black "><i class="fa fa-plus-square" style="color:#55CE63;font-weight: bold;"></i> Volver atras</a>
         </div>
       </div>
     </div>
@@ -18,26 +18,32 @@
 
 
 
-        <div class="col-md-8 col-md-offset-1">
+        <div class="card-body ">
             
             <form method="POST" action="{{ route('medidas.update', $medida->idumedida) }}">
                 @csrf
                 @method('PUT')
                 <div class="box-body">
 
-                    <div class="form-group has-feedback {{ $errors->has('nome') ? 'has-error' : '' }}">
-                        <label for="nome" class="col-sm-2 control-label">Nombre Medida</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nombre" placeholder=""
-                                value="{{$medida->nombreumedida}}"
-                                onkeyup="javascript:this.value=this.value.toUpperCase();">
-                        </div>
-                    </div>
-                    <br />
+                <div class="form-group row">
+                    <label for="role_id" style="color:#009EFB;font-weight: bold;" class="required col-md-4 col-form-label text-md-right">{{ __('Nombre de Medida') }}</label>
 
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-success pull-right">Guardar</button>
+                    <div class="col-md-6">
+                    <input type="text" name="nombre" value="{{$medida->nombreumedida}}" class="form-control" placeholder="Escriba aqui la nueva medida..." onkeyup="javascript:this.value=this.value.toUpperCase();" >
                     </div>
+                </div>
+
+                </br>
+
+                <div class="form-group row mb-0">
+                    <div class="col-md-6 offset-md-4">
+                        <button type="submit" class="btn btn-outline-success">
+                            {{ __('Guardar') }}
+                        </button>
+                    </div>
+                </div>
+
+ 
                 </div>
             </form>
         </div>

@@ -2,13 +2,13 @@
 
 @section('content')
 
-<div class="card">
-    <div class="card-header">{{ __('Editar Registro') }}</div>
+<div class="card col-md-9">
+    <div class="card-header" style="color:#0096C9;font-weight: bold;">{{ __('Editar Registro') }}</div>
     <div class="row">
         <div class="col-md-6">
             <div class="row">
                 <a href="{{ url('/compras/productos') }}" class="btn blue darken-4 text-black "><i
-                        class="fa fa-plus-square"></i> Volver atras</a>
+                        style="color:#55CE63;font-weight: bold;" class="fa fa-plus-square"></i> Volver atras</a>
             </div>
         </div>
     </div>
@@ -18,23 +18,25 @@
             @method('PUT')
 
             <div class="form-group row">
-                <label for="name" class="required col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                <label style="color:#009EFB;font-weight: bold;" for="name"
+                    class="required col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
                 <div class="col-md-6">
                     <textarea id="name" type="text" name="nombre" placeholder="Nombre..." cols="50" rows="2"
-                       
                         onkeyup="javascript:this.value=this.value.toUpperCase();">{{$productos->nombreprodserv}}</textarea>
                 </div>
             </div>
     </div>
     <div class="form-group row">
-        <label for="detalle" class="required col-md-4 col-form-label text-md-right">{{ __('Detalle') }}</label>
+        <label style="color:#009EFB;font-weight: bold;" for="detalle"
+            class="required col-md-4 col-form-label text-md-right">{{ __('Detalle') }}</label>
         <div class="col-md-6">
             <textarea id="detalle" type="text" name="detalle" cols="50" rows="4" placeholder="Detalle..."
                 onkeyup="javascript:this.value=this.value.toUpperCase();">{{$productos->detalleprodserv}}</textarea>
         </div>
     </div>
     <div class="form-group row">
-        <label for="precio" class="required col-md-4 col-form-label text-md-right">{{ __('Precio') }}</label>
+        <label style="color:#009EFB;font-weight: bold;" for="precio"
+            class="required col-md-4 col-form-label text-md-right">{{ __('Precio') }}</label>
         <div class="col-md-6">
             <input id="precio" name="precio" type="number" placeholder="0.0" step="0.01" placeholder="Precio..."
                 value="{{$productos->precioprodserv}}">
@@ -42,8 +44,9 @@
     </div>
 
     <div class="form-group row">
-        <label class="required col-md-4 col-form-label text-md-right">{{ __('Partida') }}</label>
-        <div class="col-md-6" id="permissions-select">
+        <label style="color:#009EFB;font-weight: bold;"
+            class="required col-md-4 col-form-label text-md-right">{{ __('Partida') }}</label>
+        <div class="col-md-8" id="permissions-select">
             <select name="idpartida" id="permissions" class="col-md-6">
                 @foreach ($partidas as $par)
                 @if ($par->idpartida==$productos->partida_idpartida)
@@ -57,8 +60,9 @@
     </div>
 
     <div class="form-group row">
-        <label class="required col-md-4 col-form-label text-md-right">{{ __('Medida') }}</label>
-        <div class="col-md-6" id="permissions-select2">
+        <label style="color:#009EFB;font-weight: bold;"
+            class="required col-md-4 col-form-label text-md-right">{{ __('Medida') }}</label>
+        <div class="col-md-8" id="permissions-select2">
 
             <select name="idmedida" id="permissions" class="col-md-6">
                 @foreach ($medidas as $med)
@@ -77,13 +81,19 @@
     </div>
 
 
+    </br>
 
 
 
-
-    <div class="box-footer"  align="center">
-        <button type="submit" class="btn btn-success pull-right">Guardar</button>
+    <div class="form-group row mb-0">
+        <div class="col-md-6 offset-md-4">
+            <button type="submit" class="btn btn-outline-success">
+                {{ __('Guardar') }}
+            </button>
+        </div>
     </div>
+    </br>
+    </br>
     </form>
 </div>
 </div>

@@ -15,10 +15,10 @@
     <link href="{{ asset('admin_assets/css/style.min.css') }}" rel="stylesheet">
     <!-- slim select -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/slim-select/slimselect.min.css') }}">
-    <link rel="stylesheet" href="/css/style.css">
-    {{--datatables Css--}}
-    <link rel="stylesheet" href="/dataTable_1.10.22/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="/dataTable_1.10.22/css/responsive.dataTables.min.css">
+
+<link rel="stylesheet" href="{{ asset('dataTable_1.10.22/css/jquery.dataTables.min.css') }}"/>
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -193,7 +193,7 @@
     <!-- ============================================================== -->
     <script src="{{ asset('admin_assets/plugins/jquery/dist/jquery.min.js') }}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{ asset('admin_assets/plugins/popper.js/dist/umd/popper.min.js') }}"></script>
+    
     <script src="{{ asset('admin_assets/plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('admin_assets/js/app-style-switcher.js') }}"></script>
     <!--Wave Effects -->
@@ -210,6 +210,8 @@
 
     <!-- slim-select -->
     <script src="{{ asset('admin_assets/plugins/slim-select/slimselect.min.js') }}"></script>
+    <script src="{{ asset('dataTable_1.10.22/js/jquery.dataTables.min.js') }}"></script>
+
 
 
     @yield('scripts')

@@ -1,73 +1,72 @@
 @extends('layouts.admin')
 
 @section('content')
-@if(Session::has('message'))
 
-<div class="alert alert-success">
-    <em> {!! session('message') !!}</em>
-</div>
-@endif
-<div class="card col-md-10">
-    <div class="card-header">{{ __('Lista de Medidas') }}</div>
-
-    <div class="card-body table-responsive">
-        @can('medidas_edit')
-        <a href="{{ route('medidas.create') }}" class="btn btn-outline-primary">Agregar Registro</a>
-        @endcan
-
-        <br /><br />
-
-        @include('compras.medidas.search')
-
-        <table class="table table-borderless table-hover">
-            <tr class="bg-info text-light">
-
+<div class="card">
+    <div class="card-header">{{ __('Lista de Partidas') }}</div>
+    <table class="table table-bordered yajra-datatable">
+        <thead>
+            <tr>
+                <th>Id</th>
                 <th>Nombre</th>
-                <th>Opciones</th>
-
+                <th>Estado</th>
+           
+                <th>Action</th>
             </tr>
-            @forelse ($medidas as $medida)
-            <tr>
-
-                <td>{{$medida->nombreumedida}}</td>
-
-
-                <td>
-
-
-
-
-                    @can('medidas_edit')
-                    <a href="medidas/{{$medida -> idumedida}}/edit" class="btn btn-outline-warning">Editar</a>
-                    @endcan
-                    @can('medidas_delete')
-                    <form action="{{ route('medidas.destroy', $medida -> idumedida) }}" class="d-inline-block"
-                        method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit"
-                            onclick="return confirm('Esta por dar de baja el Registro...esta seguro..?')"
-                            class="btn btn-outline-danger">Eliminar</button>
-                    </form>
-                    @endcan
-                </td>
-            </tr>
-            @empty
-            <tr>
-                <td colspan="100%" class="text-center text-muted py-3">No Users Found</td>
-            </tr>
-            @endforelse
-        </table>
-
-
-        @if($medidas->total() > $medidas->perPage())
-        <br><br>
-        {{$medidas->links()}}
-        @endif
-
-
-
-    </div>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 </div>
 
+ @section('scripts')
+
+<script type="text/javascript">
+  $(function () {
+
+    var table = $('.yajra-datatable').DataTable({
+language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+    },
+
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('medidas.list') }}",
+        columns: [
+            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'nombreumedida', name: 'nombreumedida'},
+            {data: 'estadoumedida', name: 'estadoumedida'},
+           
+            {
+                data: 'btnActions', 
+                name: 'btnActions', 
+                orderable: true, 
+                searchable: true
+            },
+        ]
+
+
+    });
+
+  });
+</script>
+
+@endsection
 @endsection

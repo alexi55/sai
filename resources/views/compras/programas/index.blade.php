@@ -2,18 +2,18 @@
 
 @section('content')
 
-<div class="card">
-    <div class="card-header">{{ __('Lista de Programas') }}</div>
+<div class="card col-md-8">
+    <div class="card-header" style="color:#0096C9;font-weight: bold;">{{ __('Modulo de Programas') }}</div>
 
     <div class="card-body table-responsive">
 
         @can('programas_create')
-        <a href="{{ route('programas.create') }}" class="btn btn-outline-primary">Agregar Registro</a>
+        <a href="{{ route('programas.create') }}" class="btn btn-primary">Agregar Registro</a>
         @endcan
 
         <br /><br />
 
-        <table class="table table-borderless table-hover">
+        <table class="table  table-hover ">
             <tr class="bg-info text-light">
                 <th>ID</th>
                 <th>Nombre </th>
@@ -22,8 +22,8 @@
             </tr>
             @forelse ($programas as $prog)
             <tr>
-                <td>{{$prog -> idprograma}}</td>
-                <td>{{$prog -> nombreprograma}}</td>
+                <td style="color:#0098CA;">{{$prog -> idprograma}}</td>
+                <td style="color:#0098CA;">{{$prog -> nombreprograma}}</td>
 
 
                 <td>
