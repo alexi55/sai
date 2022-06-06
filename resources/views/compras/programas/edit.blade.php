@@ -2,19 +2,20 @@
 
 @section('content')
 
+<div style="color:#009EFB;font-weight: bold;">Editar Registro</div>
+</br>
 <div class="card col-md-10">
-    <div class="card-header" style="color:#0096C9;font-weight: bold;">{{ __('Editar Registro') }}</div>
     <div class="row">
         <div class="col-md-6">
             <div class="row">
-                <a href="{{ url('/compras/programas') }}" class="btn blue darken-4 text-black "><i class="fa fa-plus-square" style="color:#55CE63;font-weight: bold;"></i> Volver atras</a>
+                <a href="{{ url('/compras/programas/index') }}" class="btn blue darken-4 text-black "><i class="fa fa-plus-square" style="color:#55CE63;font-weight: bold;"></i> Volver atras</a>
             </div>
         </div>
     </div>
     <div class="card-body">
         <form method="POST" action="{{ route('programas.update', $programas->idprograma) }}">
             @csrf
-            @method('PUT')
+            @method('POST')
 
             <div class="form-group row">
                 <label for="nombre" style="color:#009EFB;font-weight: bold;" class="required col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>

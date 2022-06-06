@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MedidaController;
 use App\Http\Controllers\ProveedoresController;
+use App\Http\Controllers\PrartidaController;
+use App\Http\Controllers\ProdServController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,28 +39,60 @@ Route::group(['prefix'=>"admin",'as' => 'admin.','namespace' => 'App\Http\Contro
 
 
 Route::group(['namespace' => 'App\Http\Controllers'], function() {
+
+
     ///compras medidas
-    //Route::resource('compras/medidas', 'MedidaController');
     Route::get('compras/medidas/index', 'MedidaController@index')->name('medidas.index');
     Route::get('compras/medidas/list', 'MedidaController@listado')->name('medidas.list');
+    Route::get('compras/medidas/{id}/edit', 'MedidaController@editar')->name('medidas.edit');
+    Route::POST('compras/medidas/{id}/update', 'MedidaController@update')->name('medidas.update');
+    Route::get('compras/medidas/create', 'MedidaController@create')->name('medidas.create');
+    Route::POST('compras/medidas/store', 'MedidaController@store')->name('medidas.store');
+
+
     //compras pedido
     Route::resource('compras/pedido', 'CompraController');
-    //Route::post('compras-pedido/search','CompraController@search')->name('compras.pedido.search');
-    //Route::get('compras-pedido/indexAjax','CompraController@indexAjax')->name('compras.pedido.indexAjax');
+;
+
+
+
     //compras detalle
     Route::resource('compras/detalle', 'DetalleCompraController');
+
+
+
     //compras partida
-    Route::resource('compras/partida', 'PartidaController');
+   // Route::resource('compras/partida', 'PartidaController');
+    Route::get('compras/partida/index', 'PartidaController@index')->name('partida.index');
+    Route::get('compras/partida/listado', 'PartidaController@listado')->name('partida.list');
+
+
+
     //compras producto
-    Route::resource('compras/productos', 'ProdServController');
+    //Route::resource('compras/productos', 'ProdServController');
+    //Route::get('compras/productos/{id}/edit', ['uses' => 'ProdServController@editar','as' => 'productos.edit']);
+    Route::get('compras/productos/index', 'ProdServController@index')->name('productos.index');
+    Route::get('compras/productos/list', 'ProdServController@list')->name('producto.list');
+    
+    Route::get('compras/productos/{id}/edit', 'ProdServController@editar')->name('productos.edit');
+    Route::POST('compras/productos/{id}/update', 'ProdServController@update')->name('productos.update');
+    Route::get('compras/productos/create', 'ProdServController@create')->name('productos.create');
+    Route::POST('compras/productos/store', 'ProdServController@store')->name('productos.store');
+
+
+
     //compras empleados
     Route::resource('compras/empleados', 'EmpleadosController');
+
+
+
     //compras proveedores
+    // Route::get('compras/proveedores/{id}/createdoc', 'ProveedoresController@createdoc');
+    //Route::get('compras/proveedores/{id}/createdocproveedor', 'ProveedoresController@createdoc');
     Route::resource('compras/proveedores', 'ProveedoresController');
     //Route::get('compras/proveedores/{id}/editardoc', 'ProveedoresController@editardoc');
     Route::get('compras/proveedores/{id}/editardoc', ['uses' => 'ProveedoresController@editardoc','as' => 'admin.users.edit']);
-   // Route::get('compras/proveedores/{id}/createdoc', 'ProveedoresController@createdoc');
-    //Route::get('compras/proveedores/{id}/createdocproveedor', 'ProveedoresController@createdoc');
+   
     Route::get('compras/proveedores/{id}/createdocproveedor', 'ProveedoresController@createdoc')->name('ProveedoresController.createdoc');
     //Route::POST('insertar', [ProveedoresController::class,'insertar']);
     Route::POST('compras/proveedores/insertar', 'ProveedoresController@insertar')->name('ProveedoresController.insertar');
@@ -66,10 +100,31 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     
     //compras areas
     Route::resource('compras/areas', 'AreasController');
+
+
+
     //compras programas
-    Route::resource('compras/programas', 'ProgramaController');
+    //Route::resource('compras/programas', 'ProgramaController');
+    Route::get('compras/programas/index', 'ProgramaController@index')->name('programas.index');
+    Route::get('compras/programas/list', 'ProgramaController@listado')->name('programas.list');
+    Route::get('compras/programas/{id}/edit', 'ProgramaController@edit')->name('programas.edit');
+    Route::POST('compras/programas/{id}/update', 'ProgramaController@update')->name('programas.update');
+    Route::get('compras/programas/create', 'ProgramaController@create')->name('programas.create');
+    Route::POST('compras/programas/store', 'ProgramaController@store')->name('programas.store');
+
+
     //compras categorias prograticas
-    Route::resource('compras/catprog', 'CatProgController');
+    //Route::resource('compras/catprog', 'CatProgController');
+    Route::get('compras/catprog/index', 'CatProgController@index')->name('catprog.index');
+    Route::get('compras/catprog/list', 'CatProgController@listado')->name('catprog.list');
+    Route::get('compras/catprog/{id}/edit', 'CatProgController@editar')->name('catprog.edit');
+    Route::POST('compras/catprog/{id}/update', 'CatProgController@update')->name('catprog.update');
+    Route::get('compras/catprog/create', 'CatProgController@create')->name('catprog.create');
+    Route::POST('compras/catprog/store', 'CatProgController@store')->name('catprog.store');
+
+
+
+
     //compras pedido
     Route::get('compras/pedido/{id}/editar', 'CompraController@editar');
     Route::get('compras/detalle/{id}/invitacion', 'DetalleCompraController@invitacion');
@@ -79,6 +134,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     Route::get('compras/detalle/{id}/orden', 'DetalleCompraController@orden');
     Route::get('compras/detalle/{id}/principal', 'DetalleCompraController@crearOrdenxxx');
     Route::get('compras/detalle/{id}/principalorden', 'DetalleCompraController@crearOrdendocxx');
+
+
+
+
     //compras orden de compra
     Route::POST('compras/detalle/principal', 'DetalleCompraController@crearOrden')->name('DetalleCompraController.crearOrden');
     Route::POST('compras/detalle/principalorden', 'DetalleCompraController@crearOrdendoc')->name('DetalleCompraController.crearOrdendoc');

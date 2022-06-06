@@ -7,6 +7,8 @@ use App\Models\ProgramaModel;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use DB;
+use DataTables;
+
 
 
 class ProgramaController extends Controller
@@ -16,15 +18,29 @@ class ProgramaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    //index 
+   public function index()
     {
-        $programas = DB::table('programa') 
-        //->where('nombreumedida','LIKE','%'.$query.'%')
+           
+      return view('compras.programas.index');
+
+    }
+
+
+    public function listado()
+    {
+        $data = DB::table('programa') 
         -> where('estadoprograma','=', 1)
-        -> orderBy('idprograma', 'desc')
-        -> paginate(10);
+        -> get();
         // return view('compras.medidas.index', ["medidas" => $medidas]);
-         return view('compras.programas.index',compact('programas'));
+        // return view('compras.programas.index',compact('programas'));
+
+        return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('btn','compras.programas.btn')
+                ->rawColumns(['btn'])
+                ->make(true);
     }
 
     /**
@@ -104,7 +120,7 @@ class ProgramaController extends Controller
       }else{
           $request->session()->flash('message', 'Error al Procesar Registro');
       }
-        return redirect('compras/programas');
+        return redirect('compras/programas/index');
     }
 
     /**

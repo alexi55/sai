@@ -2,16 +2,20 @@
 
 @section('content')
 
-<div class="card">
-    <div class="card-header">{{ __('Lista de Partidas') }}</div>
+<div style="color:#009EFB;font-weight: bold;font-size: 18px;">Modulo de Medidas 
+&nbsp;&nbsp;
+@can('medidas_create')
+<a href="{{ route('medidas.create') }}" class="btn btn-outline-info">Agregar</a>
+@endcan</div>
+</br>
+<div class="card col-md-10">
+</br>
     <table class="table table-bordered yajra-datatable">
-        <thead>
+        <thead bgcolor="#71D799">
             <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Estado</th>
-           
-                <th>Action</th>
+                <th style="color:white">N°</th>
+                <th style="color:white">Nombre</th>
+                <th style="color:white;width:50px;">Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -52,11 +56,10 @@ language: {
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'nombreumedida', name: 'nombreumedida'},
-            {data: 'estadoumedida', name: 'estadoumedida'},
-           
+                      
             {
-                data: 'btnActions', 
-                name: 'btnActions', 
+                data: 'btn', 
+                name: 'btn', 
                 orderable: true, 
                 searchable: true
             },

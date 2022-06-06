@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-
+<div  style="color:#009EFB;font-weight: bold;font-size: 18px;">Agregar Productos-Items</div>
+</br>
 <div class="card col-md-9">
-    <div class="card-header" style="color:#0096C9;font-weight: bold;">{{ __('Agregar Registro') }}</div>
     <div class="row">
         <div class="col-md-6">
             <div class="row">
-                <a href="{{ url('/compras/productos') }}" class="btn blue darken-4 text-black "><i
+                <a href="{{ url('/compras/productos/index') }}" class="btn blue darken-4 text-black "><i
                         style="color:#55CE63;font-weight: bold;" class="fa fa-plus-square"></i> Volver atras</a>
             </div>
         </div>
@@ -15,12 +15,12 @@
     <div class="card-body">
         <form method="POST" action="{{ route('productos.store') }}">
             @csrf
-
+            @method('POST')
             <div class="form-group row">
                 <label for="name" style="color:#009EFB;font-weight: bold;"
                     class="required col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
                 <div class="col-md-6">
-                    <textarea id="name" type="text" name="nombre" placeholder="Nombre..." cols="50" rows="2"
+                    <textarea id="name" type="text" require name="nombre" placeholder="Nombre..." cols="50" rows="2"
                         onkeyup="javascript:this.value=this.value.toUpperCase();"></textarea>
                 </div>
             </div>

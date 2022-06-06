@@ -8,7 +8,7 @@ use App\Models\ProdServModel;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use DB;
-
+use DataTables;
 
 class ProdServController extends Controller
 {
@@ -17,26 +17,31 @@ class ProdServController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-              //obtener las partidas
+        
+        return view('compras.productos.index');
+    }
+     
+  public function list(Request $request)
+    {
+       
+           // $data = DB::table('prodserv')->get();
 
-        $query=trim($request->get('searchText'));
-        $query2=trim($request->get('searchText2'));
-        $query3=trim($request->get('searchText3'));
-       $productos = DB::table('prodserv as ps') 
+    $data = DB::table('prodserv as ps') 
        ->join('partida as p', 'p.idpartida', '=', 'ps.partida_idpartida')
        ->join('umedida as u', 'u.idumedida', '=', 'ps.umedida_idumedida')
        ->select('ps.idprodserv','ps.nombreprodserv','ps.detalleprodserv','ps.precioprodserv', 'p.codigopartida','u.nombreumedida')
-       ->where('ps.nombreprodserv','LIKE','%'.$query.'%')
-        ->where('ps.detalleprodserv','LIKE','%'.$query2.'%')
-        ->where('p.codigopartida','LIKE','%'.$query3.'%')
-       -> where('ps.estadoprodserv','=', 1)
-       -> orderBy('ps.idprodserv', 'desc')
-       -> paginate(10);
-       //dd($productos);
-      return view('compras.productos.index', ["productos" => $productos]);
-      //return view('compras.productos.index',compact('productos'));
+       -> get();
+
+        return Datatables::of($data)
+       ->addIndexColumn()
+       ->addColumn('btn', 'compras.productos.btn')
+
+       ->rawColumns(['btn'])
+       ->make(true);
+       
+        //dd($data);
     }
 
     /**
@@ -98,7 +103,7 @@ class ProdServController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($idprod){
+    public function editar($idprod){
         $productos = ProdservModel::find($idprod);
         $partidas = DB::table('partida')->get();
         $medidas = DB::table('umedida')->get();
@@ -131,7 +136,7 @@ class ProdServController extends Controller
       }else{
           $request->session()->flash('message', 'Error al Procesar Registro');
       }
-        return redirect('compras/productos');
+        return redirect('compras/productos/index');
     }
 
     /**

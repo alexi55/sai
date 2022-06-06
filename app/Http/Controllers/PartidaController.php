@@ -7,6 +7,7 @@ use App\Models\PartidaModel;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use DB;
+use DataTables;
 
 
 class PartidaController extends Controller
@@ -16,24 +17,27 @@ class PartidaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
 
+
+    public function index()
+    
+    {
+        
+        return view('compras.partida.index');
+    }
+
+
+    public function listado(Request $request)
+    {
+  
      
-        $query=trim($request->get('searchText'));
-          $query2=trim($request->get('searchText2'));
-          $query3=trim($request->get('searchText3'));
-             //obtener las partidas
-             $partidas = DB::table('partida') 
-             ->where('codigopartida','LIKE','%'.$query.'%')
-             ->where('nombrepartida','LIKE','%'.$query2.'%')
-             ->where('detallepartida','LIKE','%'.$query3.'%')
-             -> where('estadopartida','=', 1)
-             -> orderBy('idpartida', 'asc')
-             -> paginate(10);
-             
-             
-             return view('compras.partida.index', compact('partidas'));
+             $data = DB::table('partida') 
+             //-> where('p.estadopartida','=', 1)
+             -> get();
+
+             return Datatables::of($data)
+             ->addIndexColumn()
+             ->make(true);
     }
 
     /**

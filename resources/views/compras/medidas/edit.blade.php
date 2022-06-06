@@ -2,15 +2,16 @@
 
 @section('content')
 
+<div  style="color:#009EFB;font-weight: bold;">Editar Registro</div>
+</br>
 <div class="card col-md-7">
-    <div class="card-header" style="color:#0096C9;font-weight: bold;">{{ __('Editar Registro') }}</div>
-
+    
     <div class="card-body">
 
     <div class="row">
       <div class="col-md-6">
         <div class="row">
-          <a href="{{ url('/compras/medidas') }}" class="btn blue darken-4 text-black "><i class="fa fa-plus-square" style="color:#55CE63;font-weight: bold;"></i> Volver atras</a>
+          <a href="{{ url('/compras/medidas/index') }}" class="btn blue darken-4 text-black "><i class="fa fa-plus-square" style="color:#55CE63;font-weight: bold;"></i> Volver atras</a>
         </div>
       </div>
     </div>
@@ -22,7 +23,7 @@
             
             <form method="POST" action="{{ route('medidas.update', $medida->idumedida) }}">
                 @csrf
-                @method('PUT')
+                @method('POST')
                 <div class="box-body">
 
                 <div class="form-group row">

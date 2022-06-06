@@ -2,56 +2,76 @@
 
 @section('content')
 
+<div style="color:#009EFB;font-weight: bold;font-size: 18px;">Modulo de Categ. Programaticas 
+&nbsp;&nbsp;
+@can('medidas_create')
+<a href="{{ route('catprog.create') }}" class="btn btn-outline-info">Agregar</a>
+@endcan</div>
+</br>
 <div class="card col-md-10">
-    <div class="card-header" style="color:#0096C9;font-weight: bold;">{{ __('Modulo Categorias Programaticas') }}</div>
-
-    <div class="card-body table-responsive">
-
-        @can('catprog_create')
-        <a href="{{ route('catprog.create') }}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Permite agregar un nuevo registro">Agregar Registro</a>
-        @endcan
-
-        <br /><br />
-
-        <table class="table  table-hover">
-            <tr class="bg-info text-light">
-                <th>Id</th>
-                <th>Codigo </th>
-                <th>Nombre </th>
-                <th>Opciones</th>
-
-            </tr>
-            @forelse ($catprogs as $catprog)
+</br>
+    <table class="table table-bordered yajra-datatable">
+        <thead bgcolor="#71D799">
             <tr>
-                <td style="color:#0098CA;">{{$catprog -> idcatprogramatica}}</td>
-                <td style="color:#0098CA;">{{$catprog -> codcatprogramatica}}</td>
-                <td style="color:#0098CA;">{{$catprog -> nombrecatprogramatica}}</td>
-
-
-                <td>
-
-                    @can('catprog_edit')
-                    <a href="catprog/{{$catprog -> idcatprogramatica}}/edit" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Permite editar el registro seleccionado">Editar</a>
-                    @endcan
-
-                </td>
+                <th style="color:white">N°</th>
+                <th style="color:white">Codigo</th>
+                <th style="color:white">Nombre</th>
+                <th style="color:white;width:50px;">Opciones</th>
             </tr>
-            @empty
-            <tr>
-                <td colspan="100%" class="text-center text-muted py-3">No Users Found</td>
-            </tr>
-            @endforelse
-        </table>
-
-
-        @if($catprogs->total() > $catprogs->perPage())
-        <br><br>
-        {{$catprogs->links()}}
-        @endif
-
-
-
-    </div>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 </div>
 
+ @section('scripts')
+
+<script type="text/javascript">
+  $(function () {
+
+    var table = $('.yajra-datatable').DataTable({
+language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+    },
+
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('catprog.list') }}",
+        columns: [
+            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'codcatprogramatica', name: 'codcatprogramatica'},
+            {data: 'nombrecatprogramatica', name: 'nombrecatprogramatica'},
+                      
+            {
+                data: 'btn', 
+                name: 'btn', 
+                orderable: true, 
+                searchable: true
+            },
+        ]
+
+
+    });
+
+  });
+</script>
+
+@endsection
 @endsection

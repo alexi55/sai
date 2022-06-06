@@ -2,63 +2,95 @@
 
 @section('content')
 
+<div style="color:#009EFB;font-weight: bold;font-size: 18px;">Modulo de Productos 
+&nbsp;&nbsp;
+@can('productos_create')
+<a href="{{ route('productos.create') }}" class="btn btn-outline-info">Agregar</a>
+@endcan</div>
+
+</br>
+
 <div class="card col-md-12">
-    <div class="card-header" style="color:#0096C9;font-weight: bold;">{{ __('Modulo de Productos') }}</div>
 
-    <div class="card-body table-responsive">
-        @can('productos_create')
-        <a href="{{ route('productos.create') }}" class="btn btn-primary">Agregar Registro</a>
-
-        @endcan
+    </br>
 
 
-        <br /><br />
-        @include('compras.productos.search')
 
-        <table class="table  table-hover">
-            <tr class="bg-info text-light">
-                <th class="text-center">ID</th>
-                <th>Nombre</th>
-                <th>Detalle</th>
-                <th>Medida</th>
-                <th>Partida</th>
-                <th>Precio</th>
-                <th>Opciones</th>
-
-            </tr>
-            @forelse ($productos as $prod)
+    <table class="table table-bordered  yajra-datatable">
+        <thead bgcolor="#71D799">
             <tr>
-                <td class="text-center">{{$prod -> idprodserv}}</td>
-                <td>{{$prod -> nombreprodserv}}</td>
-                <td>{{$prod -> detalleprodserv}}</td>
-                <td>{{$prod -> nombreumedida}}</td>
-                <td>{{$prod -> codigopartida}}</td>
-                <td>{{$prod -> precioprodserv}}</td>
+                <th style="color:white">N°</th>
+                <th style="color:white">Nombre</th>
+                <th style="color:white">Detalle</th>
 
-                <td>
-                    @can('productos_edit')
-                    <a href="productos/{{$prod -> idprodserv}}/edit" class="btn btn-outline-warning">Editar</a>
-                    @endcan
-
-
-                </td>
+                <th style="color:white">Opciones</th>
             </tr>
-            @empty
-            <tr>
-                <td colspan="100%" class="text-center text-muted py-3">No Users Found</td>
-            </tr>
-            @endforelse
-        </table>
-
-
-        @if($productos->total() > $productos->perPage())
-        <br><br>
-        {{$productos->links()}}
-        @endif
-
-
-
-    </div>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 </div>
 
+@section('scripts')
+
+<script type="text/javascript">
+$(function() {
+
+    var table = $('.yajra-datatable').DataTable({
+        language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+            "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+            "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Entradas",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        },
+
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('producto.list') }}",
+        columns: [{
+                data: 'DT_RowIndex',
+                name: 'DT_RowIndex'
+            },
+            {
+                data: 'nombreprodserv',
+                name: 'nombreprodserv'
+            },
+            {
+                data: 'detalleprodserv',
+                name: 'detalleprodserv'
+            },
+
+            {
+                data: 'btn',
+                name: 'btn',
+                orderable: true,
+                searchable: true
+            },
+        ]
+
+
+
+    });
+
+
+
+
+});
+</script>
+
+@endsection
 @endsection

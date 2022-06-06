@@ -2,12 +2,14 @@
 
 @section('content')
 
+<div  style="color:#009EFB;font-weight: bold;">Agregar Registro</div>
+</br>
+
     <div class="card col-md-10">
-        <div class="card-header" style="color:#0096C9;font-weight: bold;">{{ __('Agregar Registro') }}</div>
         <div class="row">
       <div class="col-md-2">
         <div class="row">
-          <a href="{{ url('/compras/catprog') }}" class="btn blue darken-4 text-black "><i class="fa fa-plus-square" style="color:#55CE63;font-weight: bold;"></i> Volver atras</a>
+          <a href="{{ url('/compras/catprog/index') }}" class="btn blue darken-4 text-black "><i class="fa fa-plus-square" style="color:#55CE63;font-weight: bold;"></i> Volver atras</a>
         </div>
       </div>
     </div>

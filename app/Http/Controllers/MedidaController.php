@@ -16,7 +16,7 @@ class MedidaController extends Controller
 {
    
      
-         //index 
+   //index 
    public function index()
     {
              
@@ -24,29 +24,36 @@ class MedidaController extends Controller
 
     }
 
-    public function listado(Request $request)
+
+
+
+    ///listado
+
+    public function listado()
     {
-        if ($request->ajax()) {
+        
             $data = DB::table('umedida')->get();
             return Datatables::of($data)
                 ->addIndexColumn()
-                ->addColumn('btnActions','compras.partida.partials.actions')
-                ->rawColumns(['btnActions'])
+                ->addColumn('btn','compras.medidas.btn')
+                ->rawColumns(['btn'])
                 ->make(true);
-        }
+       
 
-        //dd($data);
+       
     }
 
+   
+  //editar
 
-
-    public function edit($idmedida)
+    public function editar($idmedida)
     {
           $medida = MedidaModel::find($idmedida);
 
           return view('compras/medidas/edit')->with('medida', $medida);
     
     }
+
 
 
 
@@ -66,10 +73,13 @@ class MedidaController extends Controller
     {
       $request->session()->flash('message', 'Error al Procesar Registro');
     }
-    return redirect('compras/medidas');
+    return redirect('compras/medidas/index');
     }
+    
 
 
+
+   //medidas create
 
 
     public function create()
@@ -80,6 +90,7 @@ class MedidaController extends Controller
 
 
 
+    //medidas store
     public function store(request $request){
 
         $medida = new MedidaModel();
@@ -87,10 +98,14 @@ class MedidaController extends Controller
   
         $medida -> estadoumedida = 1;
 
-
         $medida->save();
         return redirect()->route('medidas.index');
     }
+
+
+
+
+    //medidas destroy
 
     public function destroy($id){
  

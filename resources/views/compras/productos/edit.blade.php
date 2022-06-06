@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-
-<div class="card col-md-9">
-    <div class="card-header" style="color:#0096C9;font-weight: bold;">{{ __('Editar Registro') }}</div>
+<div style="color:#009EFB;font-weight: bold;font-size: 18px;">Editar Productos-Items</div>
+</br>
+<div class="card col-md-8">
     <div class="row">
         <div class="col-md-6">
             <div class="row">
-                <a href="{{ url('/compras/productos') }}" class="btn blue darken-4 text-black "><i
+                <a href="{{ url('compras/productos/index') }}" class="btn blue darken-4 text-black "><i
                         style="color:#55CE63;font-weight: bold;" class="fa fa-plus-square"></i> Volver atras</a>
             </div>
         </div>
@@ -15,7 +15,7 @@
     <div class="card-body">
         <form method="POST" action="{{ route('productos.update', $productos->idprodserv) }}">
             @csrf
-            @method('PUT')
+            @method('POST')
 
             <div class="form-group row">
                 <label style="color:#009EFB;font-weight: bold;" for="name"
@@ -30,7 +30,7 @@
         <label style="color:#009EFB;font-weight: bold;" for="detalle"
             class="required col-md-4 col-form-label text-md-right">{{ __('Detalle') }}</label>
         <div class="col-md-6">
-            <textarea id="detalle" type="text" name="detalle" cols="50" rows="4" placeholder="Detalle..."
+            <textarea id="detalle" type="text" name="detalle" cols="51" rows="4" placeholder="Detalle..."
                 onkeyup="javascript:this.value=this.value.toUpperCase();">{{$productos->detalleprodserv}}</textarea>
         </div>
     </div>
@@ -87,7 +87,7 @@
 
     <div class="form-group row mb-0">
         <div class="col-md-6 offset-md-4">
-            <button type="submit" class="btn btn-outline-success">
+            <button type="submit" class="btn btn-outline-info">
                 {{ __('Guardar') }}
             </button>
         </div>

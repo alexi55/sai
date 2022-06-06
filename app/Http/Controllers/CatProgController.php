@@ -7,6 +7,8 @@ use App\Models\CatProgModel;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use DB;
+use DataTables;
+
 
 class CatProgController extends Controller
 {
@@ -15,15 +17,28 @@ class CatProgController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    //index
     public function index()
     {
-        $catprogs = DB::table('catprogramatica') 
-        //->where('nombreumedida','LIKE','%'.$query.'%')
+             
+     return view('compras.catprog.index');
+
+    }
+
+    public function listado()
+    {
+        $data = DB::table('catprogramatica') 
         -> where('estadocatprogramatica','=', 1)
-        -> orderBy('idcatprogramatica', 'asc')
-        -> paginate(10);
-        // return view('compras.medidas.index', ["medidas" => $medidas]);
-         return view('compras.catprog.index',compact('catprogs'));
+        -> get();
+
+        return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('btn','compras.catprog.btn')
+                ->rawColumns(['btn'])
+                ->make(true);
+  ;
     }
 
     /**
@@ -78,7 +93,7 @@ class CatProgController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($idcatprog)
+    public function editar($idcatprog)
     {
         $catprogs = CatProgModel::find($idcatprog);
     
@@ -104,7 +119,7 @@ class CatProgController extends Controller
       }else{
           $request->session()->flash('message', 'Error al Procesar Registro');
       }
-        return redirect('compras/catprog');
+        return redirect('compras/catprog/index');
     }
 
     /**
