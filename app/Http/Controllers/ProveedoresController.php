@@ -8,6 +8,7 @@ use App\Models\DocProveedorModel;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use DB;
+use DataTables;
 
 class ProveedoresController extends Controller
 {
@@ -16,15 +17,30 @@ class ProveedoresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+
+   //index 
+   public function index()
+    {
+             
+     return view('compras.proveedores.index');
+
+    }
+
+
+
+    public function list()
     {
           //obtener las categorias
-          $proveedores = DB::table('proveedores') 
-       
+          $data = DB::table('proveedores') 
           -> where('estadoproveedor','=', 1)
-          -> orderBy('idproveedor', 'desc')
-          -> paginate(10);
-           return view('compras.proveedores.index', ["proveedores" => $proveedores]);
+          -> get();
+           //return view('compras.proveedores.index', ["proveedores" => $proveedores]);
+           return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('btn','compras.proveedores.btn')
+                ->rawColumns(['btn'])
+                ->make(true);
     }
 
     /**
@@ -181,7 +197,7 @@ public function insertar(Request $request)
   }else{
       $request->session()->flash('message', 'Error al Procesar Registro');
   }
-    return redirect('compras/proveedores');
+    return redirect('compras/proveedores/index');
     }
 
     /**

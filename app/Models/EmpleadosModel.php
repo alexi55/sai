@@ -15,17 +15,17 @@ class EmpleadosModel extends Model
         public $timestamps = false;
     
         protected $fillable = [
-            'idarea',
+            'idemp',
+            'numfile',
             'nombres',
             'ap_pat',
             'ap_mat',
+            'nomcargo',
+            'habbasico',
             'ci',
-            'f_nac',
-            'sexo',
-            'telefono',
-            'correo',
-            'estado',
-            'estadou'
+            'sippase',
+            'idarea',
+            
         ];
     
         protected $guarded = [

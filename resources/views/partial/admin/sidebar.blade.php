@@ -30,7 +30,7 @@
                                 aria-expanded="false">
 
                                 <i class="fab fa-whmcs" aria-hidden="true"></i>
-                                <span class="hide-menu" style="color:#009EFB;font-weight: bold;">Panel de Compras</span>
+                                <span class="hide-menu" style="color:#519259;font-weight: bold;">Panel de Compras</span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level
                                 @if(request()->is('admin/users') || request()->is('admin/users/*')) in @endif
@@ -40,7 +40,7 @@
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('medidas.index') }}" aria-expanded="false">
-                                        <i class="fab fa-chrome" aria-hidden="true"></i>
+                                        <i class="fa fa-sitemap" aria-hidden="true"></i>
                                         <span class="hide-menu" style="color:black;font-weight: bold;">Medidas</span>
                                     </a>
                                 </li>
@@ -49,7 +49,7 @@
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('pedido.index') }}" aria-expanded="false">
-                                        <i class="fab fa-chrome" aria-hidden="true"></i>
+                                        <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
                                         <span class="hide-menu" style="color:black;font-weight: bold;">Compras</span>
                                     </a>
                                 </li>
@@ -58,7 +58,7 @@
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('partida.index') }}" aria-expanded="false">
-                                        <i class="fab fa-chrome" aria-hidden="true"></i>
+                                        <i class="fa fa-briefcase" aria-hidden="true"></i>
                                         <span class="hide-menu" style="color:black;font-weight: bold;">Partidas</span>
                                     </a>
                                 </li>
@@ -67,7 +67,7 @@
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('productos.index') }}" aria-expanded="false">
-                                        <i class="fab fa-chrome" aria-hidden="true"></i>
+                                        <i class="fa fa-suitcase" aria-hidden="true"></i>
                                         <span class="hide-menu"
                                             style="color:black;font-weight: bold;">Productos-Items</span>
                                     </a>
@@ -79,7 +79,7 @@
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('proveedores.index') }}" aria-expanded="false">
-                                        <i class="fab fa-chrome" aria-hidden="true"></i>
+                                        <i class="fa fa-users" aria-hidden="true"></i>
                                         <span class="hide-menu"
                                             style="color:black;font-weight: bold;">Proveedores</span>
                                     </a>
@@ -92,7 +92,7 @@
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('programas.index') }}" aria-expanded="false">
-                                        <i class="fab fa-chrome" aria-hidden="true"></i>
+                                        <i class="fa fa-cogs" aria-hidden="true"></i>
                                         <span class="hide-menu" style="color:black;font-weight: bold;">Programas</span>
                                     </a>
                                 </li>
@@ -102,7 +102,7 @@
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('catprog.index') }}" aria-expanded="false">
-                                        <i class="fab fa-chrome" aria-hidden="true"></i>
+                                        <i class="fa fa-map-signs" aria-hidden="true"></i>
                                         <span class="hide-menu"
                                             style="color:black;font-weight: bold;">Cat.Programatica</span>
                                     </a>
@@ -135,7 +135,8 @@
                                 aria-expanded="false">
 
                                 <i class="fab fa-expeditedssl" aria-hidden="true"></i>
-                                <span class="hide-menu" style="color:#009EFB;font-weight: bold;">Panel de Usuarios</span>
+                                <span class="hide-menu" style="color:#519259;font-weight: bold;">Panel de
+                                    Usuarios</span>
                             </a>
                             <ul aria-expanded="false"
                                 class="collapse first-level
@@ -143,13 +144,13 @@
                                 @if(request()->is('admin/roles') || request()->is('admin/roles/*')) in @endif
                                 @if(request()->is('admin/permissions') || request()->is('admin/permissions/*')) in @endif">
 
-                               
+
 
                                 @can('empleados_access')
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('empleados.index') }}" aria-expanded="false">
-                                        <i class="fab fa-chrome" aria-hidden="true"></i>
+                                        <i class="fa fa-users" aria-hidden="true"></i>
                                         <span class="hide-menu" style="color:black;font-weight: bold;">Empleados</span>
                                     </a>
                                 </li>
@@ -159,7 +160,7 @@
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('areas.index') }}" aria-expanded="false">
-                                        <i class="fab fa-chrome" aria-hidden="true"></i>
+                                        <i class="fa fa-database" aria-hidden="true"></i>
                                         <span class="hide-menu" style="color:black;font-weight: bold;">Areas</span>
                                     </a>
                                 </li>
@@ -171,7 +172,7 @@
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('admin.users.index') }}" aria-expanded="false">
-                                        <i class="fab fa-chrome" aria-hidden="true"></i>
+                                        <i class="fa fa-user" aria-hidden="true"></i>
                                         <span class="hide-menu" style="color:black;font-weight: bold;">Usuarios</span>
                                     </a>
                                 </li>
@@ -181,7 +182,7 @@
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/roles') || request()->is('admin/roles/*')) is_active @endif"
                                         href="{{ route('admin.roles.index') }}" aria-expanded="false">
-                                        <i class="fab fa-chrome" aria-hidden="false"></i>
+                                        <i class="fa fa-user-secret" aria-hidden="true"></i>
                                         <span class="hide-menu" style="color:black;font-weight: bold;">Roles</span>
                                     </a>
                                 </li>
@@ -191,7 +192,7 @@
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/permissions') || request()->is('admin/permissions/*')) is_active @endif"
                                         href="{{ route('admin.permissions.index') }}" aria-expanded="false">
-                                        <i class="fab fa-chrome" aria-hidden="false"></i>
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i>
                                         <span class="hide-menu" style="color:black;font-weight: bold;">Permisos</span>
                                     </a>
                                 </li>

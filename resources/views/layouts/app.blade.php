@@ -24,7 +24,7 @@
 
     <style>
         .card-header{
-            background: #7460ee !important;
+            background: #064635 !important;
             color: #fff !important;
         }
     </style>

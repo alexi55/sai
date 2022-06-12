@@ -1,29 +1,38 @@
 @extends('layouts.admin')
 
 @section('content')
-
-<div style="color:#009EFB;font-weight: bold;font-size: 18px;">Modulo de Medidas 
+<div class="container">
+    <div class="row justify-content-center">
+    <div style="color:#009EFB;font-weight: bold;font-size: 18px;">Modulo de Medidas 
 &nbsp;&nbsp;
+
 @can('medidas_create')
 <a href="{{ route('medidas.create') }}" class="btn btn-outline-info">Agregar</a>
 @endcan</div>
-</br>
-<div class="card col-md-10">
-</br>
-    <table class="table table-bordered yajra-datatable">
-        <thead bgcolor="#71D799">
+</br></br></br>
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">Lista de medidas</div>
+
+                <div class="card-body">
+                <table class="table table-bordered yajra-datatable hoverTable">
+        <thead bgcolor="#009EFB">
             <tr>
-                <th style="color:white">N°</th>
-                <th style="color:white">Nombre</th>
-                <th style="color:white;width:50px;">Opciones</th>
+                <th style="color:black;width:30px;">N°</th>
+                <th style="color:black">Nombre</th>
+                <th style="color:black;width:50px;">Opciones</th>
             </tr>
         </thead>
         <tbody>
         </tbody>
     </table>
-</div>
 
- @section('scripts')
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section('scripts')
 
 <script type="text/javascript">
   $(function () {
@@ -65,7 +74,6 @@ language: {
             },
         ]
 
-
     });
 
   });
@@ -73,3 +81,4 @@ language: {
 
 @endsection
 @endsection
+

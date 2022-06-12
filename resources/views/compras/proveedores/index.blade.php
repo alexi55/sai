@@ -1,69 +1,111 @@
 @extends('layouts.admin')
 
 @section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div style="color:#009EFB;font-weight: bold;font-size: 18px;">Modulo Proveedores
+            &nbsp;&nbsp;
+            @can('proveedores_create')
+            <a href="{{ route('proveedores.create') }}" class="btn btn-outline-info">Agregar</a>
+            @endcan
+        </div>
+        </br></br></br>
 
-<div class="card col-md-12">
-    <div class="card-header" style="color:#0096C9;font-weight: bold;">{{ __('Modulo de Proveedores') }}</div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">Lista de proveedores</div>
 
-    <div class="card-body table-responsive">
+                <div class="card-body">
 
-        @can('proveedores_create')
-        <a href="{{ route('proveedores.create') }}"  class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Permite agregar un nuevo registro">Agregar Registro</a>
-        @endcan
-
-        <br /><br />
-
-
-        <table class="table  table-hover">
-            <tr class="bg-info text-light">
-
-                <th>Id</th>
-                <th>Nombre Proveedor</th>
-                <th>Representante</th>
-                <th>Cedula</th>
-                <th>Nit</th>
-                <th>Telefono</th>
-                <th>Opciones</th>
-
-
-            </tr>
-            @forelse ($proveedores as $proveed)
-            <tr>
-
-                <td style="color:#0098CA;">{{$proveed -> idproveedor}}</td>
-                <td style="color:#0098CA;">{{$proveed -> nombreproveedor}}</td>
-                <td style="color:#0098CA;">{{$proveed -> representante}}</td>
-                <td style="color:#0098CA;">{{$proveed -> cedula}}</td>
-                <td style="color:#0098CA;">{{$proveed -> nitCi}}</td>
-                <td style="color:#0098CA;">{{$proveed -> telefonoproveedor}}</td>
+                    <table class="table table-bordered yajra-datatable hoverTable">
+                        <thead bgcolor="#009EFB">
+                            <tr>
+                                <th style="color:black">N°</th>
+                                <th style="color:black">Nombre Proveedor</th>
+                                <th style="color:black">Representante</th>
+                                <th style="color:black">Cedula</th>
+                                <th style="color:black">Nit/Ci</th>
+                                <th style="color:black">Telefono</th>
+                                <th style="color:black">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
 
 
-                <td>
-                    @can('proveedores_edit')
-                    <a href="proveedores/{{$proveed -> idproveedor}}/edit" class="btn btn-outline-warning " data-toggle="tooltip" data-placement="top" title="Permite editar el registro seleccionado">Editar</a>
-                    @endcan
-                    @can('proveedores_edit')
-                    <a href="{{route('admin.users.edit', $proveed -> idproveedor)}}" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Permite cargar documentos del proveedor">Documentos</a>
-                    @endcan
-
-                </td>
-            </tr>
-            @empty
-            <tr>
-                <td colspan="100%" class="text-center text-muted py-3">No Users Found</td>
-            </tr>
-            @endforelse
-        </table>
-
-
-        @if($proveedores->total() > $proveedores->perPage())
-        <br><br>
-        {{$proveedores->links()}}
-        @endif
-
-
-
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+@section('scripts')
 
+<script type="text/javascript">
+$(function() {
+
+    var table = $('.yajra-datatable').DataTable({
+        language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+            "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+            "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Entradas",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        },
+
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('proveedores.list') }}",
+        columns: [{
+                data: 'DT_RowIndex',
+                name: 'DT_RowIndex'
+            },
+            {
+                data: 'nombreproveedor',
+                name: 'nombreproveedor'
+            },
+            {
+                data: 'representante',
+                name: 'representante'
+            },
+            {
+                data: 'cedula',
+                name: 'cedula'
+            },
+            {
+                data: 'nitCi',
+                name: 'nitCi'
+            },
+            {
+                data: 'telefonoproveedor',
+                name: 'telefonoproveedor'
+            },
+
+            {
+                data: 'btn',
+                name: 'btn',
+                orderable: true,
+                searchable: true
+            },
+        ]
+
+    });
+
+});
+</script>
+
+@endsection
 @endsection

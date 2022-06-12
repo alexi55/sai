@@ -5,18 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AreasModel extends Model
+class Purchase extends Model
 {
-    protected $table = 'areas';
     
-    protected $primaryKey= 'idarea';
+    protected $table = 'purchases';
+    
+    protected $primaryKey= 'id';
 
     public $timestamps = false;
 
     protected $fillable = [
-        'nombrearea',
-        'estadoarea',
-        'idnivel'
+        'bank_acc_number',
+        'customer_id',
+        'company',
+        'created_at',
+        'update_at'
     ];
 
     protected $guarded = [

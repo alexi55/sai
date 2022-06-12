@@ -1,14 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
-
+<div style="color:#009EFB;font-weight: bold;font-size:20px;">Pantalla Principal</div>
+</br>
     <div class="card">
-        <div class="card-header">{{ __('Pantalla Principal') }}</div>
+       
 
         <div class="card-body">
 
-
-            {{ __('Bienvido al Sistema') }}
+        <div style="color:#00C189;font-weight: bold;font-size:20px;">Bienvido al Sistema</div>
+          
         </div>
 
         <br><br>

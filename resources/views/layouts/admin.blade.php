@@ -29,6 +29,58 @@
             .btn{
                 margin: 2.5px;
             }
+            .card-header{
+            background: #519259 !important;
+            color: #fff !important;
+        }
+        .hoverTable tr:hover {
+          background-color: #FBF9E1;
+    }
+
+
+
+
+   
+    #customers-table tbody td.details-control {
+            background-image: url('{{ asset('admin_assets/images/details_open.png') }}');
+            cursor: pointer;
+            background-repeat:  no-repeat;
+            background-position: center;
+            background-origin: content-box;
+            background-size:20px;
+            padding: 7px;
+        }
+        #customers-table tbody tr.shown td.details-control {
+            background-image: url('{{ asset('admin_assets/images/details_close.png') }}');
+            cursor: pointer;
+            background-repeat:  no-repeat;
+            background-position: center;
+            background-origin: content-box;
+            background-size: 20px;
+            padding: 7px;
+        }
+
+        #customers-table tbody tr .rowDetails p {
+            font-size: 14px;
+            font-weight: 800;
+            float: left;
+            margin-right: 10px;
+            padding: 1px;
+            margin-bottom: 0;
+        }
+        #customers-table tbody tr .rowDetails a{
+
+        }
+        #customers-table tbody tr .rowDetails td{
+            padding: 5px;
+        }
+        .m-r-10{
+            margin-right: 10px !important;
+        }
+    
+
+
+
         </style>
         @yield('styles')
 </head>
@@ -108,14 +160,14 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" style="color:white;font-size:18px;" href="" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                   Bienvenido: {{ Auth()->user()->name }}
+                                   Bienvenido:  {{ Auth()->user()->name }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                <a href="javascript:void(0)" onclick="$('#logout-form').submit();" class="dropdown-item">
                                     <i class="fa fa-sign-out-alt mr-3"></i>
-                                    Logout
+                                    Cerrar sesión
                                </a>
                             </div>
                         </li>
@@ -211,6 +263,7 @@
     <!-- slim-select -->
     <script src="{{ asset('admin_assets/plugins/slim-select/slimselect.min.js') }}"></script>
     <script src="{{ asset('dataTable_1.10.22/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin_assets/js/handlebars.js') }}"></script>
 
 
 

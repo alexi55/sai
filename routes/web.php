@@ -82,19 +82,34 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
 
 
     //compras empleados
-    Route::resource('compras/empleados', 'EmpleadosController');
+    //Route::resource('compras/empleados', 'EmpleadosController');
+    Route::get('compras/empleados/index', 'EmpleadosController@index')->name('empleados.index');
+    Route::get('compras/empleados/list', 'EmpleadosController@list')->name('empleados.list');
+    Route::get('compras/empleados/detalle/{id}', 'EmpleadosController@detalle')->name('empleados_detalle');
+    Route::get('compras/empleados/{id}/edit', 'EmpleadosController@edit')->name('empleados.edit');
+    Route::POST('compras/empleados/{id}/update', 'EmpleadosController@update')->name('empleados.update');
+    Route::get('compras/empleados/create', 'EmpleadosController@create')->name('empleados.create');
+    Route::POST('compras/empleados/store', 'EmpleadosController@store')->name('empleados.store');
+
 
 
 
     //compras proveedores
     // Route::get('compras/proveedores/{id}/createdoc', 'ProveedoresController@createdoc');
     //Route::get('compras/proveedores/{id}/createdocproveedor', 'ProveedoresController@createdoc');
-    Route::resource('compras/proveedores', 'ProveedoresController');
     //Route::get('compras/proveedores/{id}/editardoc', 'ProveedoresController@editardoc');
-    Route::get('compras/proveedores/{id}/editardoc', ['uses' => 'ProveedoresController@editardoc','as' => 'admin.users.edit']);
-   
-    Route::get('compras/proveedores/{id}/createdocproveedor', 'ProveedoresController@createdoc')->name('ProveedoresController.createdoc');
     //Route::POST('insertar', [ProveedoresController::class,'insertar']);
+    //Route::resource('compras/proveedores', 'ProveedoresController');
+
+    Route::get('compras/proveedores/index', 'ProveedoresController@index')->name('proveedores.index');
+    Route::get('compras/proveedores/list', 'ProveedoresController@list')->name('proveedores.list');
+    Route::get('compras/proveedores/{id}/edit', 'ProveedoresController@edit')->name('proveedores.edit');
+    Route::POST('compras/proveedores/{id}/update', 'ProveedoresController@update')->name('proveedores.update');
+    Route::get('compras/proveedores/create', 'ProveedoresController@create')->name('proveedores.create');
+    Route::POST('compras/proveedores/store', 'ProveedoresController@store')->name('proveedores.store');
+
+    Route::get('compras/proveedores/{id}/editardoc', ['uses' => 'ProveedoresController@editardoc','as' => 'admin.users.edit']);
+    Route::get('compras/proveedores/{id}/createdocproveedor', 'ProveedoresController@createdoc')->name('ProveedoresController.createdoc');
     Route::POST('compras/proveedores/insertar', 'ProveedoresController@insertar')->name('ProveedoresController.insertar');
 
     
