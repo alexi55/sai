@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
+
     <div class="row justify-content-center">
 
-        <div style="color:#009EFB;font-weight: bold;font-size: 18px;">Modulo de Programas
+        <div style="color:black;font-weight: bold;font-size: 18px;">Modulo Programas
             &nbsp;&nbsp;
             @can('medidas_create')
             <a href="{{ route('programas.create') }}" class="btn btn-outline-info">Agregar</a>
@@ -13,10 +13,10 @@
         </br></br></br>
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Lista de Programas</div>
+                
                 <div class="card-body">
                     <table class="table table-bordered yajra-datatable hoverTable">
-                        <thead bgcolor="#009EFB">
+                        <thead >
                             <tr>
                                 <th style="color:black">N°</th>
                                 <th style="color:black">Nombre</th>
@@ -33,7 +33,7 @@
             </div>
         </div>
     </div>
-</div>
+
 @section('scripts')
 
 <script type="text/javascript">

@@ -2,53 +2,66 @@
 
 @section('content')
 
-<div class="card">
-    <div class="card-header">{{ __('Lista de Areas') }}</div>
+    <div class="row justify-content-center">
+    <div style="color:black;font-weight: bold;font-size: 18px;">Modulo Areas
+&nbsp;&nbsp;
 
-    <div class="card-body table-responsive">
-        @can('areas_create')
-        <a href="{{ route('areas.create') }}" class="btn btn-outline-primary">Agregar Registro</a>
-        @endcan
+@can('medidas_create')
+<a href="{{ route('areas.create') }}" class="btn btn-outline-info">Agregar</a>
+@endcan</div>
+</br></br></br>
+        <div class="col-md-10">
+            <div class="card">
+              
 
-        <br /><br />
-
-        <table class="table table-borderless table-hover">
-            <tr class="bg-info text-light">
-                <th>ID</th>
-                <th>Nombres </th>
-                <th>Opciones</th>
-
-            </tr>
-            @forelse ($areas as $area)
+                <div class="card-body">
+                <table class="table table-bordered yajra-datatable hoverTable">
+        <thead >
             <tr>
-                <td>{{$area -> idarea}}</td>
-                <td>{{$area -> nombrearea}}</td>
-
-
-                <td>
-
-                    @can('areas_edit')
-                    <a href="areas/{{$area -> idarea}}/edit" class="btn btn-outline-warning">Editar</a>
-                    @endcan
-
-                </td>
+                <th style="color:black;width:30px;">N°</th>
+                <th style="color:black">Nombre</th>
+                <th style="color:black;width:50px;">Opciones</th>
             </tr>
-            @empty
-            <tr>
-                <td colspan="100%" class="text-center text-muted py-3">No Users Found</td>
-            </tr>
-            @endforelse
-        </table>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 
-
-        @if($areas->total() > $areas->perPage())
-        <br><br>
-        {{$areas->links()}}
-        @endif
-
-
-
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
+@section('scripts')
+
+<script type="text/javascript">
+  $(function () {
+
+    var table = $('.yajra-datatable').DataTable({
+language: {
+    url: '/sai/public/spain.json'
+    },
+
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('areas.list') }}",
+        columns: [
+            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'nombrearea', name: 'nombrearea'},
+                      
+            {
+                data: 'btn', 
+                name: 'btn', 
+                orderable: true, 
+                searchable: true
+            },
+        ]
+
+    });
+
+  });
+</script>
 
 @endsection
+@endsection
+

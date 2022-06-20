@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AreasModel;
+use App\Models\NivelModel;
+use App\Models\FileModel;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use DB;
+use DataTables;
 
 class AreasController extends Controller
 {
@@ -18,13 +21,28 @@ class AreasController extends Controller
     public function index()
     {
         
-        $areas = DB::table('areas') 
-        //->where('nombreumedida','LIKE','%'.$query.'%')
-        -> where('estadoarea','=', 1)
-        -> orderBy('idarea', 'desc')
-        -> paginate(10);
-        // return view('compras.medidas.index', ["medidas" => $medidas]);
-         return view('compras.areas.index',compact('areas'));
+      
+        
+         return view('compras.areas.index');
+    }
+
+    public function listado(Request $request)
+    {
+        
+            $data = DB::table('areas')->get();
+            return Datatables::of($data)
+            ->addIndexColumn()
+            ->addColumn('btn', function($row){
+
+                $btn = '<a href="'. route('areas.edit', $row->idarea) .'" class="btn btn-outline-success btn-sm"  title="Editar">Editar</a>';
+                $btn2 = '<a href="'. route('areas.file', $row->idarea) .'" class="btn btn-outline-success btn-sm"  title="Files">Files</a>';
+                $btn4='<div class="d-flex">'.$btn.' '.$btn2.'</div>';
+                    return $btn4;
+            })
+            ->rawColumns(['btn'])
+            ->make(true);
+
+       
     }
 
     /**
@@ -34,8 +52,29 @@ class AreasController extends Controller
      */
     public function create()
     {
-        return view('compras.areas.create');
+        $area = AreasModel::where('estadoarea','=', 1)->with('iPais_all')->get();
+        $niveles = DB::table('niveles')->get();
+        
+        //return view('compras.empleados.create', ["areas" => $areas]);
+        return view('compras.areas.create', ["niveles" => $niveles,"area" => $area]);
     }
+    public function file($id)
+    {
+        $file = DB::table('file as f') 
+        ->join('areas as a', 'a.idarea', '=', 'f.idarea')
+        ->select('f.idfile','f.numfile','f.sueldo','f.cargofile','a.nombrearea')
+        -> where('a.idarea','=', $id)
+        -> paginate(5);
+       // dd($docproveedor);
+       
+         return view('compras.areas.file', ["file" => $file,"id" => $id]);
+    
+    }
+
+    public function byCategory($id){
+        return FileModel::where('idarea','=',$id)->get();
+    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -47,6 +86,7 @@ class AreasController extends Controller
     {
         $areas = new AreasModel();
         $areas -> nombrearea = $request->input('nombre');
+        $areas -> idnivel = $request->input('idnivel');
        
         
         $areas -> estadoarea = 1;
@@ -104,7 +144,7 @@ class AreasController extends Controller
       }else{
           $request->session()->flash('message', 'Error al Procesar Registro');
       }
-        return redirect('compras/areas');
+        return redirect('compras/areas/index');
     }
 
     /**

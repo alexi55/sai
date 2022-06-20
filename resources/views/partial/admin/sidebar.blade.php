@@ -29,8 +29,8 @@
                             <a class="sidebar-link has-arrow waves-effect waves-dark selected" href="javascript:void(0)"
                                 aria-expanded="false">
 
-                                <i class="fab fa-whmcs" aria-hidden="true"></i>
-                                <span class="hide-menu" style="color:#519259;font-weight: bold;">Panel de Compras</span>
+                                <i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>
+                                <span class="hide-menu" style="color:#519259;font-weight: bold;">Compras</span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level
                                 @if(request()->is('admin/users') || request()->is('admin/users/*')) in @endif
@@ -117,6 +117,59 @@
 
 
 
+                        @canany(['compras_panel_access'])
+                        <li class="sidebar-item">
+
+                            <a class="sidebar-link has-arrow waves-effect waves-dark selected" href="javascript:void(0)"
+                                aria-expanded="false">
+
+                                <i class="fa fa-spinner fa-spin fa-3x fa-fw" aria-hidden="true"></i>
+                                <span class="hide-menu" style="color:#519259;font-weight: bold;">Recursos Humanos</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level
+                                @if(request()->is('admin/users') || request()->is('admin/users/*')) in @endif
+   
+                            ">
+                                @can('medidas_access')
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
+                                        href="{{ route('planta.index') }}" aria-expanded="false">
+                                        <i class="fa fa-id-badge" aria-hidden="true"></i>
+                                        <span class="hide-menu" style="color:black;font-weight: bold;">Personal Planta</span>
+                                    </a>
+                                </li>
+                                @endcan
+                                @can('productos_access')
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
+                                        href="{{ route('pedido.index') }}" aria-expanded="false">
+                                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                        <span class="hide-menu" style="color:black;font-weight: bold;">Personal Contrato</span>
+                                    </a>
+                                </li>
+                                @endcan
+                                @can('areas_access')
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
+                                        href="{{ route('areas.index') }}" aria-expanded="false">
+                                        <i class="fa fa-database" aria-hidden="true"></i>
+                                        <span class="hide-menu" style="color:black;font-weight: bold;">Areas</span>
+                                    </a>
+                                </li>
+                                @endcan
+                                
+
+                            </ul>
+                        </li>
+                        @endcanany
+
+
+
+
+
+
+
+
 
 
 
@@ -156,15 +209,7 @@
                                 </li>
                                 @endcan
 
-                                @can('areas_access')
-                                <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
-                                        href="{{ route('areas.index') }}" aria-expanded="false">
-                                        <i class="fa fa-database" aria-hidden="true"></i>
-                                        <span class="hide-menu" style="color:black;font-weight: bold;">Areas</span>
-                                    </a>
-                                </li>
-                                @endcan
+                              
 
 
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\MedidaController;
 use App\Http\Controllers\ProveedoresController;
 use App\Http\Controllers\PrartidaController;
 use App\Http\Controllers\ProdServController;
+use App\Http\Controllers\PlantaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,12 +86,22 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     //Route::resource('compras/empleados', 'EmpleadosController');
     Route::get('compras/empleados/index', 'EmpleadosController@index')->name('empleados.index');
     Route::get('compras/empleados/list', 'EmpleadosController@list')->name('empleados.list');
-    Route::get('compras/empleados/detalle/{id}', 'EmpleadosController@detalle')->name('empleados_detalle');
-    Route::get('compras/empleados/{id}/edit', 'EmpleadosController@edit')->name('empleados.edit');
-    Route::POST('compras/empleados/{id}/update', 'EmpleadosController@update')->name('empleados.update');
-    Route::get('compras/empleados/create', 'EmpleadosController@create')->name('empleados.create');
-    Route::POST('compras/empleados/store', 'EmpleadosController@store')->name('empleados.store');
+   //Route::get('compras/empleados/detalle/{id}', 'EmpleadosController@detalle')->name('empleados_detalle');
+   // Route::get('compras/empleados/{id}/edit', 'EmpleadosController@edit')->name('empleados.edit');
+   // Route::POST('compras/empleados/{id}/update', 'EmpleadosController@update')->name('empleados.update');
+   // Route::get('compras/empleados/create', 'EmpleadosController@create')->name('empleados.create');
+    //Route::POST('compras/empleados/store', 'EmpleadosController@store')->name('empleados.store');
 
+
+    //rechumanos empleados planta
+    //Route::resource('compras/empleados', 'EmpleadosController');
+    Route::get('rechumanos/planta/index', 'PlantaController@index')->name('planta.index');
+    Route::get('rechumanos/planta/list', 'PlantaController@list')->name('planta.list');
+   Route::get('rechumanos/planta/detalle/{id}', 'PlantaController@detalle')->name('planta_detalle');
+   Route::get('rechumanos/planta/edit/{id}', 'PlantaController@edit')->name('planta.edit');
+   // Route::POST('rechumanos/planta/{id}/update', 'EmpleadosController@update')->name('empleados.update');
+   // Route::get('rechumanos/planta/create', 'EmpleadosController@create')->name('empleados.create');
+    //Route::POST('rechumanos/planta/store', 'EmpleadosController@store')->name('empleados.store');
 
 
 
@@ -114,7 +125,16 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
 
     
     //compras areas
-    Route::resource('compras/areas', 'AreasController');
+    //Route::resource('compras/areas', 'AreasController');
+    Route::get('compras/areas/index', 'AreasController@index')->name('areas.index');
+    Route::get('compras/areas/list', 'AreasController@listado')->name('areas.list');
+    Route::get('compras/areas/create', 'AreasController@create')->name('areas.create');
+    Route::get('compras/areas/{id}/edit', 'AreasController@edit')->name('areas.edit');
+    Route::POST('compras/areas/{id}/update', 'AreasController@update')->name('areas.update');
+    Route::POST('compras/areas/store', 'AreasController@store')->name('areas.store');
+    Route::get('compras/areas/{id}/file', 'AreasController@file')->name('areas.file');
+    Route::Get('productByCategory/{id}', 'AreasController@byCategory');
+    
 
 
 

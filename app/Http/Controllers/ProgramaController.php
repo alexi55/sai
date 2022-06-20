@@ -37,10 +37,15 @@ class ProgramaController extends Controller
         // return view('compras.programas.index',compact('programas'));
 
         return Datatables::of($data)
-                ->addIndexColumn()
-                ->addColumn('btn','compras.programas.btn')
-                ->rawColumns(['btn'])
-                ->make(true);
+        ->addIndexColumn()
+        ->addColumn('btn', function($row){
+
+               $btn = '<a href="'. route('programas.edit', $row->idprograma) .'" class="btn btn-outline-success"  title="Editar">Editar</a>';
+               
+                return $btn;
+        })
+        ->rawColumns(['btn'])
+        ->make(true);
     }
 
     /**

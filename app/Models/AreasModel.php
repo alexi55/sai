@@ -23,4 +23,12 @@ class AreasModel extends Model
 
         
     ];
+
+    public function purchases()
+    {
+        return $this->hasMany('App\Models\EmpleadosModel', 'idarea', 'idarea');
+    }
+    public function iPais_all(){
+        return $this->hasMany('App\Models\FileModel', 'idarea', 'idarea');
+    }
 }

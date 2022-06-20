@@ -34,11 +34,15 @@ class MedidaController extends Controller
         
             $data = DB::table('umedida')->get();
             return Datatables::of($data)
-                ->addIndexColumn()
-                ->addColumn('btn','compras.medidas.btn')
-                ->rawColumns(['btn'])
-                ->make(true);
-       
+            ->addIndexColumn()
+            ->addColumn('btn', function($row){
+
+                   $btn = '<a href="'. route('medidas.edit', $row->idumedida) .'" class="btn btn-outline-success btn-sm"  title="Editar">Editar</a>';
+                   
+                    return $btn;
+            })
+            ->rawColumns(['btn'])
+            ->make(true);
 
        
     }

@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="row">
-                <a href="{{ url('/compras/areas') }}" class="btn blue darken-4 text-black "><i
+                <a href="{{ url('/compras/areas/index') }}" class="btn blue darken-4 text-black "><i
                         class="fa fa-plus-square"></i> Volver atras</a>
             </div>
         </div>
@@ -15,7 +15,7 @@
     <div class="card-body">
         <form method="POST" action="{{ route('areas.update', $areas->idarea) }}">
             @csrf
-            @method('PUT')
+            @method('POST')
 
             <div class="form-group row">
                 <label for="nombre" class="required col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>

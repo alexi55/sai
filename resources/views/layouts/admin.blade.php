@@ -30,13 +30,13 @@
                 margin: 2.5px;
             }
             .card-header{
-            background: #519259 !important;
+            background: #B9BEC8 !important;
             color: #fff !important;
         }
         .hoverTable tr:hover {
           background-color: #FBF9E1;
     }
-
+   
 
 
 

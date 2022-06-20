@@ -1,41 +1,41 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
 
-        <div style="color:#009EFB;font-weight: bold;font-size: 18px;">Modulo de Productos-Items
-            &nbsp;&nbsp;
-            @can('productos_create')
-            <a href="{{ route('productos.create') }}" class="btn btn-outline-info">Agregar</a>
-            @endcan
-        </div>
-        </br></br></br>
-        <div class="col-md-12">
+<div class="row justify-content-center">
 
-            <div class="card">
-                <div class="card-header">Lista de Productos - Items</div>
+    <div style="color:black;font-weight: bold;font-size: 18px;">Modulo Productos-Items
+        &nbsp;&nbsp;
+        @can('productos_create')
+        <a href="{{ route('productos.create') }}" class="btn btn-outline-info">Agregar</a>
+        @endcan
+    </div>
+    </br></br></br>
+    <div class="col-md-12">
 
-                <div class="card-body">
-                    <table class="table table-bordered  yajra-datatable hoverTable">
-                        <thead bgcolor="#009EFB">
-                            <tr>
-                                <th style="color:black">N°</th>
-                                <th style="color:black">Nombre</th>
-                                <th style="color:black">Detalle</th>
+        <div class="card">
 
-                                <th style="color:black">Opciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
 
-                </div>
+            <div class="card-body">
+                <table class="table table-bordered  yajra-datatable hoverTable">
+                    <thead>
+                        <tr>
+                            <th style="color:black">N°</th>
+                            <th style="color:black">Nombre</th>
+                            <th style="color:black">Detalle</th>
+
+                            <th style="color:black">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </div>
 </div>
+
 @section('scripts')
 
 <script type="text/javascript">

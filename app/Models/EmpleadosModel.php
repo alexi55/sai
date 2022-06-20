@@ -15,21 +15,55 @@ class EmpleadosModel extends Model
         public $timestamps = false;
     
         protected $fillable = [
-            'idemp',
+            
             'numfile',
             'nombres',
             'ap_pat',
             'ap_mat',
+            'cargo',
             'nomcargo',
             'habbasico',
+            'categoria',
+            'nivadmin',
+            'clase',
+            'nivsalarial',
+            'fechingreso',
+            'natalicio',
+            'edad',
             'ci',
+            'poai',
+            'exppoai',
+            'decjurada',
+            'expdecjurada',
             'sippase',
-            'idarea',
-            
+            'expsippase',
+            'servmilitar',
+            'idioma',
+            'induccion',
+            'expinduccion',
+            'progvacacion',
+            'expprogvacacion',
+            'vacganadas',
+            'vacpendientes',
+            'vacusasdas',
+            'segsalud',
+            'inamovilidad',
+            'aservicios',
+            'cvitae',
+            'telefono',
+            'biometrico',
+            'gradacademico',
+            'rae',
+            'regprofesional',
+            'evdesempenio',
+            'idfile',
+            'idarea'
+                      
         ];
     
         protected $guarded = [
     
             
         ];
+      
 }

@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
+
     <div class="row justify-content-center">
-        <div style="color:#009EFB;font-weight: bold;font-size: 18px;">Modulo Proveedores
+        <div style="color:black;font-weight: bold;font-size: 18px;">Modulo Proveedores
             &nbsp;&nbsp;
             @can('proveedores_create')
             <a href="{{ route('proveedores.create') }}" class="btn btn-outline-info">Agregar</a>
@@ -13,12 +13,12 @@
 
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Lista de proveedores</div>
+                
 
                 <div class="card-body">
 
                     <table class="table table-bordered yajra-datatable hoverTable">
-                        <thead bgcolor="#009EFB">
+                        <thead >
                             <tr>
                                 <th style="color:black">N°</th>
                                 <th style="color:black">Nombre Proveedor</th>
@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-</div>
+
 @section('scripts')
 
 <script type="text/javascript">
@@ -46,60 +46,21 @@ $(function() {
 
     var table = $('.yajra-datatable').DataTable({
         language: {
-            "decimal": "",
-            "emptyTable": "No hay información",
-            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-            "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-            "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-            "infoPostFix": "",
-            "thousands": ",",
-            "lengthMenu": "Mostrar _MENU_ Entradas",
-            "loadingRecords": "Cargando...",
-            "processing": "Procesando...",
-            "search": "Buscar:",
-            "zeroRecords": "Sin resultados encontrados",
-            "paginate": {
-                "first": "Primero",
-                "last": "Ultimo",
-                "next": "Siguiente",
-                "previous": "Anterior"
-            }
+            url: '/sai/public/spain.json'
         },
 
         processing: true,
         serverSide: true,
         ajax: "{{ route('proveedores.list') }}",
-        columns: [{
-                data: 'DT_RowIndex',
-                name: 'DT_RowIndex'
-            },
-            {
-                data: 'nombreproveedor',
-                name: 'nombreproveedor'
-            },
-            {
-                data: 'representante',
-                name: 'representante'
-            },
-            {
-                data: 'cedula',
-                name: 'cedula'
-            },
-            {
-                data: 'nitCi',
-                name: 'nitCi'
-            },
-            {
-                data: 'telefonoproveedor',
-                name: 'telefonoproveedor'
-            },
+        columns: [
+            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'nombreproveedor', name: 'nombreproveedor'},
+            {data: 'representante', name: 'representante'},
+            {data: 'cedula', name: 'cedula'},
+            {data: 'nitCi', name: 'nitCi'},
+            {data: 'telefonoproveedor', name: 'telefonoproveedor'},
 
-            {
-                data: 'btn',
-                name: 'btn',
-                orderable: true,
-                searchable: true
-            },
+            {data: 'btn', name: 'btn', orderable: true, searchable: true },
         ]
 
     });

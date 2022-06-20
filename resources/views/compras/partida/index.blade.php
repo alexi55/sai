@@ -1,34 +1,34 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-    <div style="color:#009EFB;font-weight: bold;font-size: 18px;">Modulo Partidas</div>
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Lista de Partidas</div>
 
-                <div class="card-body">
-
-                    <table class="table table-bordered  yajra-datatable hoverTable">
-                        <thead bgcolor="#009EFB">
-                            <tr>
-                                <th style="color:black">N°</th>
-                                <th style="color:black">Codigo</th>
-                                <th style="color:black">Nombre</th>
-                                <th style="color:black">Detalle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+<div class="row justify-content-center">
+    <div style="color:black;font-weight: bold;font-size: 18px;">Modulo Partidas</div>
+    <div class="col-md-12">
+        <div class="card">
 
 
-                </div>
+            <div class="card-body">
+
+                <table class="table table-bordered  yajra-datatable hoverTable">
+                    <thead>
+                        <tr>
+                            <th style="color:black">N°</th>
+                            <th style="color:black">Codigo</th>
+                            <th style="color:black">Nombre</th>
+                            <th style="color:black">Detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+
             </div>
         </div>
     </div>
 </div>
+
 @section('scripts')
 
 <script type="text/javascript">
