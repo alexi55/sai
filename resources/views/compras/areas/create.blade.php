@@ -21,7 +21,7 @@
                     style="color:#009EFB;font-weight: bold;">{{ __('Nombre') }}</label>
 
                 <div class="col-md-6">
-                    <input type="text" name="nombre" class="form-control" placeholder="Nombre..."
+                    <input type="text" required name="nombre" class="form-control" placeholder="Nombre..."
                         onkeyup="javascript:this.value=this.value.toUpperCase();">
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 <label class="required  col-md-4 col-form-label text-md-right"
                     style="color:#009EFB;font-weight: bold;">{{ __('Niveles') }}</label>
                 <div class="col-md-8" id="permissions-select">
-                    <select name="idnivel" id="permissions" class="col-md-6">
+                    <select name="idnivel" required id="permissions" class="col-md-6">
                         @foreach ($niveles as $nivel)
 
                         <option value="{{$nivel->idnivel}}">{{$nivel->nivel}} - {{$nivel->nombrenivel}}</option>
@@ -42,14 +42,21 @@
 
             <div class="form-group row">
                 <label class="required  col-md-4 col-form-label text-md-right"
-                    style="color:#009EFB;font-weight: bold;">{{ __('Niveles') }}</label>
+                    style="color:#009EFB;font-weight: bold;">{{ __('areas') }}</label>
                 <div class="col-md-8" id="permissions-select2">
+                
                     <select name="idarea" id="permissions2" class="col-md-6">
+                    <option value="">== Seleccione un File ==</option>
                         @foreach($area as $areas)
-                        <option disabled value="{{$areas->idarea}}">{{$areas->nombrearea}} </option>
+                        <option  disabled><h1 color:blue;>{{$areas->nombrearea}}</H1> </option>
                         @foreach($areas->iPais_all as $destino)
-                        <option value="{{$destino->idfile}}">
-                            {{$destino->numfile}}-{{$destino->sueldo}}-{{$destino->cargofile}} </option>
+
+                        @if ($destino->estadofile == 1)
+            
+                        <option style="color:blue;" value="{{$destino->idfile}}"> --FILE--{{$destino->numfile}}-{{$destino->cargo}}-{{$destino->nombrecargo}}-{{$destino->habbasico}}-{{$destino->categoria}}-{{$destino->niveladm}}-{{$destino->clase}}-{{$destino->nivelsal}} </option> 
+
+                         @endif
+                       
                         @endforeach
                         @endforeach
 
@@ -61,30 +68,7 @@
 
 
 
-            <div class="form-group row">
-                <label class="required  col-md-4 col-form-label text-md-right"
-                    style="color:#009EFB;font-weight: bold;">{{ __('Niveles') }}</label>
-                <div class="col-md-8" id="categorias">
-                    <select name="idarea" id="areas" class="col-md-6">
-                        <optionvalue="">Seleccioneoption>
-                            @foreach ($area as $areas)
-                            <option value="{{$areas->idarea}}">{{$areas->nombrearea}}</option>
-                            @endforeach
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label class="required  col-md-4 col-form-label text-md-right"
-                    style="color:#009EFB;font-weight: bold;">{{ __('Niveles') }}</label>
-                <div class="col-md-8" id="productos">
-                    <select name="idnivel" id="files" class="col-md-6">
-                        <optionvalue="">Seleccioneoption>
-
-                    </select>
-                </div>
-            </div>
-
+            
 
 
 
@@ -102,23 +86,13 @@
 @endsection
 @section('scripts')
 <script>
-  $(document).ready(function(){
-    $("#categorias").change(function(){
-      var categoria = $(this).val();
-      $.get('productByCategory/'+areas, function(data){
-//esta el la peticion get, la cual se divide en tres partes. ruta,variables y funcion
-        console.log(data);
-          var producto_select = 'Seleccione Porducto'
-            for (var i=0; i''">'+data[i].numfile+'';)
-            {
+var permission_select = new SlimSelect({
+    select: '#permissions-select select',
+    //showSearch: false,
+    placeholder: 'Select Permissions',
+    deselectLabel: '<span>&times;</span>',
+    hideSelectedOption: true,
+});
 
-                $("#files").html(producto_select);
-            }
-
-           
-
-      });
-    });
-  });
-script>
+</script>
 @endsection

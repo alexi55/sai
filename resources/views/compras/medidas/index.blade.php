@@ -39,7 +39,7 @@ $(function() {
 
     var table = $('.yajra-datatable').DataTable({
 
-   
+
         language: {
             url: '/sai/public/spain.json'
         },
@@ -50,15 +50,15 @@ $(function() {
         columns: [{
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex'
-               
-                
-             
-               
+
+
+
+
             },
             {
                 data: 'nombreumedida',
                 name: 'nombreumedida'
-               
+
             },
 
             {

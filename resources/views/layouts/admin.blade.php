@@ -35,8 +35,17 @@
         }
         .hoverTable tr:hover {
           background-color: #FBF9E1;
+          
     }
    
+
+    .scrollme {
+    overflow-x: auto;
+}
+
+
+
+
 
 
 
@@ -265,6 +274,9 @@
     <script src="{{ asset('dataTable_1.10.22/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('admin_assets/js/handlebars.js') }}"></script>
 
+    <script src="{{ asset('plugins2/jquery/jquery-3.3.1.min.js') }}"></script>
+
+    <script src="{{ asset('plugins2/datatables/datatables.min.js') }}"></script>
 
 
     @yield('scripts')

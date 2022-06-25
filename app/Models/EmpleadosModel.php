@@ -21,7 +21,7 @@ class EmpleadosModel extends Model
             'ap_pat',
             'ap_mat',
             'cargo',
-            'nomcargo',
+            'nombrecargo',
             'habbasico',
             'categoria',
             'nivadmin',

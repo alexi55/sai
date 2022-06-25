@@ -48,12 +48,28 @@ class PlantaController extends Controller
         return Datatables::of($customers)
             ->addColumn('details_url', function($customer) {
                 return route('planta_detalle', $customer->idarea);
-            })->make(true);
+            })
+            ->addColumn('btn2', function($row){
+
+                $btn2 = '<a href="'. route('planta.lista', $row->idarea) .'" class="btn btn-outline-info btn-sm"  title="Editar">Acceder</a>';
+                
+                 return $btn2;
+            })
+         ->rawColumns(['btn2'])
+            ->make(true);
 
     }
    public function detalle($id)
-    {
-        $purchases = AreasModel::findOrFail($id)->purchases;
+   {
+   $purchases = DB::table('empleados as e') 
+   ->join('areas as a', 'a.idarea', '=', 'e.idarea')
+   ->join('file as f', 'f.idfile', '=', 'e.idfile')
+   ->select('e.idemp','e.nombres','e.ap_pat','e.ap_mat','e.ci','f.numfile','f.cargo')
+   -> where('e.idarea','=', $id)
+   //-> orderBy('e.idemp', 'desc')
+   -> get();
+    
+       // $purchases = AreasModel::findOrFail($id)->purchases;
 
         return Datatables::of($purchases)
         ->addIndexColumn()
@@ -78,6 +94,42 @@ class PlantaController extends Controller
         //$roles = Role::pluck('title','id');
         return view('rechumanos.planta.edit');
         //return view('compras.empleados.index', ["empleado" => $empleado, "searchText" => $querry]);
+    }
+
+
+    public function plantanuevo($id)
+    {
+        
+       // $empleados = EmpleadosModel::find($id);
+      // $areas = DB::table('areas')->get();
+        //$roles = Role::pluck('title','id');
+        return view('rechumanos.planta.create');
+        //return view('compras.empleados.index', ["empleado" => $empleado, "searchText" => $querry]);
+    }
+    
+    public function lista($idarea)
+    {
+        
+
+        $empleados = DB::table('empleados as e') 
+        ->join('areas as a', 'a.idarea', '=', 'e.idarea')
+        ->join('file as f', 'f.idfile', '=', 'e.idfile')
+        ->select('f.numfile','e.idemp','e.nombres','e.ap_pat','e.ap_mat','f.cargo','f.nombrecargo','f.habbasico','f.categoria','f.niveladm','f.clase','f.nivelsal','e.fechingreso','e.natalicio','e.edad','e.ci','e.poai','e.exppoai','e.decjurada','e.expdecjurada','e.sippase','e.expsippase','e.servmilitar','e.idioma','e.induccion','e.expinduccion','e.progvacacion','e.expprogvacacion','e.vacganadas','e.vacpendientes','e.vacusasdas','e.segsalud','e.inamovilidad','e.aservicios','e.cvitae','e.telefono','e.biometrico','e.gradacademico','e.rae','e.regprofesional','e.evdesempenio')
+        -> where('e.idarea','=', $idarea)
+        -> paginate(10);
+        
+       // $empleados = EmpleadosModel::find($id);
+      // $areas = DB::table('areas')->get();
+        //$roles = Role::pluck('title','id');
+        //return view('rechumanos.planta.lista');
+        return view('rechumanos.planta.lista', ["empleados" => $empleados, "idarea" => $idarea]);
+    }
+
+
+    public function guardarplanta(Request $request)
+    {
+        
+      
     }
     
     

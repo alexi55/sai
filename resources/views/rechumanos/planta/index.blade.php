@@ -9,12 +9,13 @@
         </div>
         </div>
     <div class="panel-body">
-        <table class="table table-bordered customers-table" id="customers-table">
+        <table class="table table-bordered customers-table table-hover" id="customers-table">
             <thead>
             <tr>
                 <th></th>
                 <th>Id</th>
                 <th>nombre area</th>
+                <th>Opciones</th>
              
             </tr>
             </thead>
@@ -34,19 +35,11 @@
                 <th>nombres</th>
                 <th>Ap.Paterno</th>
                 <th>Ap.Materno</th>
+                <th>Num.File</th>
                 <th>Cargo</th>
-                <th>Nom.Cargo</th>
-                <th>Hab.Basico</th>
-                <th>Categoria</th>
-                <th>Niv.Admin.</th>
-                <th>Clase</th>
-                <th>Niv.Salarial</th>
-                <th>F.Ingreso</th>
-                <th>Natallicio</th>
-                <th>edad</th>
+         
                 <th>ci</th>
-                <th>poai</th>
-                <th>exp.Poai</th>
+               
                 <th>Opciones</th>
             </tr>
             </thead>
@@ -73,6 +66,7 @@
           },
           { data: 'idarea', name: 'idarea' },
           { data: 'nombrearea', name: 'nombrearea' },
+          { data: 'btn2', name: 'btn2', orderable: true, searchable: false }
          
         ],
         order: [[1, 'asc']],
@@ -117,19 +111,11 @@
             { data: 'nombres', name: 'nombres' },
             { data: 'ap_pat', name: 'ap_pat'},
             { data: 'ap_mat', name: 'ap_mat'},
+            { data: 'numfile', name: 'numfile'},
             { data: 'cargo', name: 'cargo'},
-            { data: 'nomcargo', name: 'nomcargo'},
-            { data: 'habbasico', name: 'habbasico'},
-            { data: 'categoria', name: 'categoria'},
-            { data: 'nivadmin', name: 'nivadmin'},
-            { data: 'clase', name: 'clase'},
-            { data: 'nivsalarial', name: 'nivsalarial'},
-            { data: 'fechingreso', name: 'fechingreso'},
-            { data: 'natalicio', name: 'natalicio'},
-            { data: 'edad', name: 'edad'},
+       
             { data: 'ci', name: 'ci'},
-            { data: 'poai', name: 'poai'},
-            { data: 'exppoai', name: 'exppoai'},
+           
             
             { data: 'btn', name: 'btn', orderable: true, searchable: false }
                        

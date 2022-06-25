@@ -58,11 +58,53 @@ class AreasController extends Controller
         //return view('compras.empleados.create', ["areas" => $areas]);
         return view('compras.areas.create', ["niveles" => $niveles,"area" => $area]);
     }
+
+
+    public function crearFile($idArea)
+    {
+       
+        return view('compras.areas.crearFile', ["idarea" => $idArea]);
+    }
+
+    public function guardarfile(Request $request)
+    {
+        $file = new FileModel();
+        $file -> numfile = $request->input('numfile');
+        $file -> cargo = $request->input('cargo');
+        $file -> nombrecargo = $request->input('nombrecargo');
+        $file -> habbasico = $request->input('habbasico');
+        $file -> categoria = $request->input('categoria');
+        $file -> niveladm = $request->input('niveladm');
+        $file -> clase = $request->input('clase');
+        $file -> nivelsal = $request->input('nivelsal');
+        $file -> tipofile = 1;
+        $file -> estadofile = 1;
+       
+        
+        $file -> idarea = $request->input('idarea');
+
+        $idarea=$request->input('idarea');
+        if($file->save()){
+            $request->session()->flash('message', 'Registro Procesado Exitosamente');
+            //echo 'Cliente salvo com sucesso';
+        }else{
+            $request->session()->flash('message', 'Error al procesar el registro');
+            //echo 'Houve um erro ao salvar';
+        }
+       // return redirect()->route('areas.index');
+
+       // return route('areas.crearFile', $idarea);
+        //return redirect()->action('AreasController@crearFile', $idarea);
+        return redirect()->action('App\Http\Controllers\AreasController@file', ['id' => $idarea]);
+        //return view('compras.areas.crearFile', ["idarea" => $idArea]);
+    }
+
+
     public function file($id)
     {
         $file = DB::table('file as f') 
         ->join('areas as a', 'a.idarea', '=', 'f.idarea')
-        ->select('f.idfile','f.numfile','f.sueldo','f.cargofile','a.nombrearea')
+        ->select('f.idfile','f.numfile','f.cargo','f.nombrecargo','f.habbasico','f.categoria','f.niveladm','f.clase','f.nivelsal','a.nombrearea','f.estadofile')
         -> where('a.idarea','=', $id)
         -> paginate(5);
        // dd($docproveedor);

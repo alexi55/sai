@@ -16,8 +16,13 @@ class FileModel extends Model
        
            protected $fillable = [
                'numfile',
-               'sueldo',
-               'cargofile',
+               'cargo',
+               'nombrecargo',
+               'habbasico',
+               'categoria',
+               'niveladm',
+               'clase',
+               'nivelsal',
                'tipofile',
                'estadofile',
                'idarea'
