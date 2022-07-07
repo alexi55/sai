@@ -101,7 +101,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
    Route::get('rechumanos/planta/edit/{id}', 'PlantaController@edit')->name('planta.edit');
    Route::get('rechumanos/planta/lista/{id}', 'PlantaController@lista')->name('planta.lista');
    Route::get('rechumanos/planta/create/{id}', 'PlantaController@plantanuevo')->name('planta.crear');
-   Route::get('rechumanos/planta/guardarplanta', 'PlantaController@guardarplanta')->name('planta.guardar');
+   Route::POST('rechumanos/planta/guardarplanta', 'PlantaController@guardarplanta')->name('planta.guardar');
    // Route::POST('rechumanos/planta/{id}/update', 'EmpleadosController@update')->name('empleados.update');
    // Route::get('rechumanos/planta/create', 'EmpleadosController@create')->name('empleados.create');
     //Route::POST('rechumanos/planta/store', 'EmpleadosController@store')->name('empleados.store');

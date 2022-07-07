@@ -64,9 +64,9 @@
                         <div class="col-md-4">
                             <select name="categoria" class="form-control">
                             <option value="">==Seleccione una Categoria==</option>
-                                <option value="Superior">Superior</option>
-                                <option value="Ejecutivo">Ejecutivo</option>
-                                <option value="Operativo">Operativo</option>
+                                <option value="SUPERIOR">Superior</option>
+                                <option value="EJECUTIVO">Ejecutivo</option>
+                                <option value="OPERATIVO">Operativo</option>
 
                             </select>
                         </div>

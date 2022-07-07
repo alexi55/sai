@@ -1,14 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
-<div style="color:#009EFB;font-weight: bold;font-size:20px;">Pantalla Principal</div>
+<div style="color:#009EFB;font-weight: bold;font-size:20px;"></div>
 </br>
-    <div class="card">
+    <div class="card" align="center">
        
 
         <div class="card-body">
 
-        <div style="color:#00C189;font-weight: bold;font-size:20px;">Bienvido al Sistema</div>
+        <div style="color:#00C189;font-weight: bold;font-size:50px;"> SAI </div>
+        <div style="color:#00C189;font-weight: bold;font-size:18px;"> (Sistema de Administracion Institucional) </div>
           
         </div>
 

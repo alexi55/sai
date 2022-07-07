@@ -199,15 +199,7 @@
 
 
 
-                                @can('empleados_access')
-                                <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
-                                        href="{{ route('empleados.index') }}" aria-expanded="false">
-                                        <i class="fa fa-users" aria-hidden="true"></i>
-                                        <span class="hide-menu" style="color:black;font-weight: bold;">Empleados</span>
-                                    </a>
-                                </li>
-                                @endcan
+                            
 
                               
 

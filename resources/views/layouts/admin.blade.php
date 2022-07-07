@@ -34,7 +34,7 @@
             color: #fff !important;
         }
         .hoverTable tr:hover {
-          background-color: #FBF9E1;
+          background-color: #E8FBFF;
           
     }
    

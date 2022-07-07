@@ -18,6 +18,7 @@
         "laravelcollective/html": "^6.3",
         "luecano/numero-a-letras": "^3.0",
         "nesbot/carbon": "^2.58",
+        "styde/html": "~1.0",
         "villca/numeros-en-letras": "^1.2",
         "yajra/laravel-datatables-oracle": "~9.0"
     },

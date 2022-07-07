@@ -12,7 +12,7 @@ class EmpleadosModel extends Model
     
         protected $primaryKey= 'idemp';
     
-        public $timestamps = false;
+        public $timestamps = true;
     
         protected $fillable = [
             
@@ -56,6 +56,10 @@ class EmpleadosModel extends Model
             'rae',
             'regprofesional',
             'evdesempenio',
+            'estadoemp1',
+            'estadoemp2',
+            'tipo',
+            
             'idfile',
             'idarea'
                       

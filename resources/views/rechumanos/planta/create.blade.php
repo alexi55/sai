@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class="row justify-content-center">
-    <div class="col-md-8">
+<div>
+    <div>
         <div class="card">
-
+            <div class="card-header">Formulario Para Empledo Nuevo</div>
             <div class="row">
                 <a href="{{ url('/compras/productos/index') }}" class="btn blue darken-4 text-black "><i
                         style="color:#55CE63;font-weight: bold;" class="fa fa-plus-square"></i> Volver atras</a>
@@ -15,271 +15,364 @@
                 <form method="POST" action="{{ route('planta.guardar') }}">
                     @csrf
                     @method('POST')
+                    <input type="hidden" name="idarea" value="{{$idarea}}">
                     <div class="form-group row">
-                        <label for="nombres" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Nombres') }}</label>
-                        <div class="col-md-8">
-                            <input required type="text" name="nombres" placeholder="Nombres..."
+                        <span class="input-group-text col-md-1" style="color:black;font-weight: bold;">Nombres:</span>
+
+                        <div class="col-md-2 ">
+                            <input required type="text" name="nombres" class="form-control"
                                 onkeyup="javascript:this.value=this.value.toUpperCase();"></input>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="appat" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Ap.Paterno') }}</label>
-                        <div class="col-md-8">
-                            <input required type="text" name="appat" placeholder="Ap.Pat...."
+
+
+                        <span class="input-group-text offset-md-1 col-md-1"
+                            style="color:black;font-weight: bold;">Ap.Paterno:</span>
+                        <div class="col-md-2 ">
+                            <input required type="text" name="ap_pat" class="form-control "
                                 onkeyup="javascript:this.value=this.value.toUpperCase();"></input>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="apmat" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Ap.Materno') }}</label>
-                        <div class="col-md-8">
-                            <input required type="text" name="apmat" placeholder="Ap.Pat...."
+
+                        <span class="input-group-text offset-md-1 col-md-1"
+                            style="color:black;font-weight: bold;">Ap.Materno:</span>
+                        <div class="col-md-2 ">
+                            <input required type="text" name="ap_mat" class="form-control"
                                 onkeyup="javascript:this.value=this.value.toUpperCase();"></input>
                         </div>
+
+
+
                     </div>
 
-                    <div class="form-group row">
-                        <label for="fingreso" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('F.Ingreso.') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="date" class="form-control" name="fingreso">
 
+
+                    <div class="form-group row">
+
+
+                        <span class="input-group-text col-md-1" style="color:black;font-weight: bold;">F.Ingreso:</span>
+                        <div class="col-md-2 ">
+                            <input type="date" class="form-control" name="fechingreso">
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="natalicio" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('F.Natalicio.') }}</label>
-                        <div class="col-md-3 input-group date">
+                        <span class="input-group-text offset-md-1 col-md-1"
+                            style="color:black;font-weight: bold;">F.Nacimien:</span>
+
+                        <div class="col-md-2 ">
                             <input type="date" class="form-control" name="natalicio">
-
                         </div>
+
+
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Edad:</span>
+                        <div class="col-md-2 ">
+                            <input required type="number" placeholder="0" name="edad" class="form-control"></input>
+                        </div>
+
+
                     </div>
 
+
+
                     <div class="form-group row">
-                        <label for="edad" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Edad') }}</label>
-                        <div class="col-md-4">
-                            <input required type="number" placeholder="0" name="edad"></input>
+
+                        <span class="input-group-text col-md-1 " style="color:black;font-weight: bold;">Ci:</span>
+                        <div class="col-md-2 ">
+                            <input type="text" name="ci" class="form-control">
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="ci" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Ci.') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="ci">
-
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Poai:</span>
+                        <div class="col-md-2">
+                            <input type="text" name="poai" class="form-control">
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="poai" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Poai') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="poai">
 
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="exppoai" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Exp.Poai') }}</label>
-                        <div class="col-md-3 input-group date">
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Exp.Poai:</span>
+                        <div class="col-md-2">
                             <input type="date" class="form-control" name="exppoai">
 
                         </div>
+
+
                     </div>
 
+
+
                     <div class="form-group row">
-                        <label for="decjurada" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Dec.Jurada') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="decjurada">
+
+                        <span class="input-group-text col-md-1 " style="color:black;font-weight: bold;">Dec.Jur:</span>
+                        <div class="col-md-2 ">
+                            <input type="text" name="decjurada" class="form-control">
 
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="expdecjurada" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Exp.Dec.Jurada') }}</label>
-                        <div class="col-md-3 input-group date">
+
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Exp.Dec.Jur.:</span>
+                        <div class="col-md-2">
                             <input type="date" class="form-control" name="expdecjurada">
 
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="sippase" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Sippase') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="sippase">
+
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Sippase:</span>
+                        <div class="col-md-2">
+                            <input type="text" name="sippase" class="form-control">
 
                         </div>
+
+
                     </div>
 
+
+
                     <div class="form-group row">
-                        <label for="expsippase" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Exp.Sippase') }}</label>
-                        <div class="col-md-3 input-group date">
+                        <span class="input-group-text col-md-1 " style="color:black;font-weight: bold;">Exp.Sipp:</span>
+                        <div class="col-md-2">
                             <input type="date" class="form-control" name="expsippase">
 
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="servmilitar" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Serv.Militar') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="sippase">
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Serv.Militar:</span>
 
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="idioma" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Idioma') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="sippase">
+                        <div class="col-md-2">
+                            <input type="text" name="servmilitar" class="form-control">
 
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="induccion" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Induccion') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="induccion">
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Idioma:</span>
+
+                        <div class="col-md-2">
+                            <input type="text" name="idioma" class="form-control">
 
                         </div>
+
+
                     </div>
 
+
+
                     <div class="form-group row">
-                        <label for="expinduccion" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Exp.Induccion') }}</label>
-                        <div class="col-md-3 input-group date">
+                        <span class="input-group-text col-md-1 " style="color:black;font-weight: bold;">Inducc:</span>
+
+                        <div class="col-md-2">
+                            <input type="text" name="induccion" class="form-control">
+
+                        </div>
+
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Exp.Inducc.:</span>
+
+                        <div class="col-md-2">
                             <input type="date" class="form-control" name="expinduccion">
 
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="progvacacion" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Prog.Vacacion') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="progvacacion">
+
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Prog.Vacac.:</span>
+
+                        <div class="col-md-2">
+                            <input type="text" name="progvacacion" class="form-control">
 
                         </div>
+
+
                     </div>
 
+
+
+
                     <div class="form-group row">
-                        <label for="expprogvacacion" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Exp.Prog.Vacacion') }}</label>
-                        <div class="col-md-3 input-group date">
+                        <span class="input-group-text col-md-1 "
+                            style="color:black;font-weight: bold;">Exp.P.Vac:</span>
+
+                        <div class="col-md-2">
                             <input type="date" class="form-control" name="expprogvacacion">
 
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="vacganadas" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Vacac.Ganadas') }}</label>
-                        <div class="col-md-4">
-                            <input required type="number" placeholder="0" name="vacganadas"
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Vac.Ganadas:</span>
+
+                        <div class="col-md-2">
+                            <input required type="number" placeholder="0" name="vacganadas" class="form-control"
                                 placeholder="Ap.Pat...."></input>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="vacpendientes" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Vac.Pendientes') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="vacpendientes">
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Vac.Pend.:</span>
 
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="vacusadas" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Vac.Usadas') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="vacusadas">
+                        <div class="col-md-2">
+                            <input type="text" name="vacpendientes" class="form-control">
 
                         </div>
+
                     </div>
 
-                    <div class="form-group row">
-                        <label for="segsalud" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Seg.Salud') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="segsalud">
 
-                        </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="inamovilidad" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Inamovilidad') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="inamovilidad">
-
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="aservicios" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Años Serv.') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="aservicios">
-
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="cvitae" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Curr.Vitae') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="cvitae">
-
-                        </div>
-                    </div>
 
 
                     <div class="form-group row">
-                        <label for="aservicios" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="aservicios">
+
+                        <span class="input-group-text col-md-1 "
+                            style="color:black;font-weight: bold;">Vac.Usadas:</span>
+
+                        <div class="col-md-2">
+                            <input type="text" name="vacusasdas" class="form-control">
 
                         </div>
+
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Seg.Salud:</span>
+
+                        <div class="col-md-2">
+                            <input type="text" name="segsalud" class="form-control">
+
+                        </div>
+
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Inamovilidad:</span>
+
+                        <div class="col-md-2">
+                            <input type="text" name="inamovilidad" class="form-control">
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="form-group row">
+
+                        <span class="input-group-text col-md-1 " style="color:black;font-weight: bold;">Años
+                            Serv.:</span>
+
+                        <div class="col-md-2">
+                            <input type="text" name="aservicios" class="form-control">
+
+                        </div>
+
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Curr.Vitae:</span>
+
+                        <div class="col-md-2">
+                            <input type="text" name="cvitae" class="form-control">
+
+                        </div>
+
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Telefono:</span>
+
+                        <div class="col-md-2">
+                            <input type="text" name="telefono" class="form-control">
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="form-group row">
+
+                        <span class="input-group-text col-md-1 "
+                            style="color:black;font-weight: bold;">Biometrico:</span>
+
+                        <div class="col-md-2">
+                            <input type="text" name="biometrico" class="form-control">
+
+                        </div>
+
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Grad.Acad.:</span>
+
+                        <div class="col-md-2">
+                            <input type="text" name="gradacademico" class="form-control">
+
+                        </div>
+
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Rae:</span>
+
+                        <div class="col-md-2">
+                            <input type="text" name="rae" class="form-control">
+
+                        </div>
+
+
                     </div>
 
                     <div class="form-group row">
-                        <label for="biometrico" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Biometrico') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="biometrico">
+
+                        <span class="input-group-text col-md-1 " style="color:black;font-weight: bold;">Reg.Prof:</span>
+
+                        <div class="col-md-2">
+                            <input type="text" name="regprofesional" class="form-control">
 
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="gradacademico" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Grad.Academico') }}</label>
-                        <div class="col-md-3 input-group date">
-                            <input type="text" name="gradacademico">
+                        <span class="input-group-text col-md-1 offset-md-1"
+                            style="color:black;font-weight: bold;">Ev.Desemp.:</span>
+
+                        <div class="col-md-2">
+                            <input type="number" placeholder="0" name="evdesempenio" class="form-control">
 
                         </div>
-                    </div>
 
+
+
+
+                    </div>
+                    </br>
+
+                    <div class="form-group " style="align:center">
+
+
+                        <label class="col-md-1" style="color:black;font-weight: bold;">File:</label>
+                        <div id="permissions-select2">
+
+                            <select name="idfile" id="permissions2" class="col-md-6">
+                                <option value="">== Seleccione un File ==</option>
+                                @foreach($area as $areas)
+                                <option disabled>
+                                    <h1 color:blue;>{{$areas->nombrearea}}</H1>
+                                </option>
+                                @foreach($areas->iPais_all as $destino)
+
+                                @if ($destino->estadofile == 1)
+
+                                <option style="color:blue;" value="{{$destino->idfile}}">
+                                    --FILE--{{$destino->numfile}}-{{$destino->cargo}}-{{$destino->nombrecargo}}-{{$destino->habbasico}}-{{$destino->categoria}}-{{$destino->niveladm}}-{{$destino->clase}}-{{$destino->nivelsal}}
+                                </option>
+
+                                @endif
+
+                                @endforeach
+                                @endforeach
+
+                            </select>
+                        </div>
+                    </div>
 
 
 
                     </br>
+
+
+
+
 
 
                     <div class="form-group row mb-0">

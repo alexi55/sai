@@ -40,30 +40,7 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <label class="required  col-md-4 col-form-label text-md-right"
-                    style="color:#009EFB;font-weight: bold;">{{ __('areas') }}</label>
-                <div class="col-md-8" id="permissions-select2">
-                
-                    <select name="idarea" id="permissions2" class="col-md-6">
-                    <option value="">== Seleccione un File ==</option>
-                        @foreach($area as $areas)
-                        <option  disabled><h1 color:blue;>{{$areas->nombrearea}}</H1> </option>
-                        @foreach($areas->iPais_all as $destino)
-
-                        @if ($destino->estadofile == 1)
-            
-                        <option style="color:blue;" value="{{$destino->idfile}}"> --FILE--{{$destino->numfile}}-{{$destino->cargo}}-{{$destino->nombrecargo}}-{{$destino->habbasico}}-{{$destino->categoria}}-{{$destino->niveladm}}-{{$destino->clase}}-{{$destino->nivelsal}} </option> 
-
-                         @endif
-                       
-                        @endforeach
-                        @endforeach
-
-                    </select>
-                </div>
-            </div>
-
+           
 
 
 
