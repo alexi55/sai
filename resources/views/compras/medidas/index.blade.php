@@ -47,27 +47,14 @@ $(function() {
         processing: true,
         serverSide: true,
         ajax: "{{ route('medidas.list') }}",
-        columns: [{
-                data: 'DT_RowIndex',
-                name: 'DT_RowIndex'
+        columns: [
 
+            {data: 'DT_RowIndex',name: 'DT_RowIndex' },
 
+            {data: 'nombreumedida',name: 'nombreumedida'},
 
-
-            },
-            {
-                data: 'nombreumedida',
-                name: 'nombreumedida'
-
-            },
-
-            {
-                data: 'btn',
-                name: 'btn',
-                orderable: true,
-                searchable: true
-            },
-        ]
+            {data: 'btn',name: 'btn',orderable: true,searchable: true},
+                 ]
 
     });
 

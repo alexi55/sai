@@ -10,7 +10,6 @@
     <title>Laravel 8 | Roles and Permissions Manager</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <!-- Custom CSS -->
     <link href="{{ asset('admin_assets/css/style.min.css') }}" rel="stylesheet">
     <!-- slim select -->
@@ -274,7 +273,7 @@
     <script src="{{ asset('dataTable_1.10.22/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('admin_assets/js/handlebars.js') }}"></script>
 
-    <script src="{{ asset('plugins2/jquery/jquery-3.3.1.min.js') }}"></script>
+    
 
     <script src="{{ asset('plugins2/datatables/datatables.min.js') }}"></script>
 

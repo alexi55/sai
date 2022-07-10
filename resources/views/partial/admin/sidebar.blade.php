@@ -33,8 +33,7 @@
                                 <span class="hide-menu" style="color:#519259;font-weight: bold;">Compras</span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level
-                                @if(request()->is('admin/users') || request()->is('admin/users/*')) in @endif
-   
+                                @if(request()->is('admin/users') || request()->is('admin/users/*')) in @endif 
                             ">
                                 @can('medidas_access')
                                 <li class="sidebar-item">
@@ -63,7 +62,7 @@
                                     </a>
                                 </li>
                                 @endcan
-                                @can('users_access')
+                                @can('productos_access')
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('productos.index') }}" aria-expanded="false">
@@ -135,7 +134,8 @@
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('planta.index') }}" aria-expanded="false">
                                         <i class="fa fa-id-badge" aria-hidden="true"></i>
-                                        <span class="hide-menu" style="color:black;font-weight: bold;">Personal Planta</span>
+                                        <span class="hide-menu" style="color:black;font-weight: bold;">Personal
+                                            Planta</span>
                                     </a>
                                 </li>
                                 @endcan
@@ -144,7 +144,8 @@
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('pedido.index') }}" aria-expanded="false">
                                         <i class="fa fa-user-circle" aria-hidden="true"></i>
-                                        <span class="hide-menu" style="color:black;font-weight: bold;">Personal Contrato</span>
+                                        <span class="hide-menu" style="color:black;font-weight: bold;">Personal
+                                            Contrato</span>
                                     </a>
                                 </li>
                                 @endcan
@@ -157,7 +158,7 @@
                                     </a>
                                 </li>
                                 @endcan
-                                
+
 
                             </ul>
                         </li>
@@ -199,9 +200,9 @@
 
 
 
-                            
 
-                              
+
+
 
 
 

@@ -14,7 +14,7 @@
 
 
 
-                <table class="table table-borderless table-hover">
+                <table class="table table-borderless hoverTable">
                             <tr class="bg-info text-light">
                                 <th class="text-center">ID</th>
                                 <th>Titulo</th>
