@@ -10,6 +10,7 @@
     <title>Laravel 8 | Roles and Permissions Manager</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
     <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <!-- Custom CSS -->
     <link href="{{ asset('admin_assets/css/style.min.css') }}" rel="stylesheet">
     <!-- slim select -->
@@ -33,7 +34,7 @@
             color: #fff !important;
         }
         .hoverTable tr:hover {
-          background-color: #E8FBFF;
+          background-color: #F2F7F8;
           
     }
    
@@ -150,16 +151,7 @@
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
-                    <ul class="navbar-nav mr-auto mt-md-0 ">
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-
-                        <li class="nav-item hidden-sm-down">
-
-                        </li>
-                    </ul>
-
+                    
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->

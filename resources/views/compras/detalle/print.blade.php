@@ -78,7 +78,7 @@ function colorChanger2(el) {
                     <tr align="center">
                         <td rowspan="4" width="105">
 
-                            <img src="{{ asset('logos/logo.png') }}" width="120px" height="80px" />
+                            <img src="{{ asset('logos/logos.png') }}" width="120px" height="80px" />
                         </td>
                         <td colspan="8" width="501" style="font-size: 11px;">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GOBIERNO AUT&Oacute;NOMO REGIONAL DEL GRAN

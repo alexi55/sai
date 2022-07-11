@@ -16,7 +16,7 @@
                 <th>Id</th>
                 <th>nombre area</th>
                 <th>Opciones</th>
-             
+              
             </tr>
             </thead>
         </table>
@@ -31,16 +31,15 @@
         <table class="table details-table" id="purchases-{{idarea}}">
             <thead>
             <tr>
-                <th>Id</th>
-                <th>nombres</th>
+           
+                <th>Nombres</th>
                 <th>Ap.Paterno</th>
                 <th>Ap.Materno</th>
-                <th>Num.File</th>
-                <th>Cargo</th>
-         
                 <th>ci</th>
-               
-                <th>Opciones</th>
+                <th>Fech.Ingreso</th>
+                
+         
+                            
             </tr>
             </thead>
         </table>
@@ -67,6 +66,7 @@
           { data: 'idarea', name: 'idarea' },
           { data: 'nombrearea', name: 'nombrearea' },
           { data: 'btn2', name: 'btn2', orderable: true, searchable: false }
+          
          
         ],
         order: [[1, 'asc']],
@@ -74,10 +74,9 @@
 
       // cambiar lenguaje a español
 
-      language: {
-        url: '/sai/public/spain.json'
-    }
-      
+      "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+}      
 
       });
 
@@ -107,27 +106,23 @@
           serverSide: true,
           ajax: data.details_url,
           columns: [
-            { data: 'idemp', name: 'idemp' },
+            
             { data: 'nombres', name: 'nombres' },
             { data: 'ap_pat', name: 'ap_pat'},
             { data: 'ap_mat', name: 'ap_mat'},
-            { data: 'numfile', name: 'numfile'},
-            { data: 'cargo', name: 'cargo'},
-       
             { data: 'ci', name: 'ci'},
-           
-            
-            { data: 'btn', name: 'btn', orderable: true, searchable: false }
-                       
-           
+            { data: 'fechingreso', name: 'fechingreso'}
           
+            
+       
+                      
           ],
           order: [[1, 'asc']],
            // cambiar lenguaje a español
 
-      language: {
-        url: '/sai/public/spain.json'
-    }
+           "language": {
+           "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+}
         });
       }
     </script>

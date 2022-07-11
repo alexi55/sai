@@ -19,6 +19,7 @@
                         <table id="example" class="table hoverTable table-bordered" style="width:100%">
                             <thead>
                                 <tr style="background-color:#F2F7F8">
+                                    <th>Opciones</th>
                                     <th>N°</th>
                                     <th>File </th>
                                     <th>Nombres </th>
@@ -60,13 +61,21 @@
                                     <th>Rae </th>
                                     <th>Reg.Prof. </th>
                                     <th>Eval.Desemp. </th>
-                                    <th>Opciones</th>
+                                    
 
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($empleados as $key => $empleado)
                                 <tr>
+
+                                    <td>
+
+                                    @can('areas_edit')
+                                         <a href="" class="btn btn-outline-warning">Editar</a>
+                                    @endcan
+
+</td>
                                     <td>{{$key+1}}</td>
                                     <td>{{$empleado -> numfile}}</td>
                                     <td>{{$empleado -> nombres}}</td>
@@ -111,13 +120,7 @@
 
 
 
-                                    <td>
-
-                                        @can('areas_edit')
-                                        <a href="" class="btn btn-outline-warning">Editar</a>
-                                        @endcan
-
-                                    </td>
+                                   
                                 </tr>
 
                                 @empty

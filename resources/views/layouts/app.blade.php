@@ -10,11 +10,11 @@
     <title>Laravel 8 | Roles and Permissions Manager</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
     <!-- Favicon icon -->
-    
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <!-- Custom CSS -->
-    <link href="{{ asset('assets/plugins/chartist/dist/chartist.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin_assets/plugins/chartist/dist/chartist.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{ asset('assets/css/style.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin_assets/css/style.min.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -59,7 +59,7 @@
                 <img src="{{ asset('logos/logo.png') }}" class="dark-logo" width="198px" alt="Laravel Roles & Permissions Manager">
             </div>
 
-            <div class="container-fluid d-flex align-items-center">
+          
 
                 @yield('content')
 
@@ -87,22 +87,22 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="{{ asset('assets/plugins/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin_assets/plugins/jquery/dist/jquery.min.js') }}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{ asset('assets/plugins/popper.js/dist/umd/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/app-style-switcher.js') }}"></script>
+    <script src="{{ asset('admin_assets/plugins/popper.js/dist/umd/popper.min.js') }}"></script>
+    <script src="{{ asset('admin_assets/plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin_assets/js/app-style-switcher.js') }}"></script>
     <!--Wave Effects -->
-    <script src="{{ asset('assets/js/waves.js') }}"></script>
+    <script src="{{ asset('admin_assets/js/waves.js') }}"></script>
     <!--Menu sidebar -->
-    <script src="{{ asset('assets/js/sidebarmenu.js') }}"></script>
+    <script src="{{ asset('admin_assets/js/sidebarmenu.js') }}"></script>
     <!--Custom JavaScript -->
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{ asset('admin_assets/js/custom.js') }}"></script>
     <!--This page JavaScript -->
     <!--flot chart-->
-    <script src="{{ asset('assets/plugins/flot/jquery.flot.js') }}"></script>
-    <script src="{{ asset('assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
-    <script src="{{ asset('assets/js/pages/dashboards/dashboard1.js') }}"></script>
+    <script src="{{ asset('admin_assets/plugins/flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('admin_assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
+    <script src="{{ asset('admin_assets/js/pages/dashboards/dashboard1.js') }}"></script>
 </body>
 
 </html>

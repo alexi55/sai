@@ -22,29 +22,20 @@ class PlantaController extends Controller
 
 
         //index 
-   public function index()
-   {
-            
-   
-             
-     //$customers = Customer::all();
-            // return view('compras.empleados.index', compact('customers'));
- 
-            //$id=25;
-            //$purchases = AreasModel::findOrFail($id)->purchases;
-
-            //return Datatables::of($purchases)->make(true);
-            //dd($purchases);
-
+    public function index()
+    {
+           
     return view('rechumanos.planta.index');
 
-   }
+     }
+
+
+   /////////////////////////////////////////////
 
     public function list()
     
     {
         $customers = AreasModel::select(['idarea', 'nombrearea', 'estadoarea', 'idnivel']);
-        //$customers = AreasModel::select();
 
         return Datatables::of($customers)
             ->addColumn('details_url', function($customer) {
@@ -56,79 +47,63 @@ class PlantaController extends Controller
                 
                  return $btn2;
             })
-         ->rawColumns(['btn2'])
-            ->make(true);
+         ->rawColumns(['btn2'])->make(true);
 
     }
+
+    ///////////////////////////////////////////////////////
+
    public function detalle($id)
    {
-   $purchases = DB::table('empleados as e') 
-   ->join('areas as a', 'a.idarea', '=', 'e.idarea')
-   ->join('file as f', 'f.idfile', '=', 'e.idfile')
-   ->select('e.idemp','e.nombres','e.ap_pat','e.ap_mat','e.ci','f.numfile','f.cargo')
-   -> where('e.idarea','=', $id)
-   //-> orderBy('e.idemp', 'desc')
-   -> get();
-    
-       // $purchases = AreasModel::findOrFail($id)->purchases;
+ 
 
-        return Datatables::of($purchases)
-        ->addIndexColumn()
-        ->addColumn('btn', function($row){
-
-               $btn = '<a href="'. route('planta.edit', $row->idemp) .'" class="btn btn-outline-success btn-sm"  title="Editar">Editar</a>';
-               
-                return $btn;
-        })
-        ->rawColumns(['btn'])
-        ->make(true);
+    $purchases = DB::table('empleados as e') 
+    ->join('areas as a', 'a.idarea', '=', 'e.idarea')
+    //->join('file as f', 'f.idfile', '=', 'e.idfile')
+    //->select('a.nombrearea','f.numfile','e.idemp','e.nombres','e.ap_pat','e.ap_mat','f.cargo','f.nombrecargo','f.habbasico','f.categoria','f.niveladm','f.clase','f.nivelsal','e.fechingreso','e.natalicio','e.edad','e.ci','e.poai','e.exppoai','e.decjurada','e.expdecjurada','e.sippase','e.expsippase','e.servmilitar','e.idioma','e.induccion','e.expinduccion','e.progvacacion','e.expprogvacacion','e.vacganadas','e.vacpendientes','e.vacusasdas','e.segsalud','e.inamovilidad','e.aservicios','e.cvitae','e.telefono','e.biometrico','e.gradacademico','e.rae','e.regprofesional','e.evdesempenio')
+    -> where('e.idarea','=', $id)
+    -> get();
+ 
+    return Datatables::of($purchases)->make(true);
     }
 
 
-
+    /////////////////////////////////////////////////////
 
     public function edit($id)
     {
         
-       // $empleados = EmpleadosModel::find($id);
-      // $areas = DB::table('areas')->get();
-        //$roles = Role::pluck('title','id');
         return view('rechumanos.planta.edit');
-        //return view('compras.empleados.index', ["empleado" => $empleado, "searchText" => $querry]);
     }
 
+
+    /////////////////////////////////////////////////
 
     public function plantanuevo($id)
     {
         
-       // $empleados = EmpleadosModel::find($id);
-      // $areas = DB::table('areas')->get();
-        //$roles = Role::pluck('title','id');
         $area = AreasModel::where('estadoarea','=', 1)->with('iPais_all')->get();
         $niveles = DB::table('niveles')->get();
 
         return view('rechumanos.planta.create', ["niveles" => $niveles,"area" => $area,"idarea" => $id]);
-        //return view('rechumanos.planta.create');
-        //return view('compras.empleados.index', ["empleado" => $empleado, "searchText" => $querry]);
+
     }
+
+    ////////////////////////////////////////////////
     
     public function lista($idarea)
     {
-        
-
+                
         $empleados = DB::table('empleados as e') 
         ->join('areas as a', 'a.idarea', '=', 'e.idarea')
         ->join('file as f', 'f.idfile', '=', 'e.idfile')
         ->select('a.nombrearea','f.numfile','e.idemp','e.nombres','e.ap_pat','e.ap_mat','f.cargo','f.nombrecargo','f.habbasico','f.categoria','f.niveladm','f.clase','f.nivelsal','e.fechingreso','e.natalicio','e.edad','e.ci','e.poai','e.exppoai','e.decjurada','e.expdecjurada','e.sippase','e.expsippase','e.servmilitar','e.idioma','e.induccion','e.expinduccion','e.progvacacion','e.expprogvacacion','e.vacganadas','e.vacpendientes','e.vacusasdas','e.segsalud','e.inamovilidad','e.aservicios','e.cvitae','e.telefono','e.biometrico','e.gradacademico','e.rae','e.regprofesional','e.evdesempenio')
-        -> where('e.idarea','=', $idarea)
-        -> paginate(10);
+        -> where('e.idarea','=', $idarea)->get();
         $areas = AreasModel::find($idarea);
         $nombrearea=$areas->nombrearea;
-       // $empleados = EmpleadosModel::find($id);
-      // $areas = DB::table('areas')->get();
-        //$roles = Role::pluck('title','id');
-        //return view('rechumanos.planta.lista');
+
         return view('rechumanos.planta.lista', ["empleados" => $empleados, "idarea" => $idarea, "nombrearea" => $nombrearea]);
+                
     }
 
 
@@ -180,7 +155,6 @@ class PlantaController extends Controller
         $file ->estadofile=2;
         $file ->save();
         return redirect()->action('App\Http\Controllers\PlantaController@lista', [$request->input('idarea')]);
-        //dd($request);
       
     }
     
