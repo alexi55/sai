@@ -91,7 +91,7 @@ class MedidaController extends Controller
 
     //medidas store
     public function store(request $request){
-
+//dd($request->all());
         $medida = new MedidaModel();
         $medida -> nombreumedida = $request->input('nombre');
   

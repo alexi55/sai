@@ -41,7 +41,7 @@ $(function() {
 
 
         language: {
-            url: '/sai/public/spain.json'
+            url: '/spain.json'
         },
 
         processing: true,

@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">Formulario Para Empledo Nuevo</div>
             <div class="row">
-                <a href="{{ url('/compras/productos/index') }}" class="btn blue darken-4 text-black "><i
+                <a href="{{url()->previous()}}" class="btn blue darken-4 text-black "><i
                         style="color:#55CE63;font-weight: bold;" class="fa fa-plus-square"></i> Volver atras</a>
             </div>
 

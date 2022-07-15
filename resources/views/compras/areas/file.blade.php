@@ -3,15 +3,20 @@
 @section('content')
 
 <div class="row justify-content-center">
+    
+   
+    <div class="col-md-12"> 
+
+
+    </br>
     <div style="color:black;font-weight: bold;font-size: 18px;">Modulo Files
         &nbsp;&nbsp;
 
-        @can('medidas_create')
+        @can('file_create_access')
         <a href="{{ route('areas.crearFile',$id) }}" class="btn btn-outline-info btn-sm">Agregar File</a>
         @endcan
     </div>
-    </br></br>
-    <div class="col-md-12">
+    </br>
         <div class="card">
         <div class="col-md-6">
             <div class="row">
@@ -23,7 +28,7 @@
            
         <table class="table table-bordered hoverTable">
             <tr>
-                
+            <th>Id</th>
                 <th>Num.File</th>
                 <th>Cargo</th>
                 <th>Nombre Cargo</th>
@@ -39,7 +44,7 @@
             </tr>
             @forelse ($file as $files)
             <tr>
-                
+            <td>{{ $files -> idfile}}</td>
                 <td>{{ $files -> numfile}}</td>
                 <td>{{ $files -> cargo}}</td>
                 <td>{{ $files -> nombrecargo}}</td>
@@ -64,8 +69,9 @@
 
 
                 <td>
-                    @can('medidas_access')
-                    <a href="" class="btn btn-outline-warning btn-sm">Editar</a>
+                    @can('file_edit_access')
+                    <a href="{{ route('file.edit', $files->idfile)}}"
+                                        class="btn btn-outline-info btn-sm">Editar</a>
                     @endcan
 
 

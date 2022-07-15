@@ -1,8 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div style="color:#009EFB;font-weight: bold;font-size:20px;"></div>
-</br>
+
     <div class="card" align="center">
        
 
@@ -15,7 +14,7 @@
 
         <br><br>
             <div class="text-center col-md-12">
-                <img src="{{ asset('logos/GOBERNACION.png') }}" class="dark-logo" width="600px" alt="Laravel Roles & Permissions Manager">
+                <img src="{{ asset('logos/GOBERNACION.jpg') }}" class="dark-logo" width="600px" alt="Laravel Roles & Permissions Manager">
             </div>
             <br><br>
             <br><br>

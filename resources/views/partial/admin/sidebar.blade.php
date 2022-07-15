@@ -116,36 +116,45 @@
 
 
 
-                        @canany(['compras_panel_access'])
+                        @canany(['recHumanos_access'])
                         <li class="sidebar-item">
 
                             <a class="sidebar-link has-arrow waves-effect waves-dark selected" href="javascript:void(0)"
                                 aria-expanded="false">
 
-                                <i class="fa fa-spinner " aria-hidden="true"></i>
+                                <i class="fas fa-users" aria-hidden="true"></i>
                                 <span class="hide-menu" style="color:#519259;font-weight: bold;">Menu Rec. Humanos</span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level
                                 @if(request()->is('admin/users') || request()->is('admin/users/*')) in @endif
    
                             ">
-                                @can('medidas_access')
+                                @can('planta_access')
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('planta.index') }}" aria-expanded="false">
                                         <i class="fa fa-id-badge" aria-hidden="true"></i>
-                                        <span class="hide-menu" style="color:black;font-weight: bold;">Personal
-                                            Planta</span>
+                                        <span class="hide-menu" style="color:black;font-weight: bold;">Personal Planta</span>
                                     </a>
                                 </li>
                                 @endcan
+
+                                @can('planta_access')
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
+                                        href="{{ route('planta.listageneral') }}" aria-expanded="false">
+                                        <i class="fa fa-file" aria-hidden="true"></i>
+                                        <span class="hide-menu" style="color:black;font-weight: bold;">Lista Gral. Planta</span>
+                                    </a>
+                                </li>
+                                @endcan
+
                                 @can('productos_access')
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
                                         href="{{ route('pedido.index') }}" aria-expanded="false">
                                         <i class="fa fa-user-circle" aria-hidden="true"></i>
-                                        <span class="hide-menu" style="color:black;font-weight: bold;">Personal
-                                            Contrato</span>
+                                        <span class="hide-menu" style="color:black;font-weight: bold;">Personal Contrato</span>
                                     </a>
                                 </li>
                                 @endcan

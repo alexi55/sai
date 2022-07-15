@@ -2,31 +2,24 @@
 
 @section('content')
 <div class="row justify-content-center">
-    <div style="color:black;font-weight: bold;font-size: 18px;">Empleados Planta
+    <div style="color:black;font-weight: bold;font-size: 18px;">Lista General Empleados Planta
         &nbsp;&nbsp;
 
-        @can('planta_create_access')
-        <a href="{{ route('planta.crear',$idarea) }}" class="btn btn-outline-info btn-sm">Agregar</a>
-        @endcan
     </div>
     </br></br>
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header">{{$nombrearea}}</div>
-            <div class="row">
-                <a href="{{ url('rechumanos/planta/index') }}" class="btn blue darken-4 text-black "><i
-                        class="fa fa-plus-square" style="color:#55CE63;font-weight: bold;"></i> Volver atras</a>
-            </div>
-            <input type="hidden" value="{{$idarea}}">
+            
+           
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="example" class="table hoverTable table-bordered" style="width:100%">
                         <thead>
                             <tr style="background-color:#F2F7F8">
-                                <th>Opciones</th>
 
-                               
+                                <th>Id </th>
                                 <th>File </th>
+                                <th>AREA </th>
                                 <th>Nombres </th>
                                 <th>Ap.Paterno </th>
                                 <th>Ap.Materno </th>
@@ -74,17 +67,11 @@
                             @forelse ($empleados as $key => $empleado)
                             <tr>
 
-                                <td>
+                               
 
-                                    @can('planta_edit_access')
-                                    <a href="{{ route('planta.editar', $empleado -> idemp)}}"
-                                        class="btn btn-outline-info btn-sm">Editar</a>
-                                    @endcan
-
-                                </td>
-
-                                
+                                <td>{{$empleado -> idemp}}</td>
                                 <td>{{$empleado -> numfile}}</td>
+                                <td>{{$empleado -> nombrearea}}</td>
                                 <td>{{$empleado -> nombres}}</td>
                                 <td>{{$empleado -> ap_pat}}</td>
                                 <td>{{$empleado -> ap_mat}}</td>

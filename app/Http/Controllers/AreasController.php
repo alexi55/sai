@@ -35,7 +35,7 @@ class AreasController extends Controller
             ->addColumn('btn', function($row){
 
                 $btn = '<a href="'. route('areas.edit', $row->idarea) .'" class="btn btn-outline-success btn-sm"  title="Editar">Editar</a>';
-                $btn2 = '<a href="'. route('areas.file', $row->idarea) .'" class="btn btn-outline-success btn-sm"  title="Files">Files</a>';
+                $btn2 = '<a href="'. route('areas.file', $row->idarea) .'" class="btn btn-outline-warning btn-sm"  title="Files">Files</a>';
                 $btn4='<div class="d-flex">'.$btn.' '.$btn2.'</div>';
                     return $btn4;
             })
@@ -198,5 +198,41 @@ class AreasController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function editfile($idfile)
+    {
+        $files = FileModel::find($idfile);
+        $areas = DB::table('areas')->get();
+    //dd($files);
+    return view('compras/areas/actualizarfile', ["areas" => $areas,"file" => $files]);
+       // return view('compras/areas/actualizarfile')->with('areas', $areas,'file',$files);
+    }
+
+
+    public function updatefile(Request $request)
+    {
+        $file = FileModel::find($request->input('idfile'));
+
+        $file -> numfile = $request->input('numfile');
+        $file -> cargo = $request->input('cargo');
+        $file -> nombrecargo = $request->input('nombrecargo');
+        $file -> habbasico = $request->input('habbasico');
+        $file -> categoria = $request->input('categoria');
+        $file -> niveladm = $request->input('niveladm');
+        $file -> clase = $request->input('clase');
+        $file -> nivelsal = $request->input('nivelsal');
+        $file -> idarea = $request->input('idarea2');
+        $file -> tipofile = 1;
+        $file -> estadofile = 1;
+        
+        //$medida->update();
+        if($file->save()){
+          $request->session()->flash('message', 'Registro Procesado');
+      }else{
+          $request->session()->flash('message', 'Error al Procesar Registro');
+      }
+      return redirect()->action('App\Http\Controllers\AreasController@file', [$request->input('idarea')]);
     }
 }
