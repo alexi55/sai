@@ -12,12 +12,13 @@
             </div>
 
             <div class="card-body">
+            <font size="2" face="Courier New" >
                 <form method="POST" action="{{ route('productos.store') }}">
                     @csrf
                     @method('POST')
                     <div class="form-group row">
                         <label for="name" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                            class=" col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
                         <div class="col-md-6">
                             <textarea id="name" required type="text" require name="nombre" placeholder="Nombre..."
                                 cols="50" rows="2" onkeyup="javascript:this.value=this.value.toUpperCase();"></textarea>
@@ -25,7 +26,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="detalle" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Detalle') }}</label>
+                            class=" col-md-4 col-form-label text-md-right">{{ __('Detalle') }}</label>
                         <div class="col-md-6">
                             <textarea id="detalle" required type="text" name="detalle" cols="50" rows="4"
                                 placeholder="Detalle..."
@@ -34,7 +35,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="precio" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Precio') }}</label>
+                            class=" col-md-4 col-form-label text-md-right">{{ __('Precio') }}</label>
                         <div class="col-md-6">
                             <input id="precio" required name="precio" type="number" placeholder="0.0" step="0.01"
                                 placeholder="Precio...">
@@ -42,7 +43,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="required  col-md-4 col-form-label text-md-right"
+                        <label class="  col-md-4 col-form-label text-md-right"
                             style="color:#009EFB;font-weight: bold;">{{ __('Partida') }}</label>
                         <div class="col-md-8" id="permissions-select">
                             <select name="idpartida" id="permissions" class="col-md-6">
@@ -57,7 +58,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="required col-md-4 col-form-label text-md-right"
+                        <label class=" col-md-4 col-form-label text-md-right"
                             style="color:#009EFB;font-weight: bold;">{{ __('Medida') }}</label>
                         <div class="col-md-8" id="permissions-select2">
 
@@ -76,13 +77,13 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-outline-success">
+                            <button type="submit" class="btn btn-outline-success btn-sm">
                                 {{ __('Guardar') }}
                             </button>
                         </div>
                     </div>
                 </form>
-
+</font>
 
             </div>
         </div>

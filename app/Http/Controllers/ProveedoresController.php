@@ -61,7 +61,7 @@ class ProveedoresController extends Controller
         $proveedores -> nombreproveedor = $request->input('nombre');
         $proveedores -> representante = $request->input('representante');
         $proveedores -> cedula = $request->input('cedula');
-        $proveedores -> nitCi = $request->input('nitCi');
+        $proveedores -> nitci = $request->input('nitci');
         $proveedores -> telefonoproveedor = $request->input('telefono');
         
         $proveedores -> estadoproveedor = 1;
@@ -189,7 +189,7 @@ public function insertar(Request $request)
     $proveedores -> nombreproveedor = $request->input('nombre');
     $proveedores -> representante = $request->input('representante');
     $proveedores -> cedula = $request->input('cedula');
-    $proveedores -> nitCi = $request->input('nitCi');
+    $proveedores -> nitci = $request->input('nitci');
     $proveedores -> telefonoproveedor = $request->input('telefono');
     //$medida->update();
     if($proveedores->save()){

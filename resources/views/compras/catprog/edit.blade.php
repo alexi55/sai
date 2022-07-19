@@ -12,7 +12,7 @@
             </div>
 
             <div class="card-body">
-
+            <font size="2" face="Courier New" >
                 <form method="POST" action="{{ route('catprog.update', $catprogs->idcatprogramatica) }}">
                     @csrf
                     @method('POST')
@@ -41,13 +41,13 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-outline-success">
+                            <button type="submit" class="btn btn-outline-success btn-sm">
                                 {{ __('Guardar') }}
                             </button>
                         </div>
                     </div>
                 </form>
-
+</font>
 
             </div>
         </div>

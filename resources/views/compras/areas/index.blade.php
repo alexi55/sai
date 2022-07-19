@@ -18,17 +18,19 @@
 
 
             <div class="card-body">
+            <font size="2" face="Courier New" >
                 <table class="table table-bordered yajra-datatable hoverTable">
                     <thead>
                         <tr>
                             <th style="color:black;width:30px;">N°</th>
                             <th style="color:black">Nombre</th>
-                            <th style="color:black;width:50px;">Opciones</th>
+                            <th style="color:black;">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
                     </tbody>
                 </table>
+            </font>
 
             </div>
         </div>
@@ -41,10 +43,9 @@
 $(function() {
 
     var table = $('.yajra-datatable').DataTable({
-        language: {
-            url: '/sai/public/spain.json'
-        },
-
+        "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+}      ,
         processing: true,
         serverSide: true,
         ajax: "{{ route('areas.list') }}",

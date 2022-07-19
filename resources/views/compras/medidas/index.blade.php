@@ -3,6 +3,10 @@
 @section('content')
 
 <div class="row justify-content-center">
+    
+    
+    <div class="col-md-10">
+    </br>
     <div style="color:black;font-weight: bold;font-size: 18px;">Modulo Medidas
         &nbsp;&nbsp;
 
@@ -10,11 +14,11 @@
         <a href="{{ route('medidas.create') }}" class="btn btn-outline-info btn-sm">Agregar</a>
         @endcan
     </div>
-    </br></br></br>
-    <div class="col-md-10">
+    </br>
         <div class="card">
 
             <div class="card-body">
+            <font size="2" face="Courier New" >
                 <table class="table table-bordered yajra-datatable hoverTable">
                     <thead>
                         <tr>
@@ -26,7 +30,7 @@
                     <tbody>
                     </tbody>
                 </table>
-
+</font>
             </div>
         </div>
     </div>
@@ -40,9 +44,9 @@ $(function() {
     var table = $('.yajra-datatable').DataTable({
 
 
-        language: {
-            url: '/spain.json'
-        },
+        "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+}      ,
 
         processing: true,
         serverSide: true,

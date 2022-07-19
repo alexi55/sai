@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row justify-content-center">
-    <div class="col-md-6">
+    <div class="col-md-8">
         <div class="card">
             <div class="card-header">Agregar Registro</div>
             <div class="row">
@@ -12,13 +12,15 @@
             </div>
 
             <div class="card-body">
+            <font size="2" face="Courier New" >
                 <form method="POST" action="{{ route('medidas.store') }}">
                     @csrf
 
                     <div class="form-group row">
-                    <span class="input-group-text" style="color:#009EFB;font-weight: bold;">Nombre:</span>
+                    <label for="role_id" style="color:#009EFB;font-weight: bold;"
+                                class="required col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
                         
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <input type="text" name="nombre" required class="form-control"
                                 placeholder="Nombre de la medida..."
                                 onkeyup="javascript:this.value=this.value.toUpperCase();">
@@ -36,7 +38,7 @@
                     </div>
                 </form>
 
-
+            </font>
             </div>
         </div>
     </div>

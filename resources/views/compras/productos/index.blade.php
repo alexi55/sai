@@ -4,19 +4,22 @@
 
 <div class="row justify-content-center">
 
+    
+    <div class="col-md-12">
+    </br>
     <div style="color:black;font-weight: bold;font-size: 18px;">Modulo Productos-Items
         &nbsp;&nbsp;
         @can('productos_create')
-        <a href="{{ route('productos.create') }}" class="btn btn-outline-info">Agregar</a>
+        <a href="{{ route('productos.create') }}" class="btn btn-outline-info btn-sm">Agregar</a>
         @endcan
     </div>
-    </br></br></br>
-    <div class="col-md-12">
+    </br>
 
         <div class="card">
 
 
             <div class="card-body">
+            <font size="2" face="Courier New" >
                 <table class="table table-bordered  yajra-datatable hoverTable">
                     <thead>
                         <tr>
@@ -30,7 +33,7 @@
                     <tbody>
                     </tbody>
                 </table>
-
+</font>
             </div>
         </div>
     </div>
@@ -42,26 +45,10 @@
 $(function() {
 
     var table = $('.yajra-datatable').DataTable({
-        language: {
-            "decimal": "",
-            "emptyTable": "No hay información",
-            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-            "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-            "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-            "infoPostFix": "",
-            "thousands": ",",
-            "lengthMenu": "Mostrar _MENU_ Entradas",
-            "loadingRecords": "Cargando...",
-            "processing": "Procesando...",
-            "search": "Buscar:",
-            "zeroRecords": "Sin resultados encontrados",
-            "paginate": {
-                "first": "Primero",
-                "last": "Ultimo",
-                "next": "Siguiente",
-                "previous": "Anterior"
-            }
-        },
+        
+        "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+}      ,
 
         processing: true,
         serverSide: true,

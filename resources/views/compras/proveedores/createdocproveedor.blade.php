@@ -13,6 +13,7 @@
 
 
                 <div class="card-body">
+                <font size="2" face="Courier New" >
                     <form method="POST" action="{{ route('ProveedoresController.insertar') }}"
                         enctype="multipart/form-data">
                         @csrf
@@ -24,17 +25,17 @@
 
                         <div class="form-group row">
                             <label for="nombre" style="color:#009EFB;font-weight: bold;"
-                                class="required col-md-4 col-form-label text-md-right">{{ __('Nombre del Documento') }}</label>
+                                class=" col-md-4 col-form-label text-md-right">{{ __('Nombre del Documento') }}</label>
 
                             <div class="col-md-6">
                                 <input type="text" name="nombredocumento" class="form-control" placeholder="Nombre..."
-                                    onkeyup="javascript:this.value=this.value.toUpperCase();">
+                                   required onkeyup="javascript:this.value=this.value.toUpperCase();">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="documento" style="color:#009EFB;font-weight: bold;"
-                                class="required col-md-4 col-form-label text-md-right">{{ __('Archivo (solo .pdf)') }}</label>
+                                class=" col-md-4 col-form-label text-md-right">{{ __('Archivo (solo .pdf)') }}</label>
 
                             <div class="col-md-6">
                                 <input type="file" name="documento" id="file">
@@ -43,14 +44,14 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-outline-success">
+                                <button type="submit" class="btn btn-outline-success btn-sm">
                                     {{ __('Guardar') }}
                                 </button>
                             </div>
                         </div>
                     </form>
 
-
+</font>
 
                 </div>
             </div>

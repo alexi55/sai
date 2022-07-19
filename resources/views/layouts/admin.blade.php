@@ -160,6 +160,7 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
+                        <font size="2" face="Courier New" >
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" style="color:white;font-size:18px;" href="" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                    Bienvenido:  {{ Auth()->user()->name }}
@@ -170,6 +171,7 @@
                                     Cerrar sesión
                                </a>
                             </div>
+                        </font>
                         </li>
                     </ul>
                 </div>

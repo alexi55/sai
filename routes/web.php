@@ -111,6 +111,19 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     //Route::POST('rechumanos/planta/store', 'EmpleadosController@store')->name('empleados.store');
 
 
+//rechumanos empleados contrato
+    //Route::resource('compras/empleados', 'EmpleadosController');
+    Route::get('rechumanos/contrato/index', 'ContratoController@index')->name('contrato.index');
+    Route::get('rechumanos/contrato/list', 'ContratoController@list')->name('contrato.list');
+   Route::get('rechumanos/contrato/detalle/{id}', 'ContratoController@detalle')->name('contrato_detalle');
+   Route::get('rechumanos/contrato/edit/{id}', 'ContratoController@edit')->name('contrato.edit');
+   Route::get('rechumanos/contrato/lista/{id}', 'ContratoController@lista')->name('contrato.lista');
+   Route::get('rechumanos/contrato/create/{id}', 'ContratoController@plantanuevo')->name('contrato.crear');
+   Route::get('rechumanos/contrato/edit/{id}', 'ContratoController@editarplanta')->name('contrato.editar');
+   Route::POST('rechumanos/contrato/guardarplanta', 'ContratoController@guardarplanta')->name('contrato.guardar');
+   Route::POST('rechumanos/contrato/actualizarplanta', 'ContratoController@actualizarPlanta')->name('contrato.actualizar');
+   Route::GET('rechumanos/contrato/lista2', 'ContratoController@detallePlanta')->name('contrato.listageneral');
+
 
     //compras proveedores
     // Route::get('compras/proveedores/{id}/createdoc', 'ProveedoresController@createdoc');
@@ -144,6 +157,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     Route::POST('compras/areas/guardarfile', 'AreasController@guardarfile')->name('areas.guardarfile');
     Route::get('compras/areas/{id}/actualizarfile', 'AreasController@editfile')->name('file.edit');
     Route::POST('compras/areas/updatefile', 'AreasController@updatefile')->name('file.update');
+
+    Route::get('compras/areas/{id}/file2', 'AreasController@file2')->name('areas.file2');
+    Route::get('compras/areas/{id}/crearFile2', 'AreasController@crearFile2')->name('areas.crearFile2');
+    Route::POST('compras/areas/guardarfile2', 'AreasController@guardarfile2')->name('areas.guardarfile2');
+    Route::get('compras/areas/{id}/actualizarfile2', 'AreasController@editfile2')->name('file2.edit');
+    Route::POST('compras/areas/updatefile2', 'AreasController@updatefile2')->name('file2.update');
     //Route::Get('productByCategory/{id}', 'AreasController@byCategory');
     
 

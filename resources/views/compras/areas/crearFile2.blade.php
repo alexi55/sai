@@ -13,7 +13,7 @@
 
             <div class="card-body">
             <font size="2" face="Courier New" >
-                <form method="POST" action="{{ route('areas.guardarfile') }}">
+                <form method="POST" action="{{ route('areas.guardarfile2') }}">
                     @csrf
                     <input type="text" hidden class="form-control" name="idarea" placeholder="" value="{{$idarea}}">
 

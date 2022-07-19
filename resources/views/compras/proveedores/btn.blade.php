@@ -4,6 +4,6 @@
 </td>
 @endcan
 @can('proveedores_edit')
-<a href="{{route('admin.users.edit', $idproveedor)}}" class="btn btn-outline-info btn-sm" data-toggle="tooltip"
+<a href="{{route('admin.users.edit', $idproveedor)}}" class="btn btn-outline-warning btn-sm" data-toggle="tooltip"
     data-placement="top" title="Permite cargar documentos del proveedor">Documentos</a>
 @endcan

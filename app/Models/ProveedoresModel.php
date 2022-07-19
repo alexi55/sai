@@ -17,7 +17,7 @@ class ProveedoresModel extends Model
         'nombreproveedor',
         'representante',
         'cedula',
-        'nitCi',
+        'nitci',
         'telefonoproveedor',
         'estadoproveedor'
     ];

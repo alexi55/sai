@@ -5,13 +5,15 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="card">
-            <div class="card-header">Editar Registro</div>
+            <div class="card-header">Agregar Registro</div>
             <div class="row">
                 <a href="{{ url('/compras/medidas/index') }}" class="btn blue darken-4 text-black "><i
                         class="fa fa-plus-square" style="color:#55CE63;font-weight: bold;"></i> Volver atras</a>
             </div>
 
             <div class="card-body">
+
+            <font size="2" face="Courier New" >
                 <form method="POST" action="{{ route('medidas.update', $medida->idumedida) }}">
                     @csrf
                     @method('POST')
@@ -19,7 +21,7 @@
 
                         <div class="form-group row">
                             <label for="role_id" style="color:#009EFB;font-weight: bold;"
-                                class="required col-md-4 col-form-label text-md-right">{{ __('Nombre de Medida') }}</label>
+                                class="required col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
                             <div class="col-md-6">
                                 <input type="text" required name="nombre" value="{{$medida->nombreumedida}}"
@@ -41,9 +43,8 @@
 
                     </div>
                 </form>
-
-
-            </div>
+                </font>
+                </div>
         </div>
     </div>
 </div>

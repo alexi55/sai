@@ -100,7 +100,7 @@
             <div class="form-group row">
                 <label for="nit" class="required col-md-4 col-form-label text-md-right">{{ __('Nit/Ci') }}</label>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" name="nit" placeholder="" value="{{$compras->nitCi}}">
+                    <input type="text" class="form-control" name="nit" placeholder="" value="{{$compras->nitci}}">
                 </div>
             </div>
 

@@ -9,11 +9,11 @@
 
 
     </br>
-    <div style="color:black;font-weight: bold;font-size: 18px;">Modulo Files (Planta)
+    <div style="color:black;font-weight: bold;font-size: 18px;">Modulo Files (Contrato)
         &nbsp;&nbsp;
 
         @can('file_create_access')
-        <a href="{{ route('areas.crearFile',$id) }}" class="btn btn-outline-info btn-sm">Agregar File</a>
+        <a href="{{ route('areas.crearFile2',$id) }}" class="btn btn-outline-info btn-sm">Agregar File</a>
         @endcan
     </div>
     </br>
@@ -70,7 +70,7 @@
 
                 <td>
                     @can('file_edit_access')
-                    <a href="{{ route('file.edit', $files->idfile)}}"
+                    <a href="{{ route('file2.edit', $files->idfile)}}"
                                         class="btn btn-outline-info btn-sm">Editar</a>
                     @endcan
 

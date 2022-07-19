@@ -40,7 +40,7 @@ class ProgramaController extends Controller
         ->addIndexColumn()
         ->addColumn('btn', function($row){
 
-               $btn = '<a href="'. route('programas.edit', $row->idprograma) .'" class="btn btn-outline-success"  title="Editar">Editar</a>';
+               $btn = '<a href="'. route('programas.edit', $row->idprograma) .'" class="btn btn-outline-success btn-sm"  title="Editar">Editar</a>';
                
                 return $btn;
         })

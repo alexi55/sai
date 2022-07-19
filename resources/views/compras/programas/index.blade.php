@@ -4,17 +4,20 @@
 
     <div class="row justify-content-center">
 
+       
+        <div class="col-md-10">
+        </br>
         <div style="color:black;font-weight: bold;font-size: 18px;">Modulo Programas
             &nbsp;&nbsp;
             @can('medidas_create')
-            <a href="{{ route('programas.create') }}" class="btn btn-outline-info">Agregar</a>
+            <a href="{{ route('programas.create') }}" class="btn btn-outline-info btn-sm">Agregar</a>
             @endcan
         </div>
-        </br></br></br>
-        <div class="col-md-10">
+        </br>
             <div class="card">
                 
                 <div class="card-body">
+                <font size="2" face="Courier New" >
                     <table class="table table-bordered yajra-datatable hoverTable">
                         <thead >
                             <tr>
@@ -26,7 +29,7 @@
                         <tbody>
                         </tbody>
                     </table>
-
+</font>
 
 
                 </div>

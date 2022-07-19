@@ -129,6 +129,18 @@
                                 @if(request()->is('admin/users') || request()->is('admin/users/*')) in @endif
    
                             ">
+
+                            @can('areas_access')
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
+                                        href="{{ route('areas.index') }}" aria-expanded="false">
+                                        <i class="fa fa-database" aria-hidden="true"></i>
+                                        <span class="hide-menu" style="color:black;font-weight: bold;">Areas-Files</span>
+                                    </a>
+                                </li>
+                                @endcan
+
+
                                 @can('planta_access')
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
@@ -149,25 +161,18 @@
                                 </li>
                                 @endcan
 
+
+                            
                                 @can('productos_access')
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
-                                        href="{{ route('pedido.index') }}" aria-expanded="false">
+                                        href="{{ route('contrato.index') }}" aria-expanded="false">
                                         <i class="fa fa-user-circle" aria-hidden="true"></i>
                                         <span class="hide-menu" style="color:black;font-weight: bold;">Personal Contrato</span>
                                     </a>
                                 </li>
                                 @endcan
-                                @can('areas_access')
-                                <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
-                                        href="{{ route('areas.index') }}" aria-expanded="false">
-                                        <i class="fa fa-database" aria-hidden="true"></i>
-                                        <span class="hide-menu" style="color:black;font-weight: bold;">Areas</span>
-                                    </a>
-                                </li>
-                                @endcan
-
+                              
 
                             </ul>
                         </li>

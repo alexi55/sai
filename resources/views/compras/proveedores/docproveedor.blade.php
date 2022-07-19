@@ -13,11 +13,12 @@
 
                     @can('proveedores_create')
                     <a href="{{ route('ProveedoresController.createdoc', $idproveedor) }}"
-                        class="btn btn-outline-warning">Agregar</a>
+                        class="btn btn-outline-info btn-sm">Agregar</a>
                     @endcan
                 </div>
 
                 <div class="card-body">
+                <font size="2" face="Courier New" >
                     <table class="table table-bordered table-hover">
                         <tr class="bg-info text-light">
 
@@ -38,7 +39,7 @@
                             <td>
                                 @can('proveedores_edit')
                                 <a href="/sai/public/Archivos/{{$docprov -> documento}}" target="blank_"
-                                    class="btn btn-outline-warning">Ver Documento</a>
+                                    class="btn btn-outline-warning btn-sm">Ver Documento</a>
                                 @endcan
 
                             </td>
@@ -50,7 +51,7 @@
                         @endforelse
                     </table>
 
-
+</font>
 
                 </div>
             </div>

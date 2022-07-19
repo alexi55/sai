@@ -2,17 +2,19 @@
 
 @section('content')
 <div class="row justify-content-center">
-    <div style="color:black;font-weight: bold;font-size: 18px;">Empleados Planta
+  
+    <div class="col-md-12">
+    </br>
+    <div style="color:black;font-weight: bold;font-size: 16px;">{{$nombrearea}}
         &nbsp;&nbsp;
 
         @can('planta_create_access')
         <a href="{{ route('planta.crear',$idarea) }}" class="btn btn-outline-info btn-sm">Agregar</a>
         @endcan
     </div>
-    </br></br>
-    <div class="col-md-12">
+    </br>
         <div class="card">
-            <div class="card-header">{{$nombrearea}}</div>
+            
             <div class="row">
                 <a href="{{ url('rechumanos/planta/index') }}" class="btn blue darken-4 text-black "><i
                         class="fa fa-plus-square" style="color:#55CE63;font-weight: bold;"></i> Volver atras</a>
@@ -20,6 +22,7 @@
             <input type="hidden" value="{{$idarea}}">
             <div class="card-body">
                 <div class="table-responsive">
+                <font size="2" face="Courier New" >
                     <table id="example" class="table hoverTable table-bordered" style="width:100%">
                         <thead>
                             <tr style="background-color:#F2F7F8">
@@ -138,6 +141,7 @@
 
                         </tbody>
                     </table>
+                    </font>
                 </div>
             </div>
         </div>

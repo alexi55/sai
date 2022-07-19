@@ -32,15 +32,10 @@ class AreasController extends Controller
             $data = DB::table('areas')->get();
             return Datatables::of($data)
             ->addIndexColumn()
-            ->addColumn('btn', function($row){
-
-                $btn = '<a href="'. route('areas.edit', $row->idarea) .'" class="btn btn-outline-success btn-sm"  title="Editar">Editar</a>';
-                $btn2 = '<a href="'. route('areas.file', $row->idarea) .'" class="btn btn-outline-warning btn-sm"  title="Files">Files</a>';
-                $btn4='<div class="d-flex">'.$btn.' '.$btn2.'</div>';
-                    return $btn4;
-            })
+            ->addColumn('btn','compras.areas.btn')
             ->rawColumns(['btn'])
             ->make(true);
+
 
        
     }
@@ -64,6 +59,12 @@ class AreasController extends Controller
     {
        
         return view('compras.areas.crearFile', ["idarea" => $idArea]);
+    }
+
+    public function crearFile2($idArea)
+    {
+       
+        return view('compras.areas.crearFile2', ["idarea" => $idArea]);
     }
 
     public function guardarfile(Request $request)
@@ -100,11 +101,48 @@ class AreasController extends Controller
     }
 
 
+
+    public function guardarfile2(Request $request)
+    {
+        $file = new FileModel();
+        $file -> numfile = $request->input('numfile');
+        $file -> cargo = $request->input('cargo');
+        $file -> nombrecargo = $request->input('nombrecargo');
+        $file -> habbasico = $request->input('habbasico');
+        $file -> categoria = $request->input('categoria');
+        $file -> niveladm = $request->input('niveladm');
+        $file -> clase = $request->input('clase');
+        $file -> nivelsal = $request->input('nivelsal');
+        $file -> tipofile = 2;
+        $file -> estadofile = 1;
+       
+        
+        $file -> idarea = $request->input('idarea');
+
+        $idarea=$request->input('idarea');
+        if($file->save()){
+            $request->session()->flash('message', 'Registro Procesado Exitosamente');
+            //echo 'Cliente salvo com sucesso';
+        }else{
+            $request->session()->flash('message', 'Error al procesar el registro');
+            //echo 'Houve um erro ao salvar';
+        }
+       // return redirect()->route('areas.index');
+
+       // return route('areas.crearFile', $idarea);
+        //return redirect()->action('AreasController@crearFile', $idarea);
+        return redirect()->action('App\Http\Controllers\AreasController@file2', ['id' => $idarea]);
+        //return view('compras.areas.crearFile', ["idarea" => $idArea]);
+    }
+
+
+
     public function file($id)
     {
         $file = DB::table('file as f') 
         ->join('areas as a', 'a.idarea', '=', 'f.idarea')
         ->select('f.idfile','f.numfile','f.cargo','f.nombrecargo','f.habbasico','f.categoria','f.niveladm','f.clase','f.nivelsal','a.nombrearea','f.estadofile')
+        -> where('f.tipofile','=', 1)
         -> where('a.idarea','=', $id)
         -> paginate(5);
        // dd($docproveedor);
@@ -112,6 +150,21 @@ class AreasController extends Controller
          return view('compras.areas.file', ["file" => $file,"id" => $id]);
     
     }
+
+    public function file2($id)
+    {
+        $file = DB::table('file as f') 
+        ->join('areas as a', 'a.idarea', '=', 'f.idarea')
+        ->select('f.idfile','f.numfile','f.cargo','f.nombrecargo','f.habbasico','f.categoria','f.niveladm','f.clase','f.nivelsal','a.nombrearea','f.estadofile')
+        -> where('f.tipofile','=', 2)
+        -> where('a.idarea','=', $id)
+        -> paginate(5);
+       // dd($docproveedor);
+       
+         return view('compras.areas.file2', ["file" => $file,"id" => $id]);
+    
+    }
+
 
     public function byCategory($id){
         return FileModel::where('idarea','=',$id)->get();
@@ -210,6 +263,15 @@ class AreasController extends Controller
        // return view('compras/areas/actualizarfile')->with('areas', $areas,'file',$files);
     }
 
+    public function editfile2($idfile)
+    {
+        $files = FileModel::find($idfile);
+        $areas = DB::table('areas')->get();
+    //dd($files);
+    return view('compras/areas/actualizarfile2', ["areas" => $areas,"file" => $files]);
+       // return view('compras/areas/actualizarfile')->with('areas', $areas,'file',$files);
+    }
+
 
     public function updatefile(Request $request)
     {
@@ -224,8 +286,8 @@ class AreasController extends Controller
         $file -> clase = $request->input('clase');
         $file -> nivelsal = $request->input('nivelsal');
         $file -> idarea = $request->input('idarea2');
-        $file -> tipofile = 1;
-        $file -> estadofile = 1;
+       // $file -> tipofile = 1;
+       // $file -> estadofile = 1;
         
         //$medida->update();
         if($file->save()){
@@ -234,5 +296,31 @@ class AreasController extends Controller
           $request->session()->flash('message', 'Error al Procesar Registro');
       }
       return redirect()->action('App\Http\Controllers\AreasController@file', [$request->input('idarea')]);
+    }
+
+
+    public function updatefile2(Request $request)
+    {
+        $file = FileModel::find($request->input('idfile'));
+
+        $file -> numfile = $request->input('numfile');
+        $file -> cargo = $request->input('cargo');
+        $file -> nombrecargo = $request->input('nombrecargo');
+        $file -> habbasico = $request->input('habbasico');
+        $file -> categoria = $request->input('categoria');
+        $file -> niveladm = $request->input('niveladm');
+        $file -> clase = $request->input('clase');
+        $file -> nivelsal = $request->input('nivelsal');
+        $file -> idarea = $request->input('idarea2');
+       // $file -> tipofile = 1;
+       // $file -> estadofile = 1;
+        
+        //$medida->update();
+        if($file->save()){
+          $request->session()->flash('message', 'Registro Procesado');
+      }else{
+          $request->session()->flash('message', 'Error al Procesar Registro');
+      }
+      return redirect()->action('App\Http\Controllers\AreasController@file2', [$request->input('idarea')]);
     }
 }

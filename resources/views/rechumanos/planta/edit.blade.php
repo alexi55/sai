@@ -5,21 +5,22 @@
 <div>
     <div>
         <div class="card">
-            <div class="card-header">Formulario Editar Empleado</div>
+
             <div class="row">
                 <a href="{{url()->previous()}}" class="btn blue darken-4 text-black "><i
                         style="color:#55CE63;font-weight: bold;" class="fa fa-plus-square"></i> Volver atras</a>
             </div>
 
             <div class="card-body">
+            <font size="2" face="Courier New" >
                 <form method="POST" action="{{ route('planta.actualizar') }}">
                     @csrf
                     @method('POST')
                     <input name="idemp" hidden value="{{$empleados->idemp}}"></input>
-                    <input name="idareaoriginal" hidden  value="{{$empleados->idarea}}"></input>
-                    <input name="idfileoriginal"  hidden value="{{$empleados->idfile}}"></input>
+                    <input name="idareaoriginal" hidden value="{{$empleados->idarea}}"></input>
+                    <input name="idfileoriginal" hidden value="{{$empleados->idfile}}"></input>
                     <div class="form-group row">
-                        <span class="input-group-text col-md-1" style="color:black;font-weight: bold;">Nombres:</span>
+                        <span class="input-group col-md-1" style="color:black;font-weight: bold;">Nombres:</span>
 
                         <div class="col-md-2 ">
                             <input required type="text" name="nombres" class="form-control"
@@ -29,7 +30,7 @@
 
 
 
-                        <span class="input-group-text offset-md-1 col-md-1"
+                        <span class="input-group offset-md-1 col-md-1"
                             style="color:black;font-weight: bold;">Ap.Paterno:</span>
                         <div class="col-md-2 ">
                             <input required type="text" name="ap_pat" class="form-control "
@@ -38,7 +39,7 @@
                         </div>
 
 
-                        <span class="input-group-text offset-md-1 col-md-1"
+                        <span class="input-group offset-md-1 col-md-1"
                             style="color:black;font-weight: bold;">Ap.Materno:</span>
                         <div class="col-md-2 ">
                             <input required type="text" name="ap_mat" class="form-control"
@@ -55,13 +56,13 @@
                     <div class="form-group row">
 
 
-                        <span class="input-group-text col-md-1" style="color:black;font-weight: bold;">F.Ingreso:</span>
+                        <span class="input-group col-md-1" style="color:black;font-weight: bold;">F.Ingreso:</span>
                         <div class="col-md-2 ">
                             <input type="date" class="form-control" name="fechingreso"
                                 value="{{$empleados->fechingreso}}">
                         </div>
 
-                        <span class="input-group-text offset-md-1 col-md-1"
+                        <span class="input-group offset-md-1 col-md-1"
                             style="color:black;font-weight: bold;">F.Nacimien:</span>
 
                         <div class="col-md-2 ">
@@ -69,7 +70,7 @@
                         </div>
 
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Edad:</span>
                         <div class="col-md-2 ">
                             <input required type="number" placeholder="0" name="edad" class="form-control"
@@ -83,19 +84,19 @@
 
                     <div class="form-group row">
 
-                        <span class="input-group-text col-md-1 " style="color:black;font-weight: bold;">Ci:</span>
+                        <span class="input-group col-md-1 " style="color:black;font-weight: bold;">Ci:</span>
                         <div class="col-md-2 ">
                             <input type="text" name="ci" class="form-control" value="{{$empleados->ci}}">
                         </div>
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Poai:</span>
                         <div class="col-md-2">
                             <input type="text" name="poai" class="form-control" value="{{$empleados->poai}}">
                         </div>
 
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Exp.Poai:</span>
                         <div class="col-md-2">
                             <input type="date" class="form-control" name="exppoai" value="{{$empleados->exppoai}}">
@@ -109,14 +110,14 @@
 
                     <div class="form-group row">
 
-                        <span class="input-group-text col-md-1 " style="color:black;font-weight: bold;">Dec.Jur:</span>
+                        <span class="input-group col-md-1 " style="color:black;font-weight: bold;">Dec.Jur:</span>
                         <div class="col-md-2 ">
                             <input type="text" name="decjurada" class="form-control" value="{{$empleados->decjurada}}">
 
                         </div>
 
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Exp.Dec.Jur.:</span>
                         <div class="col-md-2">
                             <input type="date" class="form-control" name="expdecjurada"
@@ -125,7 +126,7 @@
                         </div>
 
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Sippase:</span>
                         <div class="col-md-2">
                             <input type="text" name="sippase" class="form-control" value="{{$empleados->sippase}}">
@@ -138,14 +139,14 @@
 
 
                     <div class="form-group row">
-                        <span class="input-group-text col-md-1 " style="color:black;font-weight: bold;">Exp.Sipp:</span>
+                        <span class="input-group col-md-1 " style="color:black;font-weight: bold;">Exp.Sipp:</span>
                         <div class="col-md-2">
                             <input type="date" class="form-control" name="expsippase"
                                 value="{{$empleados->expsippase}}">
 
                         </div>
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Serv.Militar:</span>
 
                         <div class="col-md-2">
@@ -154,7 +155,7 @@
 
                         </div>
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Idioma:</span>
 
                         <div class="col-md-2">
@@ -168,14 +169,14 @@
 
 
                     <div class="form-group row">
-                        <span class="input-group-text col-md-1 " style="color:black;font-weight: bold;">Inducc:</span>
+                        <span class="input-group col-md-1 " style="color:black;font-weight: bold;">Inducc:</span>
 
                         <div class="col-md-2">
                             <input type="text" name="induccion" class="form-control" value="{{$empleados->induccion}}">
 
                         </div>
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Exp.Inducc.:</span>
 
                         <div class="col-md-2">
@@ -185,7 +186,7 @@
                         </div>
 
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Prog.Vacac.:</span>
 
                         <div class="col-md-2">
@@ -201,8 +202,7 @@
 
 
                     <div class="form-group row">
-                        <span class="input-group-text col-md-1 "
-                            style="color:black;font-weight: bold;">Exp.P.Vac:</span>
+                        <span class="input-group col-md-1 " style="color:black;font-weight: bold;">Exp.P.Vac:</span>
 
                         <div class="col-md-2">
                             <input type="date" class="form-control" name="expprogvacacion"
@@ -210,7 +210,7 @@
 
                         </div>
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Vac.Ganadas:</span>
 
                         <div class="col-md-2">
@@ -218,7 +218,7 @@
                                 placeholder="Ap.Pat...." value="{{$empleados->vacganadas}}"></input>
                         </div>
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Vac.Pend.:</span>
 
                         <div class="col-md-2">
@@ -235,8 +235,7 @@
 
                     <div class="form-group row">
 
-                        <span class="input-group-text col-md-1 "
-                            style="color:black;font-weight: bold;">Vac.Usadas:</span>
+                        <span class="input-group col-md-1 " style="color:black;font-weight: bold;">Vac.Usadas:</span>
 
                         <div class="col-md-2">
                             <input type="text" name="vacusasdas" class="form-control"
@@ -244,7 +243,7 @@
 
                         </div>
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Seg.Salud:</span>
 
                         <div class="col-md-2">
@@ -252,7 +251,7 @@
 
                         </div>
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Inamovilidad:</span>
 
                         <div class="col-md-2">
@@ -270,7 +269,7 @@
 
                     <div class="form-group row">
 
-                        <span class="input-group-text col-md-1 " style="color:black;font-weight: bold;">Años
+                        <span class="input-group col-md-1 " style="color:black;font-weight: bold;">Años
                             Serv.:</span>
 
                         <div class="col-md-2">
@@ -279,7 +278,7 @@
 
                         </div>
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Curr.Vitae:</span>
 
                         <div class="col-md-2">
@@ -287,7 +286,7 @@
 
                         </div>
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Telefono:</span>
 
                         <div class="col-md-2">
@@ -302,8 +301,7 @@
 
                     <div class="form-group row">
 
-                        <span class="input-group-text col-md-1 "
-                            style="color:black;font-weight: bold;">Biometrico:</span>
+                        <span class="input-group col-md-1 " style="color:black;font-weight: bold;">Biometrico:</span>
 
                         <div class="col-md-2">
                             <input type="text" name="biometrico" class="form-control"
@@ -311,7 +309,7 @@
 
                         </div>
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Grad.Acad.:</span>
 
                         <div class="col-md-2">
@@ -320,7 +318,7 @@
 
                         </div>
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Rae:</span>
 
                         <div class="col-md-2">
@@ -333,7 +331,7 @@
 
                     <div class="form-group row">
 
-                        <span class="input-group-text col-md-1 " style="color:black;font-weight: bold;">Reg.Prof:</span>
+                        <span class="input-group col-md-1 " style="color:black;font-weight: bold;">Reg.Prof:</span>
 
                         <div class="col-md-2">
                             <input type="text" name="regprofesional" class="form-control"
@@ -341,7 +339,7 @@
 
                         </div>
 
-                        <span class="input-group-text col-md-1 offset-md-1"
+                        <span class="input-group col-md-1 offset-md-1"
                             style="color:black;font-weight: bold;">Ev.Desemp.:</span>
 
                         <div class="col-md-2">
@@ -371,14 +369,17 @@
                                 @foreach($areas->iPais_all as $destino)
                                 @if ($destino->idfile==$empleados->idfile)
                                 <option value="{{$destino->idfile}}" selected>
-                                    --FILE--{{$destino->numfile}}-{{$destino->cargo}}-{{$destino->nombrecargo}}-{{$destino->habbasico}}-{{$destino->categoria}}-{{$destino->niveladm}}-{{$destino->clase}}-{{$destino->nivelsal}}
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-FILE-{{$destino->numfile}}-{{$destino->cargo}}-{{$destino->nombrecargo}}-{{$destino->habbasico}}-{{$destino->categoria}}-{{$destino->niveladm}}-{{$destino->clase}}-{{$destino->nivelsal}}
                                 </option>
                                 @else
 
+                                @if ($destino->estadofile == 1)
 
-                                <option style="color:blue;" value="{{$destino->idfile}}">
-                                    --FILE--{{$destino->numfile}}-{{$destino->cargo}}-{{$destino->nombrecargo}}-{{$destino->habbasico}}-{{$destino->categoria}}-{{$destino->niveladm}}-{{$destino->clase}}-{{$destino->nivelsal}}
+                                <option style="color:red;" value="{{$destino->idfile}}">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-FILE-{{$destino->numfile}}-{{$destino->cargo}}-{{$destino->nombrecargo}}-{{$destino->habbasico}}-{{$destino->categoria}}-{{$destino->niveladm}}-{{$destino->clase}}-{{$destino->nivelsal}}
                                 </option>
+
+                                @endif
 
                                 @endif
 
@@ -396,9 +397,9 @@
 
 
                         <label class="col-md-1" style="color:black;font-weight: bold;">Area:</label>
-                        <div id="permissions-select3">
+                        <div id="permissions-select">
 
-                            <select name="idarea" id="permissions3" class="col-md-6">
+                            <select name="idarea" class="col-md-6">
 
 
 
@@ -410,11 +411,11 @@
                                 @else
                                 <option style="color:blue;" value="{{$areas->idarea}}">{{$areas->nombrearea}}</option>
 
-                               
+
 
                                 @endif
 
-                              
+
                                 @endforeach
 
                             </select>
@@ -441,11 +442,22 @@
                         </div>
                     </div>
                 </form>
+                </font>
 
 
             </div>
         </div>
     </div>
 </div>
-
+@section('scripts')
+<script>
+var permission_select = new SlimSelect({
+    select: '#permissions-select select',
+    //showSearch: false,
+    placeholder: 'Select Permissions',
+    deselectLabel: '<span>&times;</span>',
+    hideSelectedOption: true,
+});
+</script>
+@endsection
 @endsection

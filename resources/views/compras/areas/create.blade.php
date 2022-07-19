@@ -11,11 +11,12 @@
             </div>
 
             <div class="card-body">
+            <font size="2" face="Courier New" >
                 <form method="POST" action="{{ route('areas.store') }}">
                     @csrf
 
                     <div class="form-group row">
-                        <label class="required  col-md-4 col-form-label text-md-right"
+                        <label class="required  col-md-2 col-form-label text-md-right"
                             style="font-weight: bold;">{{ __('Nombre') }}</label>
 
                         <div class="col-md-6">
@@ -25,9 +26,9 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="required  col-md-4 col-form-label text-md-right"
+                        <label class="required  col-md-2 col-form-label text-md-right"
                             style="font-weight: bold;">{{ __('Nivel') }}</label>
-                        <div class="col-md-8" id="permissions-select">
+                        <div class="col-md-10" id="permissions-select">
                             <select name="idnivel" required id="permissions" class="col-md-6">
                                 @foreach ($niveles as $nivel)
 
@@ -40,13 +41,6 @@
 
 
 
-
-
-
-
-
-
-
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-success btn-sm">
@@ -55,6 +49,7 @@
                         </div>
                     </div>
                 </form>
+                </font>
 
             </div>
         </div>

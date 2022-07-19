@@ -9,6 +9,7 @@
         </div>
         </div>
     <div class="panel-body">
+      <font size="2" face="Courier New" >
         <table class="table table-bordered customers-table table-hover" id="customers-table">
             <thead>
             <tr>
@@ -20,6 +21,7 @@
             </tr>
             </thead>
         </table>
+      </font>
     </div>
 
 

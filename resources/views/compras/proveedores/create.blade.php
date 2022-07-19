@@ -12,13 +12,13 @@
             </div>
 
             <div class="card-body">
-
+            <font size="2" face="Courier New" >
                 <form method="POST" action="{{ route('proveedores.store') }}">
                     @csrf
 
                     <div class="form-group row">
                         <label for="nombre" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Nombre Proveedor') }}</label>
+                            class=" col-md-4 col-form-label text-md-right">{{ __('Nombre Proveedor') }}</label>
 
                         <div class="col-md-6">
                             <input type="text" required name="nombre" class="form-control" placeholder="Nombre..."
@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="representante" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Representante Proveedor') }}</label>
+                            class=" col-md-4 col-form-label text-md-right">{{ __('Representante Proveedor') }}</label>
 
                         <div class="col-md-6">
                             <input type="text" required name="representante" class="form-control"
@@ -38,7 +38,7 @@
 
                     <div class="form-group row">
                         <label for="cedula" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Cedula') }}</label>
+                            class=" col-md-4 col-form-label text-md-right">{{ __('Cedula') }}</label>
 
                         <div class="col-md-6">
                             <input type="text" required name="cedula" class="form-control" placeholder="cedula...">
@@ -46,17 +46,17 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="nitCi" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Nit/Ci') }}</label>
+                        <label for="nitci" style="color:#009EFB;font-weight: bold;"
+                            class=" col-md-4 col-form-label text-md-right">{{ __('Nit/Ci') }}</label>
 
                         <div class="col-md-6">
-                            <input type="text" required name="nitCi" class="form-control" placeholder="Nit/Ci...">
+                            <input type="text" required name="nitci" class="form-control" placeholder="Nit/Ci...">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="telefono" style="color:#009EFB;font-weight: bold;"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
+                            class=" col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
 
                         <div class="col-md-6">
                             <input type="text" required name="telefono" class="form-control" placeholder="Telefono...">
@@ -70,13 +70,13 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-outline-success">
+                            <button type="submit" class="btn btn-outline-success btn-sm">
                                 {{ __('Guardar') }}
                             </button>
                         </div>
                     </div>
                 </form>
-
+</font>
 
             </div>
         </div>

@@ -12,6 +12,7 @@
             </div>
 
             <div class="card-body">
+            <font size="2" face="Courier New" >
                 <form method="POST" action="{{ route('areas.update', $areas->idarea) }}">
                     @csrf
                     @method('POST')
@@ -33,6 +34,7 @@
                         <button type="submit" class="btn btn-success pull-right">Guardar</button>
                     </div>
                 </form>
+                </font>
 
             </div>
         </div>

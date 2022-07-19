@@ -12,13 +12,14 @@
             </div>
 
             <div class="card-body">
+            <font size="2" face="Courier New" >
                 <form method="POST" action="{{ route('productos.update', $productos->idprodserv) }}">
                     @csrf
                     @method('POST')
 
                     <div class="form-group row">
                         <label style="color:#009EFB;font-weight: bold;" for="name"
-                            class="required col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                            class=" col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
                         <div class="col-md-6">
                             <textarea id="name" required type="text" name="nombre" placeholder="Nombre..." cols="50"
                                 rows="2"
@@ -28,7 +29,7 @@
             </div>
             <div class="form-group row">
                 <label style="color:#009EFB;font-weight: bold;" for="detalle"
-                    class="required col-md-4 col-form-label text-md-right">{{ __('Detalle') }}</label>
+                    class=" col-md-4 col-form-label text-md-right">{{ __('Detalle') }}</label>
                 <div class="col-md-6">
                     <textarea id="detalle" required type="text" name="detalle" cols="51" rows="4"
                         placeholder="Detalle..."
@@ -37,7 +38,7 @@
             </div>
             <div class="form-group row">
                 <label style="color:#009EFB;font-weight: bold;" for="precio"
-                    class="required col-md-4 col-form-label text-md-right">{{ __('Precio') }}</label>
+                    class=" col-md-4 col-form-label text-md-right">{{ __('Precio') }}</label>
                 <div class="col-md-6">
                     <input id="precio" required name="precio" type="number" placeholder="0.0" step="0.01"
                         placeholder="Precio..." value="{{$productos->precioprodserv}}">
@@ -46,7 +47,7 @@
 
             <div class="form-group row">
                 <label style="color:#009EFB;font-weight: bold;"
-                    class="required col-md-4 col-form-label text-md-right">{{ __('Partida') }}</label>
+                    class=" col-md-4 col-form-label text-md-right">{{ __('Partida') }}</label>
                 <div class="col-md-8" id="permissions-select">
                     <select name="idpartida" id="permissions" class="col-md-6">
                         @foreach ($partidas as $par)
@@ -62,7 +63,7 @@
 
             <div class="form-group row">
                 <label style="color:#009EFB;font-weight: bold;"
-                    class="required col-md-4 col-form-label text-md-right">{{ __('Medida') }}</label>
+                    class=" col-md-4 col-form-label text-md-right">{{ __('Medida') }}</label>
                 <div class="col-md-8" id="permissions-select2">
 
                     <select name="idmedida" id="permissions" class="col-md-6">
@@ -85,7 +86,7 @@
 
             <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="btn btn-outline-info">
+                    <button type="submit" class="btn btn-outline-success btn-sm">
                         {{ __('Guardar') }}
                     </button>
                 </div>
@@ -93,7 +94,7 @@
             </br>
             </br>
             </form>
-
+</font>
         </div>
     </div>
 </div>

@@ -423,7 +423,7 @@ class DetalleCompraController extends Controller
         ->join('catprogramatica as cat', 'cat.idcatprogramatica', '=', 'c.idcatprogramatica')
         ->join('programa as prog', 'prog.idprograma', '=', 'c.idprograma')
         ->join('areas as a', 'a.idarea', '=', 'c.idarea')
-        ->select('c.idcompra','a.nombrearea','c.objeto', 'c.justificacion', 'c.preventivo','p.nombreproveedor','p.representante','p.cedula','p.nitCi','p.telefonoproveedor','c.preventivo','c.numcompra','cat.codcatprogramatica','prog.nombreprograma')
+        ->select('c.idcompra','a.nombrearea','c.objeto', 'c.justificacion', 'c.preventivo','p.nombreproveedor','p.representante','p.cedula','p.nitci','p.telefonoproveedor','c.preventivo','c.numcompra','cat.codcatprogramatica','prog.nombreprograma')
         -> where('c.idcompra','=', $id)->first();
       
        $prodserv = DB::table('detallecompra as d') 
